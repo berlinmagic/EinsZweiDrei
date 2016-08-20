@@ -1,0 +1,76 @@
+.btn.round-btn {
+    @include horizontal-padding( 0 );
+    text-align: center;
+    width: $line-height-computed + 4 + $padding-base-vertical * 2;
+    &.btn-xs { width: $line-height-computed-xs + 4 + $padding-xs-vertical * 2; }
+    &.btn-sm { width: $line-height-computed-sm + 4 + $padding-small-vertical * 2; }
+    &.btn-lg { width: $line-height-computed-lg + 4 + $padding-large-vertical * 2; }
+    &.btn-xl { width: $line-height-computed-xl + 4 + $padding-xl-vertical * 2; }
+}
+
+.btn.round-icn {
+    height: 50px; width: 50px; line-height: 50px;
+    padding: 0;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 100px;
+}
+.btn.round-icn + .btn.round-icn {
+    margin-left: 7px;
+}
+
+.round-btn-group {
+    display: block; position: relative; display: inline-block;
+    width: auto;
+    margin: 0 auto;
+    white-space: nowrap;
+    @include clearfix;
+    .btn.round-btn {
+        margin: 0 5px;
+        float: left;
+        color: #555 !important;
+    }
+}
+
+
+
+
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: solid transparent;
+  border-width: 0 0 100px 200px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-transform: translate(-300px, 0) scale(4);
+  direction: ltr;
+  cursor: pointer;
+}
+
+$file_input_size: 120px;
+.fileinput-button {
+    position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 4px;
+    // display: block; position: relative;
+	&.img-button {
+		width: $file_input_size; height: $file_input_size; line-height: $file_input_size;
+    	font-size: $file_input_size * 0.8;
+		text-align: center; color: #ccc;
+		border: dashed 1px $main-border-color;
+		background: $gray-lighter;
+	}
+
+
+    overflow: hidden !important;
+    float: none;
+
+    input { border-width: 0 0 400px 400px; }
+	&.unvisible {
+		visibility: hidden;
+		height: 1px;
+	}
+}

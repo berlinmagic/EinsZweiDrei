@@ -1,0 +1,299 @@
+@import "magic-min";
+
+// load icons
+@import "magic/icons/icomoon";
+// @import "magic/icons/magicons";
+@import "magic/icons/orderlifticons";
+
+// load elements
+// @import "magic/elements/circle_diagram";
+
+// load content helper
+// @import "magic/content/aside_nav";
+@import "magic/content/banner";
+@import "magic/content/box";
+@import "magic/content/buttons";
+@import "magic/content/forms";
+@import "magic/content/helper";
+@import "magic/content/icons";
+@import "magic/content/inputs";
+@import "magic/content/labels";
+@import "magic/content/navbar";
+@import "magic/content/notice";
+@import "magic/content/panel";
+@import "magic/content/pix";
+@import "magic/content/tables";
+
+@import "magic/helper/arrow_hints";
+@import "magic/helper/crossed";
+// @import "magic/helper/dots";
+@import "magic/helper/three_previews";
+
+// @import "magic/lists/nav";
+// @import "magic/layout/body";
+@import "magic/effects/noise";
+
+
+
+html, body {
+    width: 100%; height: 100%;
+    margin: 0; padding: 0;
+    font-family: $sansFontFamily;
+}
+
+
+@import "stuff/aside";
+@import "stuff/banner";
+@import "stuff/box";
+@import "stuff/buttons";
+@import "stuff/pix";
+
+
+
+
+.section.cutted { overflow: hidden; }
+
+
+
+body > .important_notice { z-index: 999999; }
+
+body > .ui-autocomplete.ui-widget { z-index: 99999 !important; }
+
+.application_notice { 
+    // @include transition( all 1s cubic-bezier(0,2,1,0.5) );
+    // @include transition( all 1s ease );
+    @include transition(all 0.6s $ease-in-out-back);
+    @include transform( translateY(-200px) );
+    &.visible {
+        @include transform( translateY(0) );
+    }
+}
+
+i.facebook { color: $btn-facebook-bg; }
+i.google { color: $btn-google-bg; }
+
+
+.contact-card {
+    display: block; position: relative;
+    padding: 20px; margin: 0 0 $line-height-computed;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(102,102,102,.42);
+    .picture {
+        margin: 10px auto;
+        width: 100%;
+        max-width: 100px;
+        border-radius: 100px;
+        overflow: hidden;
+        border: solid 1px #f3f2f1;
+        img { width: 100%; max-width: 100%; }
+    }
+    .name {
+        padding: 10px 0;
+        line-height: $line-height-large;
+        font-size: $font-size-large;
+    }
+    .competence {
+        line-height: $line-height-base;
+        font-size: $font-size-base;
+        color: #999;
+        height: $line-height-computed * 5;
+    }
+    .mail a {
+        line-height: $line-height-small;
+        font-size: $font-size-small;
+        color: #069;
+    }
+}
+
+
+.pre-text, .user-input { @include preText; }
+
+
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { margin-top: 0; }
+
+
+h1, h2, h3, h4, h5, h6 { font-weight: 300; color: #222; }
+
+
+.layout-table.lined {
+    .cell {
+        border-right: solid 1px $main-border-color;
+        &:last-child { border-right: none; }
+    }
+}
+
+.section.head > .corset {
+    &, & > * {
+        text-align:left;
+    }
+}
+
+
+
+.usr-dropdown.dropdown {
+    display: inline-block; position: relative;
+    .dropdown-toggle {
+        display: block; position: relative;
+        margin: 0; padding: 0;
+        line-height: 30px;
+        text-decoration: none;
+    }
+    .dropdown-menu {
+        margin-top: 10px;
+        li a {
+            line-height: 30px;
+            i { margin-right: 5px; }
+        }
+    }
+    &.open, &:active {
+        .dropdown-toggle {
+            text-decoration: none;
+        }
+    }
+}
+
+
+.dropdown .avatar {
+    vertical-align: middle;
+    margin: -7px 0;
+    border: solid 1px $main-border-color;
+    img { vertical-align: middle; }
+    max-width: 30px;
+}
+
+
+.row.form {
+    @include horizontal-margin( -5px );
+    [class^="col-"], [class*=" col-"] {
+        @include horizontal-padding( 5px );
+    }
+}
+form .row.no-press > *, .form .row.no-press > * {
+    margin-bottom: 0;
+}
+
+
+
+textarea.big_desc {
+    height: 140px;
+}
+
+
+
+
+.round-image-preview {
+    display: block; position: relative;
+    padding: 0; margin: 0;
+    width: 170px;
+    img { max-width: 100%; }
+    &:after {
+        display: block; position: absolute; content: "";
+        top: 0; right: 0; bottom: 0; left: 0;
+        background: transparent image-url("round_imgage_preview.png") left top no-repeat;
+        background-size: contain;
+    }
+}
+.inline_table > .cell.avatar_preview { width: 180px; }
+
+.avatar_preview .close {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  z-index: 99;
+}
+
+
+
+.icn-line {
+    display: block; position: relative;
+    padding: 7px 0 3px;
+    @include clearfix;
+    .icn, .text { line-height: 30px; }
+    .icn {
+        display: block; position: relative;
+        width: 40px; float: left;
+        text-align: center;
+        font-size: 28px;
+        i, i:before { line-height: 28px; }
+    }
+    .text {
+        font-size: $font-size-large;
+    }
+    &.on {
+        .icn i, .icn i:before { color: green; }
+    }
+    &.off {
+        .icn i, .icn i:before { color: red; }
+        .text { color: #aaa; }
+    }
+}
+.icn-line + .icn-line {
+    border-top: solid 1px $main-border-color;
+}
+
+.icn_line {
+    padding: 7px 0 5px;
+    .icn { width: 25px !important; text-align: left; }
+}
+.icn_line + .icn_line {
+    border-top: solid 1px $main-border-color;
+}
+
+
+.actor_card {
+    display: block; position: relative; display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    .image {
+        width: $line-height-computed + $line-height-computed-sm;
+        float: left;
+        img { width: 100%; max-width: 100%; }
+    }
+    .data {
+        margin-left: $line-height-computed + $line-height-computed-sm + 10;
+        text-align: left;
+        > * {
+            @include noWrap;
+            line-height: $line-height-computed-sm;
+            font-size: $font-size-small;
+            &:first-child {
+                line-height: $line-height-computed;
+                font-size: $font-size-base;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+
+.avatar_preview .close {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  z-index: 99;
+}
+
+
+#feedbackModaltoggle {
+  display: block; position: fixed;
+  padding: 10px; margin: 0;
+  bottom: -10px; right: -10px;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 24px;
+  line-height: 50px;
+  width: 70px; height: 70px;
+  background: #09c;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,.25);
+  z-index: 10000;
+  opacity: .7;
+  &:hover { opacity: 1.0; }
+}
+.modal-body.dark-bg {
+  background: $main-bg;
+}

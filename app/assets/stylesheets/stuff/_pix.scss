@@ -1,0 +1,50 @@
+
+
+
+.preview_pic {
+    display: block; position: relative;
+    margin: 0 0 10px; padding: 0;
+    background: #ccc;
+
+    &.press {
+        margin-bottom: 20px !important;
+    }
+    &.round {
+        border-radius: 100%;
+        margin: 0 auto;
+        max-width: 150px;
+    }
+    &.blank {
+        background: transparent;
+    }
+}
+
+
+img.avatar, img.logo {
+    &.big {
+        width: auto;
+        max-width: 120px;
+        border-radius: 80px;
+    }
+}
+
+
+
+.image_card, .image-card {
+    
+    
+    &.one_line, &.one-line {
+        $size: $line-height-computed * 2;
+        padding-left: $size + 8px;
+        img { width: $size; }
+        p { line-height: $size; }
+    }
+    
+    &.img-sm {
+        $size: $line-height-computed * 1.5;
+        padding-left: $size + 8px;
+        img { width: $line-height-computed * 1.5; }
+        p { line-height: $size; }
+    }
+    
+}

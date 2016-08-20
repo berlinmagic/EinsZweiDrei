@@ -1,0 +1,200 @@
+@import "magic-min";
+
+
+body.mailer {
+    background: #e5e5e5;
+    padding: 0;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 20px;
+}
+
+table.wrapper {
+    background: #e5e5e5;
+    border-spacing: 0; width: 100%;
+    text-align: center;
+}
+
+td.spacer { height: 20px; }
+td.container {
+  max-width: 600px !important;
+  margin: 0 auto !important;
+  padding: 0 20px;
+  clear: both !important;
+  z-index: 1;
+}
+
+.content {
+    display: block; position: relative;
+    margin: 0 auto;
+    padding: 0;
+    max-width:600px;
+    z-index: 3;
+}
+.content.page {
+    padding: 50px 30px;
+    background: #fff;
+    border: solid 1px #999;
+    font-size: 16px;
+}
+
+table.btns {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 10px;
+}
+table.facts {
+  width: auto;
+  margin: 0 auto;
+  border-spacing: 5px;
+}
+table.facts th { font-weight: 200; color: #666; text-align: right; }
+table.facts td { font-weight: 400; color: #333; text-align: left; }
+
+table.facts.small { width: auto; }
+table.facts.small th, table.facts.small td { text-align: left; line-height: 16px; }
+
+.btn {
+  display: block; display: inline-block; position: relative;
+  margin: 0 0 20px; padding: 5px 15px;
+  line-height: 20px;
+  font-size: 15px;
+  border: solid 1px #ccc;
+  background: #ccc;
+  text-decoration: none;
+  border-radius: 3px;
+  text-align: center;
+}
+.btn-default, .btn-app {
+  padding: 7px 25px;
+  line-height: 24px;
+  font-size: 18px;
+}
+.btn-default {
+  color: #333; border: solid 1px #777; background: #e5e5e5; text-shadow: 0 1px 1px #fff;
+}
+.btn-app {
+  color: #FFFFFF; border: solid 1px #004c73; background: #006699; text-shadow: 0 1px 1px #004c73;
+}
+.btn-facebook {
+  color: #FFFFFF; background: #3B5998; text-shadow: 0 1px 1px #273B65; border-color: #273B65;
+}
+.btn-google {
+  color: #FFFFFF; background: #DD4B39; text-shadow: 0 1px 1px #AA3A2C; border-color: #AA3A2C;
+}
+.btn-twitter {
+  color: #FFFFFF; background: #00ACED; text-shadow: 0 1px 1px #0086B9; border-color: #0086B9;
+}
+.btn-facebook, .btn-google, .btn-twitter { margin: 0; }
+
+.btn-block {
+  display: block;
+  padding: 5px;
+}
+.btn-centered {
+  display: block;
+  padding: 5px;
+  margin: 0 auto 20px;
+  max-width: 300px;
+}
+
+img {
+  display: block; position: relative;
+  margin: 0; padding: 0;
+}
+img.logo { width: 180px; height: 180px; margin: 0 auto; }
+img.logo2 { width: 280px; margin: 0 auto; }
+img.normal-image { width: 250px; margin: 0 auto; }
+
+h1 { color: #069; margin: 0 0 30px; padding: 0; font-size: 32px; }
+h2 { margin: 0 0 20px; padding: 0; font-size: 24px; }
+h2 small, h3 small { color: #555; }
+
+
+p { 
+    font-weight: 200; 
+    margin: 0 0 20px; 
+    padding: 0; 
+    font-size: 16px; 
+    color: #333; 
+    
+    &.loud, & > .loud { font-size: 18px; font-weight: 400; }
+    &.highlight, & > .highlight { font-size: 18px; font-weight: 600; }
+    &.small, & > .small { font-weight: 200; font-size: 15px; color: #777; }
+    &.signature { 
+        font-family: 'Satisfy', cursive; 
+        font-size: 20px; 
+        color: #069 !important;
+    }
+}
+
+.no-press { margin: 0 !important; }
+.less-press { margin: 0 0 10px; }
+
+
+
+hr {
+  display: block; position: relative;
+  margin: 10px 10%; padding: 0;
+  height: 0; background: transparent;
+  border-top: solid 1px #aaa;
+  border-bottom: solid 1px #fff;
+}
+
+.links a {
+  display: block;
+  color: #4186C4;
+  font-weight: 900;
+}
+
+.box, .box .header, .box .body, .box .footer {
+    display: block; position: relative;
+    margin: 0; padding: 10px;
+}
+.box {
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    .header {
+        border-bottom: solid 1px #ccc;
+        h2 { color: #333; line-height: 30px; }
+        h3 { color: #777; line-height: 22px; }
+    }
+    .footer {
+        border-top: solid 1px #ccc;
+    }
+    .header, .footer {
+        h1,h2,h3,h4,h5,h6,p { margin: 0; }
+    }
+    .body {
+        padding: 20px;
+        
+    }
+}
+
+.box .body table, table.status {
+    width: 100%;
+    border: solid 1px #ccc;
+    text-align: left;
+    th,td {
+        border-bottom: solid 1px #ccc;
+        padding: 5px 10px;
+    }
+    th {
+        background: #f3f2f2;
+        font-weight: normal;
+        width: 30%;
+    }
+    tr:last-child {
+        th,td { border: none; }
+    }
+}
+
+.product-description-box .pic { margin: 0 auto; }
+
+.pre-text, .user-input {
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

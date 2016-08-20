@@ -1,0 +1,54 @@
+.responsive-hero {
+    &.banner-page {
+        box-shadow: inset 0 10px 80px 20px rgba(0,0,0,.42);
+        // background-image: url('http://lorempixel.com/1400/500/nature/');
+        background-color: $brand-color;
+        background-size: cover;
+        .banner-content {
+            padding: 180px 0 160px;
+        }
+        
+        
+        .corset { background: transparent; }
+        h1,h2,h3,h4,h5,h6, p, p.highlight, .rated_partner .facts {
+            color: #fff;
+            text-align: center;
+        }
+        .row > div {
+            h1,h2,h3,h4,h5,h6, p, p.highlight, .rated_partner .facts { text-align: left; }
+        }
+        h1,h2,h3,h4,h5,h6 {
+            &, &.loud {
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                word-spacing: 8px;
+                font-weight: bold;
+                line-height: 1.2;
+                $shadowColor: rgba(0,0,0,.43);
+                $shadowBlur: 3px;
+                text-shadow: 1px -1px $shadowBlur $shadowColor, -1px 1px $shadowBlur $shadowColor, -1px -1px $shadowBlur $shadowColor, 1px 1px $shadowBlur $shadowColor, 0 1px $shadowBlur $shadowColor;
+            }
+        }
+        h1 { 
+            font-size: 58px;
+            &.loud { font-size: 70px; }
+        }
+        p {
+            font-size: 20px;
+            &, &.loud, &.highlight {
+                font-weight: 400;
+                letter-spacing: 1px;
+                word-spacing: 2px;
+                $shadowColor: rgba(0,0,0,.31);
+                $shadowBlur: 1px;
+                text-shadow: 1px -1px $shadowBlur $shadowColor, -1px 1px $shadowBlur $shadowColor, -1px -1px $shadowBlur $shadowColor, 1px 1px $shadowBlur $shadowColor, 0 1px $shadowBlur $shadowColor;
+            }
+            &.loud { font-size: 30px; }
+            &.highlight { font-size: 25px; font-weight: 700; letter-spacing: 2px; }
+        }
+        
+        
+    }
+}
+
+
