@@ -1,0 +1,4 @@
+<%= root_url locale: nil %>
+<%  FrontendController::PAGEZ.each do |page| %>
+<%= polymorphic_url( page, locale: nil) %>
+<% end %>

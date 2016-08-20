@@ -1,0 +1,10 @@
+<%= yield %>
+
+
+<%= raw t('mailer_layout.greatings', default: "Mit freundlichen Grüßen,") %>
+<%= raw t('mailer_layout.your_app_team', default: "Ihr #{CONFIG[:app_name]}-Team") %>
+          
+<% if t("mailer_layout.additional_words", default: "").present? %>
+
+<%= raw t("mailer_layout.additional_words") %>
+<% end %>

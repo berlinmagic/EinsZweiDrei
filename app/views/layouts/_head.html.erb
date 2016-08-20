@@ -1,0 +1,109 @@
+<% app_styles ||= "yeah" %>
+<% app_scripts ||= "yeah" %>
+<% turbo_links ||= "nope" %>
+
+<meta charset="UTF-8" />
+
+<title><%= title %></title>
+
+<%# ===   avoid chrome from try to translate   === #%>
+<meta name="google" value="notranslate" />
+<meta http-equiv="Content-Language" content="<%= I18n.locale %>" />
+
+<% if Rails.env.production? %>
+<meta name="robots" content="index, follow">
+<% else %>
+<meta name="robots" content="noindex, nofollow">
+<% end %>
+<meta name="keywords" content="<%= meta_keywords %>" />
+<meta name="description" content="<%= meta_description %>" />
+
+<% if (Rails.env.production? || Rails.env.staging?) && CONFIG[:google_webmaster_key] != 'xxx_google_webmaster_key' %>
+  <meta name="google-site-verification" content="<%= CONFIG[:google_webmaster_key] %>" />
+<% end %>
+
+<%# ===   App-View   === #%>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<% if 3 == 4 %>
+<%# ===   iOS-App-View   === #%>
+<!--apple lauch from homescreen-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!--other lauch from homescreen-->
+<meta name="mobile-web-app-capable" content="yes">
+<!--apple lauch from homescreen makes status bar transparent w/white text-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<% end %>
+
+<!--apple lauch from title to make different from site title-->
+<meta name="apple-mobile-web-app-title" content="<%= CONFIG[:app_name] %>">
+
+
+<%# ===   Site - Icon   === #%>
+<link href="<%= asset_path("favicon/favicon.ico") %>" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link href="<%= asset_path("favicon/favicon-32x32.png") %>" rel="shortcut icon" type="image/png" />
+
+<link rel="apple-touch-icon" sizes="57x57" href="<%= ico_path("apple-icon-57x57") %>">
+<link rel="apple-touch-icon" sizes="60x60" href="<%= ico_path("apple-icon-60x60") %>">
+<link rel="apple-touch-icon" sizes="72x72" href="<%= ico_path("apple-icon-72x72") %>">
+<link rel="apple-touch-icon" sizes="76x76" href="<%= ico_path("apple-icon-76x76") %>">
+<link rel="apple-touch-icon" sizes="114x114" href="<%= ico_path("apple-icon-114x114") %>">
+<link rel="apple-touch-icon" sizes="120x120" href="<%= ico_path("apple-icon-120x120") %>">
+<link rel="apple-touch-icon" sizes="144x144" href="<%= ico_path("apple-icon-144x144") %>">
+<link rel="apple-touch-icon" sizes="152x152" href="<%= ico_path("apple-icon-152x152") %>">
+<link rel="apple-touch-icon" sizes="180x180" href="<%= ico_path("apple-icon-180x180") %>">
+<link rel="icon" type="image/png" sizes="192x192"  href="<%= ico_path("android-icon-192x192") %>">
+<link rel="icon" type="image/png" sizes="32x32" href="<%= ico_path("favicon-32x32") %>">
+<link rel="icon" type="image/png" sizes="96x96" href="<%= ico_path("favicon-96x96") %>">
+<link rel="icon" type="image/png" sizes="16x16" href="<%= ico_path("favicon-16x16") %>">
+<link rel="manifest" href="<%= asset_path("favicon/manifest.json") %>">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="<%= ico_path("ms-icon-144x144") %>">
+<meta name="theme-color" content="#ffffff">
+
+
+<%# ===   Google - Maps   === #%>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&language=<%= I18n.locale %>"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<% if app_styles == "yeah" %>
+  <% if turbo_links == "yeah" %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <% else %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+  <% end %>
+<% end %>
+
+<% if app_scripts == "yeah" %>
+  <% if turbo_links == "yeah" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% else %>
+    <%= javascript_include_tag 'application' %>
+  <% end %>
+<% end %>
+
+<%# Prevent CSRF attacks #%>
+<%= csrf_meta_tags %>
+
+<%#   (Social-) Link - View   #%>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="<%= app_root_url %>"/>
+<meta property="og:title" content="<%= title %>"/>
+<meta property="og:image" content="<%= ico_path("apple-icon-180x180") %>"/>
+<meta property="og:site_name" content="<%= CONFIG[:app_name] %>"/>
+<meta property="og:description" content="<%= I18n.t("seo.description", app_name: CONFIG[:app_name], default: CONFIG[:meta_description]) %>"/>
+
+<%#   JS - Settings   #%>
+<script type="text/javascript" charset="utf-8">
+  App = {}
+  App.Environment = "<%= Rails.env.to_s %>";
+  if (typeof I18n === "undefined" || I18n === null) {
+    I18n = {};
+  }
+  I18n.defaultLocale = "de";
+  I18n.locale = "<%= I18n.locale.to_s %>";
+</script>
+
+<%#   RollBar (bug-tracker)   #%>
+<%= render "shared/rollbar" %>

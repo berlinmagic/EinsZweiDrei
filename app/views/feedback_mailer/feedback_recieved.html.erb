@@ -1,0 +1,47 @@
+<% if @feedback.subject == "bug" %>
+  <h1 class="loud danger-color">Fehler gefunden</h1>
+<% elsif @feedback.subject == "feature" %>
+  <h1 class="loud brand-color">Funktionswunsch</h1>
+<% elsif @feedback.subject == "contact" %>
+  <h1 class="loud gray-color">Kontakt</h1>
+<% else %>
+  <h1>Unknown Request</h1>
+<% end %>
+
+<hr class="half" />
+<br/>
+
+<p class="louder pre-text"><%= @feedback.content %></p>
+
+<br/>
+<br/>
+
+<p><strong><%= @feedback.user ? @feedback.user.name : @feedback.name %></strong> ∙ <%= @feedback.user ? @feedback.user.email : @feedback.email %></p>
+<hr class="half" />
+
+<% if @feedback.subject == "bug" %>
+<br/>
+<br/>
+<table class="status">
+  <tr>
+    <th>Time:</th>
+    <td><code><%= I18n.l @feedback.updated_at %></code></td>
+  </tr>
+  <tr>
+    <th>Controller:</th>
+    <td><code><%= @feedback.current_controller %></code></td>
+  </tr>
+  <tr>
+    <th>Action:</th>
+    <td><code><%= @feedback.current_action %></code></td>
+  </tr>
+  <tr>
+    <th>Params:</th>
+    <td><code><%= @feedback.current_params %></code></td>
+  </tr>
+</table>
+<br/>
+<br/>
+<% end %>
+
+

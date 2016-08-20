@@ -1,0 +1,19 @@
+<% unless Rails.env.production? %>
+  <div class="important_notice <%= Rails.env %> <%= Rails.env.development? ? "warning" : "danger" %>">
+    <div class="row">
+      <div class="col-sm-2 hide-xs">
+        <strong><%= t("messages.attention") %></strong>
+      </div>
+      <div class="col-sm-8">
+        <span class="hide-xs"><%= t("messages.dev_notice_info", link: app_link, env: Rails.env) %></span> 
+        <span><%= t("messages.dev_notice_use_domain", link: app_link, env: Rails.env) %></span>
+        <% if wizard? %>
+          <button type="button" class="close close_important_notice">&times;</button>
+        <% end %>
+      </div>
+      <div class="col-sm-2 hide-xs">
+        <strong><%= t("messages.attention") %></strong>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render "layouts/head" %>
+</head>
+<body class="app <%= "with_important_notice" unless Rails.env.production? %>">
+
+<%= render "navigations/app_aside_admin" %>
+
+<%= render "shared/dev_notice" %>
+<%= render "shared/flash_msgs" %>
+
+<div class="main-content">
+  <div class="clearfix"></div>
+  <div class="changed_content" id="changed_content">
+    <%= yield %>
+  </div>
+  <div class="clearfix"></div>
+  <%= render "shared/debug" %>
+</div>
+
+<%#= render "navigations/info_aside_admin" %>
+
+<%= render "shared/modal" %>
+<%= render "shared/feedback_form" %>
+
+
+</body>
+</html>

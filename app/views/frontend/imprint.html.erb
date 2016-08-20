@@ -1,0 +1,48 @@
+
+<div class="section sctn-xl">
+  <div class="corset">
+    
+    <div class="box sign">
+      
+      <h1><%= t("frontend.imprint.headline") %></h1>
+      
+      <hr class="half" />
+      <br/>
+      
+      <div class="row left_text">
+        <div class="col-md-6 press">
+          <h4><%= CONFIG[:company_name] %></h4>
+          <address>
+            <%= CONFIG[:company_street] %> <%= CONFIG[:company_number] %>
+            <br/>
+            <%= CONFIG[:company_zip] %> <%= CONFIG[:company_city] %>
+          </address>
+          <br/>
+          <h4><%= t("frontend.imprint.contact") %></h4>
+          <p><%= mail_to CONFIG[:company_mail], CONFIG[:company_mail] %></p>
+        </div>
+        <div class="col-md-6 press">
+          <% if CONFIG[:company_ustid] != "XX/XXX/XXXXX" || CONFIG[:company_court] != "AG XXXXX" && CONFIG[:company_hrb] != "HRB XXXXXX" %>
+          <h4><%= t("frontend.imprint.register") %></h4>
+          <p>
+            <% if CONFIG[:company_court] != "AG XXXXX" && CONFIG[:company_hrb] != "HRB XXXXXX" %>
+            <%= CONFIG[:company_court] %> <%= CONFIG[:company_hrb] %>
+            <br/>
+            <% end %>
+            <% if CONFIG[:company_ustid] != "XX/XXX/XXXXX" %>
+            <%= t("frontend.imprint.tax_number") %> <%= CONFIG[:company_ustid] %>
+            <% end %>
+          </p>
+          <br/>
+          <% end %>
+          <h4><%= t("frontend.imprint.executive_director") %></h4>
+          <p><%= CONFIG[:company_director] %></p>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<%= render "shared/newsletter" %>

@@ -1,0 +1,127 @@
+<div class="app-logo">
+  <div class="toggl">
+    <%= icon("menu2") %>
+  </div>
+  <%= link_to "A D M I N", root_path, class: "labl" %>
+  <%= link_to icon("wand"), root_path, class: "short-labl" %>
+</div>
+
+
+<div class="aside admin main-aside">
+  <div class="aside-inner">
+    
+    <%= render "navigations/shared/user_aside_lnk" %>
+    
+    <%= link_to admin_root_path, class: "aside_lnk #{'current' if current_page?(admin_root_path)}" do  %>
+      <div class="icn"><%= icon("meter") %></div>
+      <div class="labl">Dashboard</div>
+    <% end %>
+    
+    <%= link_to admin_users_path, class: "aside_lnk #{'current' if current_page?(admin_users_path)}" do  %>
+      <div class="icn"><%= icon("users") %></div>
+      <div class="labl">Users</div>
+    <% end %>
+    
+    <hr/>
+    
+    <%= link_to admin_feedbacks_path, class: "aside_lnk #{'current' if params[:controller].match(/^wizard\/feedbacks/) }" do  %>
+      <div class="icn"><%= icon("envelope") %></div>
+      <div class="labl"><%= t("activerecord.attributes.feedback.other") %></div>
+    <% end %>
+    
+    <%= link_to admin_subscriptions_path, class: "aside_lnk #{'current' if params[:controller].match(/^wizard\/subscriptions/)}" do %>
+      <div class="icn"><%= icon("blog") %></div>
+      <div class="labl"><%= t("activerecord.attributes.subscription.other") %></div>
+    <% end %>
+    
+    <hr/>
+    
+    <%= link_to url_for(controller: "magic_locales/locales", action: "index"), class: "aside_lnk #{'current' if params[:controller].match(/^magic_locales\/locales/)}" do %>
+      <div class="icn"><%= icon("bubbles") %></div>
+      <div class="labl"><%= t("activerecord.attributes.magic_locales_locale.other") %></div>
+    <% end %>
+    
+    
+    <div class="aside_lnk <%= 'on'  if params[:controller].match(/^magic_addresses\/.*/) %>">
+      <a href="#" class="toggler">
+        <div class="icn"><%= olicon("view-map-2") %></div>
+        <div class="labl">Locations <span class="caret"></span></div>
+      </a>
+      <ul class="aside_nav">
+        <% %w(address country state city district subdistrict).each do |this| %>
+          <li>
+            <%= link_to url_for(controller: "magic_addresses/#{this.tableize}", action: "index"), class: "#{'current' if params[:controller] == "magic_addresses/#{this.tableize}" }" do %>
+              <div class="icn"><%= icon("location") %></div>
+              <div class="labl"><%= t("activerecord.attributes.magic_addresses_#{this}.other") %></div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    
+    
+    
+    <hr/>
+    
+    <%= link_to admin_styles_path, class: "aside_lnk #{'current' if current_page?(admin_styles_path)}" do  %>
+      <div class="icn"><%= icon("crop") %></div>
+      <div class="labl">Styles</div>
+    <% end %>
+    
+    <%= link_to sitemap_path, class: "aside_lnk" do  %>
+      <div class="icn"><%= icon("tree") %></div>
+      <div class="labl">SiteMap</div>
+    <% end %>
+    
+    <hr/>
+    
+    <%= link_to app_root_path, class: "aside_lnk" do  %>
+      <div class="icn"><%= icon("globe") %></div>
+      <div class="labl">Backend</div>
+    <% end %>
+    <%= link_to root_path, class: "aside_lnk" do  %>
+      <div class="icn"><%= icon("globe") %></div>
+      <div class="labl">Frontend</div>
+    <% end %>
+    
+    <hr/>
+    
+    
+<% if 3 == 4 %>
+    
+    <%= link_to "/documentation", class: "aside_lnk", target: "_blank" do  %>
+      <div class="icn"><%= icon("podcast") %></div>
+      <div class="labl">API-Docu</div>
+    <% end %>
+    
+    <%= link_to admin_verify_path("sidekiq"), class: "aside_lnk", target: "_blank" do  %>
+      <div class="icn"><%= icon("android") %></div>
+      <div class="labl">SideKiq</div>
+    <% end %>
+    
+    <%= link_to admin_verify_path("monit"), class: "aside_lnk", target: "_blank" do  %>
+      <div class="icn"><%= icon("tux") %></div>
+      <div class="labl">Monit</div>
+    <% end %>
+    
+    <%= link_to "https://www.google.com/analytics/web/?authuser=0#report/visitors-overview/a68403947w105184093p109476406/", class: "aside_lnk", target: "_blank" do  %>
+      <div class="icn"><%= icon("stats") %></div>
+      <div class="labl">G-Analytics</div>
+    <% end %>
+    
+    <%= link_to "https://www.google.com/webmasters/tools/dashboard?hl=de&siteUrl=http%3A%2F%2Fbetterworkr.com%2F", class: "aside_lnk", target: "_blank" do  %>
+      <div class="icn"><%= icon("equalizer") %></div>
+      <div class="labl">G-WebTools</div>
+    <% end %>
+    
+    <hr/>
+    
+<% end %>
+    
+    
+    <br/>
+    <br/>
+    <br/>
+    
+  </div>
+</div>

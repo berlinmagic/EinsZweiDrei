@@ -1,0 +1,87 @@
+<% current_action ||= "signup" %>
+
+<% if %w(signin signup).include?( current_action ) %>
+  <p class="small no-press">
+    <% if current_action == "signin" %>
+      <%= t("devise.shared.messages.dont_have_an_account_yet", 
+        link: link_to( t("devise.shared.messages.dont_have_an_account_yet_link"), new_user_registration_path)) %>
+      <%= pt("devise.shared.messages.dont_have_an_account_yet_link") %>
+    <% else %>
+      <%= t("devise.shared.messages.already_have_an_account", 
+        link: link_to( t("devise.shared.messages.already_have_an_account_link"), new_user_session_path)) %>
+      <%= pt("devise.shared.messages.already_have_an_account_link") %>
+    <% end %>
+  </p>
+  <p class="small">
+    <%= t("devise.shared.messages.do_you_have_problems", 
+      link: link_to( t("devise.shared.messages.do_you_have_problems_link"), new_user_password_path)) %>
+    <%= pt("devise.shared.messages.do_you_have_problems_link") %>
+  </p>
+<% elsif %w(password confirmation unlock).include?( current_action ) %>
+  <p class="small"><%= t("devise.shared.messages.have_another_problem_headline")%></p>
+  
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && current_action != "password" %>
+  <%= link_to t("devise.shared.links.forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name) %><br />
+  <% end -%>
+  
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' && current_action != "confirmation" %>
+  <%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions', :default => "Didn't receive confirmation instructions?"), new_confirmation_path(resource_name) %><br />
+  <% end -%>
+  
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' && current_action != "unlock" %>
+  <%= link_to t('devise.shared.links.didn_t_receive_unlock_instructions', :default => "Didn't receive unlock instructions?"), new_unlock_path(resource_name) %><br />
+  <% end -%>
+  
+  <% if 3 == 4 %>
+  <ul class="check_list">
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && current_action != "password" %>
+      <li><%= link_to t("devise.shared.links.forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name) %></li>
+    <% end -%>
+    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' && current_action != "confirmation" %>
+      <li><%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions', :default => "Didn't receive confirmation instructions?"), new_confirmation_path(resource_name) %></li>
+    <% end -%>
+  
+    <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' && current_action != "unlock" %>
+      <li><%= link_to t('devise.shared.links.didn_t_receive_unlock_instructions', :default => "Didn't receive unlock instructions?"), new_unlock_path(resource_name) %></li>
+    <% end -%>
+  </ul>
+  <% end %>
+  
+<% end %>
+
+
+
+
+
+
+
+
+<% if 3 == 4 %>
+  
+  <%- if controller_name != 'sessions' %>
+  <%= link_to t("devise.shared.links.sign_in", :default => "Sign in"), new_session_path(resource_name) %><br />
+  <% end -%>
+  
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to t("devise.shared.links.sign_up", :default => "Sign up"), new_registration_path(resource_name) %><br />
+  <% end -%>
+  
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to t("devise.shared.links.forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name) %><br />
+  <% end -%>
+  
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions', :default => "Didn't receive confirmation instructions?"), new_confirmation_path(resource_name) %><br />
+  <% end -%>
+  
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to t('devise.shared.links.didn_t_receive_unlock_instructions', :default => "Didn't receive unlock instructions?"), new_unlock_path(resource_name) %><br />
+  <% end -%>
+  
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to t('devise.shared.links.sign_in_with_provider', :provider => provider.to_s.titleize, :default => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider) %><br />
+    <% end -%>
+  <% end -%>
+  
+<% end -%>

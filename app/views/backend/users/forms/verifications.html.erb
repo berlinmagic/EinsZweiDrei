@@ -1,0 +1,66 @@
+<%= block_to_partial "backend/users/profile_view", type: "verifications" do %>
+
+  <%= content_for :sub_headline do %>
+    Verification .. subheader!
+  <% end %>
+
+
+  <% label_col = "col-sm-2" %>
+  <% value_col = "col-sm-5" %>
+  <% state_col = "col-sm-5" %>
+  
+  <div class="row half-press">
+    <div class="<%= label_col %>">
+      E-Mail
+    </div>
+    <div class="<%= value_col %>">
+      <%= current_user.email %>
+    </div>
+    <div class="<%= state_col %>">
+      <% if current_user.confirmed_at.present? %>
+        <span class="text-success"><%= icon("checkmark") %> Confirmed</span>
+      <% else %>
+        <span class="text-danger"><%= icon("close") %> Please confirm your email.</span>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row half-press">
+    <div class="<%= label_col %>">
+      Telefon
+    </div>
+    <div class="<%= value_col %>">
+      <%= current_user.phone.present? ? current_user.phone : "- - -" %>
+    </div>
+    <div class="<%= state_col %>">
+      <% if current_user.phone.present? %>
+        <span class="text-success"><%= icon("busy") %> We will check your number soon.</span>
+      <% else %>
+        <span class="text-danger"><%= icon("close") %> Please enter your phone number.</span>
+      <% end %>
+    </div>
+  </div>
+  
+  <% current_user.authentications.each do |auth| %>
+    <% provider_name = (auth.provider == "google_oauth2" ? "google" : auth.provider) %>
+    <div class="row half-press">
+      <div class="<%= label_col %>">
+        <%= provider_name.titleize %>
+      </div>
+      <div class="<%= value_col %>">
+        <%= auth.email %>
+      </div>
+      <div class="<%= state_col %>">
+        <span class="text-success"><%= icon("checkmark") %> You are connected.</span>
+      </div>
+    </div>
+  <% end %>
+  
+  <hr/>
+  
+  <div class="centered-form">
+    <%= render "devise/shared/omniauth_links", what: "connect", divider: "no" %>
+  </div>
+  
+
+<% end %>

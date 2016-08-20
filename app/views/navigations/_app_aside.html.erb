@@ -1,0 +1,22 @@
+<div class="app-logo">
+  <div class="toggl">
+    <%= icon("menu2") %>
+  </div>
+  <%= link_to CONFIG[:app_name], root_path, class: "labl" %>
+  <%= link_to "SH", root_path, class: "short-labl" %>
+</div>
+
+
+<div class="aside main-aside">
+  <div class="aside-inner">
+
+    <%= render "navigations/shared/user_aside_lnk" %>
+
+    <%= link_to app_root_path, class: "aside_lnk #{'current' if current_page?(app_root_path)}" do  %>
+      <div class="icn"><%= icon("meter") %></div>
+      <div class="labl">Überblick</div>
+    <% end %>
+
+
+  </div>
+</div>

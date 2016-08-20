@@ -1,0 +1,25 @@
+<div class="section sctn-xl">
+  <div class="corset">
+    <div class="clearfix"></div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "centered-form"}) do |f| %>
+      
+      <h2><%= t('devise.sessions.new.sign_in') %></h2>
+      
+      <%= render "devise/shared/omniauth_links", what: "sign_in" %>
+      
+      <%= f.email_field :email, class: "form-control", placeholder: t("helpers.placeholder.your_email"), required: true, autofocus: true %>
+      <%= f.password_field :password, class: "form-control", placeholder: t("helpers.placeholder.your_password"), required: true %>
+        
+      <% if devise_mapping.rememberable? -%>
+        <div class="press"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
+      <%= f.submit t('devise.sessions.new.sign_in'), class: "btn btn-lg btn-primary btn-block", data: {disable_with: t("messages.sending")} %>
+      
+      
+      <%= render "devise/shared/links", current_action: "signin" %>
+      
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+</div>
+

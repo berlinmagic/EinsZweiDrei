@@ -1,0 +1,75 @@
+<div class="section sctn-xl hard-top">
+  <div class="corset tight">
+    
+    <h3 class="loud"><%= t("newsletters.form.headline") %></h3>
+    <br/>
+    
+    <div class="box center_text">
+      <div class="body">
+        <% @subscription ||= Subscription.new() %>
+        <%= form_for @subscription, url: subscriptions_path do |f| %>
+        <br/>
+        <p class="loud"><%= t("newsletters.form.intro") %></p>
+        <br/>
+        
+        <div class="row form">
+          <div class="col-xs-7 col-sm-8 col-lg-9">
+            <%= f.email_field :email, class: "form-control", placeholder: t("helpers.placeholder.your_email") %>
+          </div>
+          <div class="col-xs-5 col-sm-4 col-lg-3">
+            <%= f.submit t("buttons.subscribe"), class: "btn btn-primary btn-block" %>
+          </div>
+        </div>
+        
+        <% end %>
+        
+        <div class="divider">
+          <p class="loud"><%= t("newsletters.form.or_follow") %></p>
+        </div>
+        
+        <div class="round-btn-group">
+          
+          <% if CONFIG[:socials][:facebook] != "http://facebook.com/xxx_PATH" %>
+            <%= link_to icon("facebook"), CONFIG[:socials][:facebook], class: "btn btn-default btn-blank round-icn" %>
+          <% else %>
+            <% if wizard? %>
+              <button class="btn btn-default btn-blank round-icn" data-toggle="popover" data-placement="top" data-content="Change 'socials.facebook' to active this link!">
+                <%= icon("facebook") %>
+              </button>
+            <% end %>
+          <% end %>
+          <% if CONFIG[:socials][:google] != "https://plus.google.com/xxx_PATH" %>
+            <%= link_to icon("google"), CONFIG[:socials][:google], class: "btn btn-default btn-blank round-icn" %>
+          <% else %>
+            <% if wizard? %>
+              <button class="btn btn-default btn-blank round-icn" data-toggle="popover" data-placement="top" data-content="Change 'socials.google' to active this link!">
+                <%= icon("google") %>
+              </button>
+            <% end %>
+          <% end %>
+          <% if CONFIG[:socials][:twitter] != "https://twitter.com/xxx_PATH" %>
+            <%= link_to icon("twitter"), CONFIG[:socials][:twitter], class: "btn btn-default btn-blank round-icn" %>
+          <% else %>
+            <% if wizard? %>
+              <button class="btn btn-default btn-blank round-icn" data-toggle="popover" data-placement="top" data-content="Change 'socials.twitter' to active this link!">
+                <%= icon("twitter") %>
+              </button>
+            <% end %>
+          <% end %>
+          
+          <%= mail_to CONFIG[:mail_system], class: "btn btn-default btn-blank round-icn" do %>
+            <%= olicon("inquiry") %>
+          <% end %>
+        </div>
+        
+        <div class="clearfix"></div>
+        <br/>
+        
+      </div>
+    </div>
+    
+    <small><%= t("newsletters.form.no_spam") %></small>
+    <div class="clearfix"></div>
+    
+  </div>
+</div>

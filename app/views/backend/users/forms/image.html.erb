@@ -1,0 +1,38 @@
+<%= block_to_partial "backend/users/profile_view", type: @step do %>
+
+  <%= content_for :sub_headline do %>
+    Image .. subheader!
+  <% end %>
+
+  
+  
+  <%= form_for [:app, @user], html: { id: "avatar_or_logo_form", mehtod: "PATCH" } do |f| %>
+    <%= hidden_field_tag :form_step, @step %>
+      
+      <div class="inline_table grid">
+        <div class="cell avatar_preview">
+          <div class="round-image-preview">
+            <%=  link_to(raw("&times;"), delete_image_app_user_path(@user), class: "close", method: "delete") if @user.image_stored? %>
+            <%= image_tag @user.image.thumb("315x315#").url() %>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="cell">
+          <p class="highlight no-press">Dein erster Eindruck</p>
+          <p class="loud"><%= t("edit_profile.field_helper.image") %></p>
+          <a class="btn btn-default btn-lg fileinput-button">
+            <i class="icon-picture"></i>
+            <%= t("buttons.choose_image") %>
+            <%= f.file_field :image, multiple: false, name: "user[image]"  %>
+          </a>
+        </div>
+      </div>
+      
+      <div class="clearfix"></div>
+      <div id="avatar_upload_progress"></div>
+      <div class="clearfix"></div>
+  <% end %>
+  
+  
+  
+<% end %>

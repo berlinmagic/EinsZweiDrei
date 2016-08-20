@@ -1,0 +1,18 @@
+<div class="section sctn-sm dark hard-top">
+  <div class="corset">
+    <%= raw meta_keywords.split(",").join(" &middot; ") %>
+  </div>
+</div>
+<div class="section sctn-lg hard-top">
+  <div class="corset">
+    
+    <div class="btn-group">
+      <%= link_to CONFIG[:app_name], root_path, class: "btn btn-link #{'disabled' if current_page?("/")}" %>
+      <% FrontendController::PAGEZ.each do |pg| %>
+        <%= link_to t("links.#{pg}"), "/#{pg.dasherize}", class: "btn btn-link #{'disabled' if current_page?("/#{pg.dasherize}")}" %>
+      <% end %>
+    </div>
+    <hr class="half" />
+    <p class="press">&copy; <%= Time.now.year %> <%= CONFIG[:domain] %>  .. Made with <%= icon("heart") %> in Berlin.</p>
+  </div>
+</div>

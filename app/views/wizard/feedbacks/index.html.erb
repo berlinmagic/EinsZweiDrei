@@ -1,0 +1,46 @@
+<div class="section head">
+  <div class="corset">
+    <h1><small>Admin |</small> <%= t("activerecord.attributes.feedback.other") %></h1>
+  </div>
+</div>
+
+<div class="section">
+  <div class="corset">
+    
+    <table class="table table-middled table-left table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Content</th>
+          
+          <th>Name</th>
+          <th>Email</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @feedbacks.each do |nqr| %>
+          <tr>
+            <td>
+              <% if nqr.subject == "feature" %>
+                Feature-Request
+              <% elsif nqr.subject == "bug" %>
+                <strong class="loud warning-color"><%= icon("bug") %> Fehler gefunden</strong>
+              <% elsif nqr.subject == "contact" %>
+                Kontaktanfrage
+              <% else %>
+                no Subject!
+              <% end %>
+            </td>
+            <td><small><%= nqr.content %></small></td>
+            
+            <td><%= nqr.user ? nqr.user.name : nqr.name  %></td>
+            <td><%= nqr.user ? nqr.user.email : nqr.email  %></td>
+            <td><%= link_to icon("eye2"), admin_feedback_path(nqr), class: "btn btn-info btn-blank btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+</div>

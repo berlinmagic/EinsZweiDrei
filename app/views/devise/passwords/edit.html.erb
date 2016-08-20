@@ -1,0 +1,35 @@
+<div class="fullpage-table accnt-form">
+  <div class="table-row">
+    <div class="fill" >
+      <div class="clearfix"></div>
+      <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {class: "centered-form", :method => :put }) do |f| %>
+        
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :reset_password_token %>
+        
+        <div class="box form-box">
+          <div class="body">
+            <br/>
+            <h2><%= t('devise.passwords.edit.headline') %></h2>
+            <br/>
+            <p><%= t('devise.passwords.edit.text_one') %></p>
+            <p><%= t('devise.passwords.edit.text_two') %></p>
+            <p><%= t('devise.passwords.edit.text_three') %></p>
+            <br/>
+            
+            <%= f.password_field :password, class: "form-control", placeholder: t("helpers.label.user.new_password"), required: true, autofocus: true %>
+            
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: t("helpers.label.user.new_password_confirmation"), required: true  %>
+            
+            <%= f.submit t('buttons.send'), class: "btn btn-lg btn-primary btn-block", data: {disable_with: t("messages.sending")} %>
+          </div>
+        </div>
+        
+        <%= render "devise/shared/links", current_action: "password" %>
+        
+        
+      <% end %>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

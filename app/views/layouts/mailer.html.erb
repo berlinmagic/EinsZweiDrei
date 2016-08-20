@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= CONFIG[:app_name] %></title>
+  <%#= stylesheets via application_mailer .. css: "xxx" %>
+  <% @modus ||= "mail" %>
+  <% if @modus == "preview" %>
+    <%= stylesheet_link_tag 'email', media: 'all' %>
+  <% end %>
+</head>
+<body class="mailer">
+
+  <table class="wrapper">
+
+    <tr><td class="spacer">&nbsp;</td></tr>
+
+    <% unless Rails.env == "production" %>
+      <tr>
+        <td class="container">
+          <div class="content">
+            <%= Rails.env.to_s.upcase %>
+          </div>
+        </td>
+      </tr>
+      <tr><td class="spacer">&nbsp;</td></tr>
+    <% end %>
+
+    <tr>
+      <td class="container">
+        <div class="content page">
+
+          <%= yield %>
+
+          <p class="less-press"><%= raw t('mailer_layout.greatings', default: "Mit freundlichen Grüßen,") %></p>
+          <p class="signature"><%= raw t('mailer_layout.your_app_team', default: "Ihr #{CONFIG[:app_name]}-Team") %></p>
+          
+          <% if t("mailer_layout.additional_words", default: "").present? %>
+            <br/>
+            <p><%= raw t("mailer_layout.additional_words") %></p>
+          <% end %>
+
+        </div>
+      </td>
+    </tr>
+
+    <tr><td class="spacer">&nbsp;</td></tr>
+
+<% if (CONFIG[:socials][:facebook] != "http://facebook.com/xxx_PATH") || (CONFIG[:socials][:google] != "https://plus.google.com/xxx_PATH") || (CONFIG[:socials][:twitter] != "https://twitter.com/xxx_PATH") %>
+    <tr>
+      <td class="container">
+        <div class="content">
+          <table class="btns">
+            <tr>
+              <% [:facebook, :google, :twitter].each do |soci| %>
+                <% if CONFIG[:socials][soci] && !CONFIG[:socials][soci].match(/.*\/xxx_PATH\/?$/) %>
+                  <td>
+                    <%= link_to soci.to_s.titleize, CONFIG[:socials][soci], class: "btn btn-#{soci} btn-block" %>
+                  </td>
+                <% end %>
+              <% end %>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+<% end %>
+
+    <tr><td class="spacer">&nbsp;</td></tr>
+
+    <tr>
+      <td class="container">
+        <div class="content">
+
+          <%= image_tag ico_path("apple-icon-180x180"), class: "logo" %>
+          <div class="clearfix"></div>
+          <p class="no-press loud"><strong>&copy; <%= Time.now.year %> <%= CONFIG[:domain] %></strong></p>
+          <br/>
+
+          <hr/>
+          <br/>
+
+          <strong><%= CONFIG[:company_name] %></strong>
+          <br/>
+          <%= CONFIG[:company_street] %> <%= CONFIG[:company_number] %>
+          <br/>
+          <%= CONFIG[:company_zip] %> <%= CONFIG[:company_city] %>
+          <br/>
+          <table class="facts small">
+            <tr>
+              <th><%= t("mailer_layout.email") %>:</th>
+              <td><%= CONFIG[:company_mail] %></td>
+            </tr>
+            <tr>
+              <th><%= t("mailer_layout.website") %>:</th>
+              <td><%= CONFIG[:domain] %></td>
+            </tr>
+          </table>
+
+          <% if CONFIG[:company_ustid] != "XX/XXX/XXXXX" || CONFIG[:company_court] != "AG XXXXX" || CONFIG[:company_hrb] != "HRB XXXXXX" %>
+          <br/>
+          <table class="facts small">
+            <% if CONFIG[:company_ustid] != "XX/XXX/XXXXX" %>
+            <tr>
+              <th><%= t("mailer_layout.tax_number") %>:</th>
+              <td><%= CONFIG[:company_ustid] %></td>
+            </tr>
+            <% end %>
+            <% if CONFIG[:company_court] != "AG XXXXX" %>
+            <tr>
+              <th><%= t("mailer_layout.register_court") %>:</th>
+              <td><%= CONFIG[:company_court] %></td>
+            </tr>
+            <% end %>
+            <% if CONFIG[:company_hrb] != "HRB XXXXXX" %>
+            <tr>
+              <th><%= t("mailer_layout.register_number") %>:</th>
+              <td><%= CONFIG[:company_hrb] %></td>
+            </tr>
+            <% end %>
+          </table>
+          <% end %>
+
+          <br/>
+        </div>
+      </td>
+    </tr>
+
+    <tr><td class="spacer">&nbsp;</td></tr>
+
+  </table>
+
+</body>
+</html>

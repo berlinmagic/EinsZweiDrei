@@ -3,21 +3,22 @@
 <head>
   <%= render "layouts/head" %>
 </head>
-<% body_class = ["fixed-nav"] %>
+<% body_class = ["fixed-nav-lg"] %>
+<% body_class = [] if @header_overlay %>
 <% body_class << "with_important_notice" unless Rails.env.production? %>
+<% body_class << @body_classes if @body_classes %>
 <body class="<%= body_class.join(" ") %>">
 
 <%= render "shared/dev_notice" %>
 <%= render "shared/flash_msgs" %>
 
-<%= render "navigations/header" %>
+<%= render "navigations/blank_header" unless @no_header %>
 
 <%= yield %>
 
 <%= render "navigations/footer" %>
 
 <%= render "shared/debug" %>
-<%= render "shared/modal" %>
 <%= render "shared/feedback_form" %>
 
 <%= render "shared/analytics" %>

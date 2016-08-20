@@ -1,0 +1,49 @@
+<% type ||= "profile" %>
+
+<div class="section head">
+  <div class="corset full">
+    <h1>Profil bearbeiten</h1>
+  </div>
+</div>
+
+<div class="section sctn-xs">
+  <div class="corset full">
+    
+    <% Backend::UsersController::ACCOUNT_STEPS.each do |that| %>
+      
+      <% if type == that %>
+      <div class="box admin">
+      <% else %>
+      <a class="box admin" href="<%= edit_step_app_user_path( @user, that ) %>">
+      <% end %>
+        <div class="header">
+          <div class="row">
+            <div class="col-xs-10">
+              <h2><%= t("edit_profile.headlines.#{that}") %></h2>
+            </div>
+            <div class="col-xs-2 right_text">
+              <% if type == that %>
+                <i class="olicons-chevron-up h2"></i>
+              <% else %>
+                <i class="olicons-chevron-down h2"></i>
+              <% end %>
+            </div>
+          </div>
+          <% if type == that && content_for?(:sub_headline) %>
+            <p><small class="gray"><%= yield :sub_headline %></small></p>
+          <% end %>
+        </div>
+        <% if type == that %>
+          <div class="body">
+            <%= body %>
+          </div>
+        <% end %>
+      <% if type == that %>
+      </div>
+      <% else %>
+      </a>
+      <% end %>
+    <% end %>
+    
+  </div>
+</div>

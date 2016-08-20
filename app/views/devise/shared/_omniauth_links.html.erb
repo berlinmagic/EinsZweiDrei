@@ -1,0 +1,48 @@
+<%- if devise_mapping.omniauthable? %>
+  
+  <% what ||= "sign_in" %>
+  <% divider ||= "yes" %>
+  <% omniauth_providers = User.omniauth_providers.map{ |x| x.to_s } %>
+
+  <% if what == "sign_up" %>
+    <% allowed_providers = CONFIG[:sign_up_methods] %>
+  <% elsif what == "sign_in" %>
+    <% allowed_providers = CONFIG[:sign_in_methods] %>
+  <% else %>
+    <% allowed_providers = omniauth_providers %>
+  <% end %>
+  
+  <% providers = omniauth_providers & allowed_providers %>
+  
+  <% if providers.any? %>
+    <%- providers.each do |provider| %>
+      
+      <% provider_name = (provider == "google_oauth2" ? "google" : provider) %>
+      <% if what == "sign_up" %>
+        <% text = t('devise.shared.links.sign_up_with_provider', :provider => provider_name.to_s.titleize, :default => "Sign up with #{provider_name.to_s.titleize}") %>
+      <% elsif what == "sign_in" %>
+        <% text = t('devise.shared.links.sign_in_with_provider', :provider => provider_name.to_s.titleize, :default => "Sign in with #{provider_name.to_s.titleize}") %>
+      <% else %>
+        <% text = t('devise.shared.links.connect_with_provider', :provider => provider_name.to_s.titleize, :default => "Connect with #{provider_name.to_s.titleize}") %>
+      <% end %>
+      
+      <% unless what == "connect" && current_user && current_user.authentications.where(provider: provider).any? %>
+        <%= link_to omniauth_authorize_path(User, provider, where: fetch_current_domain, what: what), class: "btn btn-#{provider_name} btn-divided", data: {disable_with: t("messages.sending", default: "Sending ..")} do %>
+          <div class="icn">
+            <i class="icomoon-<%= provider_name %>"></i>
+          </div>
+          <div class="text">
+            <%= text %>
+          </div>
+        <% end %>
+      <% end %>
+      
+    <% end -%>
+    <% if divider == "yes" %>
+      <div class="divider">
+        <span class="main"><%= t("words.or") %></span>
+      </div>
+    <% end %>
+  <% end %>
+  
+<% end -%>

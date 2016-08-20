@@ -1,0 +1,47 @@
+<div class="aside_lnk <%= 'on' if (params[:controller] == "backend/users" && params[:action] == "edit_step") %>">
+  <a href="#" class="toggler">
+    <div class="icn">
+      <%#= image( current_user, 30 ) %>
+      <%= avatar( current_user, 30 ) %>
+    </div>
+    <div class="labl">
+      <%= current_user.name.present? ? current_user.name : current_user.email %><span class="caret"></span>
+    </div>
+  </a>
+  <ul class="aside_nav">
+    <% if current_user.is_wizard? && !params[:controller].match(/^wizard\/.*/) %>
+      <li>
+        <%= link_to admin_root_path do %>
+          <div class="icn"><%= icon("wand") %></div>
+          <div class="labl">Admin</div>
+        <% end %>
+      </li>
+      <li class="divide">&nbsp;</li>
+    <% end %>
+    
+    <% Backend::UsersController::FORM_STEPS.each do |that| %>
+      <li>
+        <%= link_to edit_step_app_user_path(current_user, that), class: "#{'current' if current_page?(edit_step_app_user_path(current_user, that))}" do %>
+          <div class="icn"><%= icon("pencil") %></div>
+          <div class="labl"><%= t("edit_profile.links.#{that}") %></div>
+        <% end %>
+      </li>
+    <% end %>
+    <li class="divide">&nbsp;</li>
+    <li>
+      <%= link_to edit_step_app_user_path(current_user, "password"), class: "#{'current' if current_page?(edit_step_app_user_path(current_user, "password"))}" do %>
+        <div class="icn"><%= icon("lock") %></div>
+        <div class="labl"><%= t("edit_profile.links.password") %></div>
+      <% end %>
+    </li>
+    
+    <li class="divide">&nbsp;</li>
+    <li>
+      <%= link_to destroy_user_session_path, :method => :delete do %>
+        <div class="icn"><%= icon("exit") %></div>
+        <div class="labl">Logout</div>
+      <% end %>
+    </li>
+  </ul>
+
+</div>

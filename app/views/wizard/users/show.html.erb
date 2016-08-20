@@ -1,0 +1,119 @@
+<div class="section head">
+  <div class="corset">
+    <h1>
+      <small>Admin |</small> User - <%= @user.id %> 
+      <small><%= @user.name || @user.email %></small>
+    </h1>
+  </div>
+</div>
+
+<div class="section">
+  <div class="corset">
+    
+    <div class="row">
+      <div class="col-sm-4 col-md-3 col-xl-2">
+        <div class="pic round">
+          <%= image_tag @user.get_image_url %>
+        </div>
+        <%= @user.name || @user.email %>
+        <div class="clearfix"></div>
+        <br/>
+        <% if can? :delete, @user %>
+          <%= link_to [:admin, @user], class: "btn btn-danger btn-block", method: :delete, data: {confirm: "Are you sure, you want to delete user #{@user.name || @user.email}?"} do %>
+            <%= icon("trash") %> delete
+          <% end %>
+        <% end %>
+        <div class="clearfix"></div>
+        <br/>
+        <div class="clearfix"></div>
+        <% if can? :manage, @user %>
+          
+          <% if @user.is_wizard? %>
+            <%= link_to "remove Admin", [:remove_admin, :admin, @user], class: "btn btn-warning btn-block", data: {confirm: "Are you sure, remove admin status from #{@user.name || @user.email}?"} %>
+          <% else %>
+            <%= link_to "make Admin", [:make_admin, :admin, @user], class: "btn btn-warning btn-block", data: {confirm: "Are you sure, you want to make #{@user.name || @user.email} an Admin user? Admins have much power, so be very carefull!"} %>
+          <% end %>
+          
+        <% end %>
+        
+        <% if !@user.confirmed? %>
+          <br/>
+          <%= form_for(@user, :as => :user, :url => user_confirmation_path, :html => {class: "left_text", method: :post}) do |f| %>
+            <%= f.hidden_field :email, value: @user.email %>
+            <%= f.submit "Resend Confirmation", data: { disable_with: t("messages.sending") }, class: "btn btn-default btn-block" %>
+          <% end %>
+          
+        <% end %>
+        
+        <br/>
+        
+      </div>
+      <div class="col-sm-8 col-md-9 col-xl-10">
+        <div class="box">
+          <div class="header">
+            <%= @user.name || @user.email %> (<%= @user.id %>)
+          </div>
+          <div class="body">
+            
+            <table class="table table-striped">
+              <tr>
+                <th>API-Key (Access-Token)</th>
+                <td><code><%= @user.api_auth_token %></code></td>
+              </tr>
+              <% [:gender, :name, :birthday, :phone, :email].each do |th| %>
+                <% if @user[th].present? %>
+                <tr>
+                  <th><%= t("helpers.label.user.#{th}", default: th.to_s.titleize) %></th>
+                  <td>
+                    <%= @user[th] %>
+                  </td>
+                </tr>
+                <% end %>
+              <% end %>
+              
+            </table>
+            
+          </div>
+        </div>
+        
+        
+        <div class="box">
+          <div class="header">
+            System-Stuff
+          </div>
+          <div class="body">
+            
+            <table class="table table-striped">
+              
+              <% [:sign_in_count, :current_sign_in_ip, :last_sign_in_ip, :signup_via, :signup_url].each do |th| %>
+                <% if @user[th].present? %>
+                  <tr>
+                    <th><%= t("helpers.label.user.#{th}", default: th.to_s.titleize) %></th>
+                    <td><%= @user[th] %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+              <% [:created_at, :current_sign_in_at, :last_sign_in_at].each do |th| %>
+                <% if @user[th].present? %>
+                  <tr>
+                    <th><%= t("helpers.label.user.#{th}", default: th.to_s.titleize) %></th>
+                    <td><%= I18n.l( @user[th], format: :short ) %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </table>
+            
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+    
+  
+  <br/>
+  <br/>
+  
+  </div>
+</div>
+

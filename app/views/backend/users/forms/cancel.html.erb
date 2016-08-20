@@ -1,0 +1,15 @@
+<%= block_to_partial "backend/users/account_view", type: "cancel" do %>
+
+  <div class="form">
+    <br/>
+    <p class="loud"><%= t("edit_profile.field_helper.cancel_account") %></p>
+    <br/>
+    <div class="row">
+      <div class="col-sm-4">
+        <%= link_to t('devise.registrations.edit.cancel_my_account', default: "Cancel my account"), user_registration_path, data: { confirm: t('.are_you_sure', default: "Are you sure?") }, method: :delete, class: "btn btn-danger btn-block" %>
+      </div>
+    </div>
+    <br/>
+  </div>
+
+<% end %>

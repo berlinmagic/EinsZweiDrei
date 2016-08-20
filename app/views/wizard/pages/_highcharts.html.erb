@@ -1,0 +1,179 @@
+<%= javascript_include_tag 'plugins/highcharts_custom' %>
+
+
+<% usr_counter = {} %>
+<% Array(0..@dayz).reverse.each do |xxx| %>
+  
+  <% date = Time.zone.parse( (Date.today - xxx.days).to_s ) %>
+  
+  <% usr_counter["#{date.day}.#{date.month}.#{date.year}"] = {} %>
+  <% usr_counter["#{date.day}.#{date.month}.#{date.year}"]["users"] = 0 %>
+  <% usr_counter["#{date.day}.#{date.month}.#{date.year}"]["subscriptions"] = 0 %>
+  <% usr_counter["#{date.day}.#{date.month}.#{date.year}"]["feedbacks"] = 0 %>
+  <% usr_counter["#{date.day}.#{date.month}.#{date.year}"]["feedback"] = {} %>
+  <% usr_counter["#{date.day}.#{date.month}.#{date.year}"]["feedback"]["bug"] = 0 %>
+  <% usr_counter["#{date.day}.#{date.month}.#{date.year}"]["feedback"]["feature"] = 0 %>
+  <% usr_counter["#{date.day}.#{date.month}.#{date.year}"]["feedback"]["contact"] = 0 %>
+  
+<% end %>
+
+<% @user_signups.each do |x| %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"] ||= {} %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"]["user"] = x.count %>
+<% end %>
+
+
+<% @done_feedbacks.each do |x| %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"] ||= {} %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"]["feedbacks"] = x.count %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"]["feedback"]["bug"] = x.bug %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"]["feedback"]["feature"] = x.feature %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"]["feedback"]["contact"] = x.contact %>
+<% end %>
+
+
+<% @done_subscriptions.each do |x| %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"] ||= {} %>
+  <% usr_counter["#{x.day.to_i}.#{x.month.to_i}.#{x.year.to_i}"]["subscriptions"] = x.count %>
+<% end %>
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+Highcharts.setOptions({
+  plotOptions: {
+    series: {
+      fillOpacity: 0.3,
+      marker: {
+        // enabled: false,
+        radius: 3,
+        symbol: "circle"
+      }
+    }
+  },
+  tooltip: {
+        headerFormat: '<span style="font-size: 14px">{series.name}</span><br/>{point.key}: <b>{point.y}</b>',
+        pointFormat: ""
+  },
+  chart: {
+      backgroundColor: "transparent",
+      borderWidth: 0,
+      plotBackgroundColor: "transparent",
+      plotShadow: false,
+      plotBorderWidth: 0
+  },
+  credits: {enabled: false}
+});
+
+areasplineDefaults = {
+    chart: { type: "areaspline" },
+    tooltip: {
+          headerFormat: '<span style="font-size: 14px">{series.name}</span><br/>{point.key}: <b>{point.y}</b>',
+          pointFormat: ""
+    },
+    title: { text: "Signups" },
+    xAxis: {
+        categories: [],
+        title: {text: null},
+        labels: {
+          rotation: -60,
+          align: 'right',
+          style: {
+            fontSize: '10px',
+            fontFamily: 'Verdana, sans-serif'
+          }
+        }
+    },
+    yAxis: {title: {text: null}},
+    series: []
+}
+
+
+var chart1 = new Highcharts.Chart( $.extend( true, {}, areasplineDefaults, {
+    chart: { renderTo: 'signup_chart' },
+    title: { text: "Übersicht" },
+    xAxis: { categories: <%= raw usr_counter.map{|k,v| "#{k}"}.to_s %> },
+    series: [
+      { name: "Signups", color: "Signups".pastel_color, data: <%= raw usr_counter.map{|k,v| v["user"].to_i}.to_s %> },
+      { name: "Subscriptions", color: "Subscriptions".pastel_color, data: <%= raw usr_counter.map{|k,v| v["subscriptions"].to_i}.to_s %> },
+      { name: "Feeback", color: "Feeback".pastel_color, data: <%= raw usr_counter.map{|k,v| v["feedbacks"].to_i}.to_s %> }
+    ]
+}) );
+
+var chart3 = new Highcharts.Chart( $.extend( true, {}, areasplineDefaults, {
+    chart: { renderTo: 'feedback_chart' },
+    title: { text: "Feeback" },
+    xAxis: { categories: <%= raw usr_counter.map{|k,v| "#{k}"}.to_s %> },
+    series: [
+      { name: "Funktionswunsch", color: "Funktionswunsch".pastel_color, data: <%= raw usr_counter.map{|k,v| v["feedback"]["feature"].to_i}.to_s %> },
+      { name: "Fehlermeldung", color: "Fehlermeldung".pastel_color, data: <%= raw usr_counter.map{|k,v| v["feedback"]["bug"].to_i}.to_s %> },
+      { name: "Kontaktanfragen", color: "Kontaktanfragen".pastel_color, data: <%= raw usr_counter.map{|k,v| v["feedback"]["contact"].to_i}.to_s %> }
+    ]
+}) );
+
+
+var chart4 = new Highcharts.Chart({
+    chart: {
+        renderTo: 'signup_sources_chart',
+        type: "bar"
+    },
+    title: {text: "Signup-Path"},
+    legend: {enabled: false},
+    xAxis: {
+        categories: <%= raw @user_sources.map{|s| "#{ strip_domain_from_url(s.signup_url) }"}.to_s %>,
+        title: {text: null},
+        labels: {
+          // rotation: -45,
+          align: 'right',
+          style: {
+            fontSize: '11px',
+            fontFamily: 'Verdana, sans-serif'
+          }
+        }
+    },
+    yAxis: {title: {text: null}},
+    series: [
+      { name: "Signed up via", data: <%= raw @user_sources.map{|s| s.count }.to_s %> }
+    ]
+    
+});
+
+
+var chart5 = new Highcharts.Chart({
+    chart: {
+        renderTo: 'signup_types_chart',
+        type: "pie"
+    },
+    title: {text: "Signup-Service"},
+    legend: {enabled: false},
+    series: [
+      { name: "Signed up via", data: [
+        {
+          y: <%= User.where(signup_via: "app").count %>,
+          color:"#009999",
+          name: "Seite"
+        },
+        {
+          y: <%= User.where(signup_via: "facebook").count %>,
+          color: "#3b5998",
+          name: "Facebook"
+        },
+        {
+          y: <%= User.where(signup_via: "google").count %>,
+          color: "#dd4b39",
+          name: "Google"
+        },
+        {
+          y: <%= User.where(signup_via: [nil, "", "seed"]).count %>,
+          color: "#949FB1",
+          name: "System"
+        }
+      ] }
+    ]
+    
+});
+
+
+
+</script>

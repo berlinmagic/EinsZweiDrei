@@ -1,0 +1,9 @@
+<% icns = {activate: "checkmark", deactivate: "close", release: "earth"} %>
+<% clss = {activate: "success", deactivate: "danger", release: "info"} %>
+
+<% %w(activate release deactivate).each do |state| %>
+  <% state_sym = state.to_sym %>
+  <% if locale.state.trigger?(state_sym) %>
+    <%= link_to raw("<i class='icomoon-#{icns[state_sym]}'></i>"), url_for( controller: "magic_locales/locales", action: :trigger, id: locale, state: state), class: "btn btn-#{clss[state_sym]} btn-sm", title: t("magic_locales.triggers.#{state}") %>
+  <% end %>
+<% end %>

@@ -1,0 +1,59 @@
+<div class="section head">
+  <div class="corset">
+    <%= link_to t("buttons.delete"), admin_feedback_path, method: :delete, class: "btn btn-danger btn-sm btn-round pull-right", data: { confirm: "Are you sure to delete this #{@feedback.subject || '--'} request?" } %>
+    <h1><small>Admin |</small> <%= t("activerecord.attributes.feedback.one") %> #<%= @feedback.id %> <small>vom <%= l @feedback.updated_at, format: :compact %></small></h1>
+  </div>
+</div>
+
+<div class="section">
+  <div class="corset">
+    
+    <div class="box">
+      <div class="header">
+        <% if @feedback.subject == "feature" %>
+          <h2>Feature-Request</h2>
+        <% elsif @feedback.subject == "bug" %>
+          <h2 class="loud warning-color"><%= icon("bug") %> Fehler gefunden</h2>
+        <% elsif @feedback.subject == "contact" %>
+          <h2>Kontaktanfrage</h2>
+        <% else %>
+          <h2>no Subject!</h2>
+        <% end %>
+      </div>
+      <div class="body">
+          
+          <div class="right_text">
+              <strong><%= @feedback.name.present? ? @feedback.name : "No Name given!" %></strong>
+              <br/>
+              <%= @feedback.email.present? ? @feedback.email : "No Email-Address given!" %>
+          </div>
+          
+        <% label_col = "col-sm-4 col-lg-3" %>
+        <% input_col = "col-sm-8 col-md-9" %>
+        <div class="clearfix"></div>
+        <br/><br/>
+        
+        <p class="loud"><%= @feedback.content.present? ? @feedback.content : "No Content given!" %></p>
+        
+        <br/>
+        <br/>
+        <br/>
+        
+        
+      </div>
+      <div class="footer">
+        <div class="row no-press gray-clr">
+          <div class="<%= label_col %>">
+            last update:
+          </div>
+          <div class="<%= input_col %>">
+            <strong>
+              <%= l @feedback.updated_at, format: :compact %>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

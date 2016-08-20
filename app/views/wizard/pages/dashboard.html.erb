@@ -1,0 +1,97 @@
+<div class="section head">
+  <div class="corset">
+    <h1><small>Admin |</small> Dashboard</h1>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="corset">
+    <div class="row">
+      <div class="col-sm-4">
+        <a class="box blank" href="<%= "/admin/users" %>">
+          <div class="header">
+            <%= t("activerecord.attributes.user.other") %>
+          </div>
+          <div class="body center_text">
+            <p class="louder no-press"><%= User.all.count %></p>
+          </div>
+        </a>
+      </div>
+      <% dashboard_stuff = [
+          { headline: t("activerecord.attributes.feedback.other"), counter: ::Feedback.all.count, link: admin_feedbacks_path },
+          { headline: t("activerecord.attributes.subscription.other"), counter: ::Subscription.all.count, link: admin_subscriptions_path }
+        ] %>
+      <% dashboard_stuff.each do |db| %>
+        <div class="col-sm-4">
+          <a class="box blank" href="<%= db[:link] %>">
+            <div class="header">
+              <%= db[:headline] %>
+            </div>
+            <div class="body center_text">
+              <p class="louder no-press">
+                <%= db[:counter] %>
+              </p>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="section hard-top">
+  <div class="corset">
+    
+    <div id="signup_chart" style=" width: 100%; height: 400px"></div>
+    
+  </div>
+</div>
+
+
+<div class="section hard-top">
+  <div class="corset">
+    
+    <div class="row">
+      <div class="col-sm-6">
+        <div id="signup_sources_chart" style=" width: 100%; height: 400px"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="signup_types_chart" style=" width: 100%; height: 400px"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="section hard-top">
+  <div class="corset">
+    
+    <div id="feedback_chart" style=" width: 100%; height: 400px"></div>
+    
+  </div>
+</div>
+
+<% if 3 == 4 %>
+<div class="section">
+  <div class="corset">
+    
+    <h3>Pastel-Colors</h3>
+    <div class="row">
+      <% 120.times do |x| %>
+        <div class="col-xs-1">
+          <div class="box" style="background: <%= random_pastel_color%>">
+            &nbsp;
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+  </div>
+</div>
+<% end %>
+
+
+<%= render "wizard/pages/highcharts" %>

@@ -1,0 +1,51 @@
+<div class="section sctn-xl">
+  <div class="corset">
+    <div class="box paper">
+      <h1><%= t("frontend.privacy.headline") %></h1>
+
+      <p><%= t("frontend.privacy.intro", company_name_full: CONFIG[:company_name_full], company_name_short: CONFIG[:company_name_short] ) %></p>
+      <br/>
+
+      <h4><%= t("frontend.privacy.responsibility.headline") %></h4>
+      <p><%= t("frontend.privacy.responsibility.intro") %></p>
+      <address>
+        <%= CONFIG[:company_name] %> <br/>
+        <%= CONFIG[:company_street] %> <%= CONFIG[:company_number] %> <br/>
+        <%= CONFIG[:company_zip] %> <%= CONFIG[:company_city] %>
+      </address>
+      <p><%= t("frontend.privacy.responsibility.outro", support_mail: mail_to(CONFIG[:mail_support])) %></p>
+      <br/>
+
+      <h4><%= t("frontend.privacy.newsletter.headline") %></h4>
+      <p><%= t("frontend.privacy.newsletter.intro", system_mail: mail_to(CONFIG[:mail_system]) ) %></p>
+      <address>
+        <%= CONFIG[:company_name] %> <br/>
+        <%= CONFIG[:company_street] %> <%= CONFIG[:company_number] %> <br/>
+        <%= CONFIG[:company_zip] %> <%= CONFIG[:company_city] %>
+      </address>
+      <br/>
+
+      <h4><%= t("frontend.privacy.data_security.headline") %></h4>
+      <p><%= t("frontend.privacy.data_security.text") %></p>
+      <br/>
+
+      <h4><%= t("frontend.privacy.cookies.headline") %></h4>
+      <p><%= t("frontend.privacy.cookies.text") %></p>
+      <br/>
+
+      <h4><%= t("frontend.privacy.google_analytics.headline") %></h4>
+      <p><%= t("frontend.privacy.google_analytics.text", google_link: link_to("http://tools.google.com/dlpage/gaoptout?hl=de", "http://tools.google.com/dlpage/gaoptout?hl=de", target: "_blank") ) %></p>
+      <br/>
+
+      <h4><%= t("frontend.privacy.facebook.headline") %></h4>
+      <p><%= t("frontend.privacy.facebook.text1", fb_link: link_to("http://developers.facebook.com/docs/plugins/", "http://developers.facebook.com/docs/plugins/", target: "_blank") ) %></p>
+      <p><%= t("frontend.privacy.facebook.text2", fb_link: link_to("http://de-de.facebook.com/policy.php", "http://de-de.facebook.com/policy.php", target: "_blank") ) %></p>
+      <p><%= t("frontend.privacy.facebook.text3") %></p>
+      <br/>
+
+      <h4><%= t("frontend.privacy.security_questions.headline") %></h4>
+      <p><%= t("frontend.privacy.security_questions.text", contact_mail: mail_to(CONFIG[:mail_system]), imprint_link: link_to(t("links.imprint"), "/imprint") ) %></p>
+      <br/>
+    </div>
+  </div>
+</div>

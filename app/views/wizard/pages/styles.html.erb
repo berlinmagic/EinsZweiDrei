@@ -1,0 +1,136 @@
+<div class="section head">
+  <div class="corset">
+    <h1><small>Admin |</small> Styles </h1>
+  </div>
+</div>
+
+<div class="section">
+  <div class="corset">
+    
+    <h1>Headline / Überschrift 1</h1>
+    <h2>Headline / Überschrift 2</h2>
+    <h3>Headline / Überschrift 3</h3>
+    <h4>Headline / Überschrift 4</h4>
+    <h5>Headline / Überschrift 5</h5>
+    <h6>Headline / Überschrift 6</h6>
+    
+    <p>Paragraph ... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+  </div>
+</div>
+
+
+<div class="section hard-top">
+  <div class="corset">
+    
+    <div class="sample-font-box">
+      
+      <p class="xs">FONT-xs ... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+      <p class="sm">FONT-small ... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+      <p class="base">FONT-base ... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+      <p class="lg">FONT-large ... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+      <p class="xl">FONT-xl ... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+      
+    </div>
+    
+    
+  </div>
+</div>
+
+
+<%#= render "shared/sections/banner", headline: @that.name.upcase, subline: @that.short_description ? @that.short_description.upcase : "" %>
+<div class="section image hard-top banner-section" style='background-image: url(<%= asset_path("fallbacks/banner.jpg") %>);'>
+  <div class="corset">
+    <br/>
+    <div class="row">
+      <div class="col-sm-12 center_text">
+        <br/>
+        <h1 class="loud">Headline 1.loud .. <small>small</small></h1>
+        <h2 class="loud">Headline 2.loud .. <small>small</small></h2>
+        <h1>Headline 1 .. <small>small inline text</small></h1>
+        <h2>Headline 2 .. <small>small inline text</small></h2>
+        <h3>Headline 3 .. <small>small inline text</small></h3>
+        <h4>Headline 4 .. <small>small inline text</small></h4>
+        <p>Paragraph .. <small>small inline text</small></p>
+        <p class="loud">Paragraph.loud</p>
+        <p class="small">Paragraph.small</p>
+        <br/>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+<div class="section hard-top">
+  <div class="corset">
+    
+    <button class="btn btn-deafult btn-width btn-xs">
+      Button (xl)
+    </button>
+    <button class="btn btn-deafult btn-width btn-sm">
+      Button (sm)
+    </button>
+    
+    <button class="btn btn-deafult btn-width">
+      Button (default)
+    </button>
+    
+    <button class="btn btn-deafult btn-width btn-lg">
+      Button (lg)
+    </button>
+    <button class="btn btn-deafult btn-width btn-xl">
+      Button (xl)
+    </button>
+    
+    
+    
+  </div>
+</div>
+
+
+
+<div class="section hard-top">
+  <div class="corset">
+    
+    <p>Paragraph ... Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+    <p class="loud">Paragraph.loud ... Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+    <p class="louder">Paragraph.louder ... Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+    <p class="highlight">Paragraph.highlight ... Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+    <p class="small">Paragraph.small ... Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+    
+    <hr/>
+    
+    <h2 class="loud">Headline2.loud ... Lorem ipsum</h2>
+    <h2 class="louder">Headline2.louder ... Lorem ipsum</h2>
+    <h2 class="highlight">Headline2.highlight ... Lorem ipsum</h2>
+    <h2 class="small">Headline2.small ... Lorem ipsum</h2>
+    
+  </div>
+</div>
+
+<div class="section hard-top">
+  <div class="corset">
+    <div class="btn-group">
+      <% %w(default success warning danger info primary brand one two three).each do |that| %>
+        <button class="btn btn-<%= that %> btn-sm">
+          <%= that %>
+        </button>
+      <% end %>
+    </div>
+    
+    <hr/>
+    
+    
+    <% %w(default success warning danger info primary brand one two three).each do |that| %>
+      <p class="<%= that %>-clr">Paragraph.<%= that %>-clr</p>
+    <% end %>
+    
+    <hr/>
+    
+    <% %w(default success warning danger info primary brand one two three).each do |that| %>
+      <p class="<%= that %>-bg">Paragraph.<%= that %>-bg</p>
+    <% end %>
+    
+  </div>
+</div>

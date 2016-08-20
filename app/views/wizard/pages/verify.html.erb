@@ -1,0 +1,37 @@
+<div class="section">
+  <div class="corset ultra-tight">
+    
+    <p class="louder">You want to visit the path for: <strong><%= @that.titleize %></strong></p>
+    <p class="loud">Which is confidential, So verfiy your company-role!</p>
+    
+  </div>
+</div>
+<div class="section dark">
+  <div class="corset ultra-tight">
+    
+    <%= form_tag admin_verify_that_path do |f| %>
+      <%= hidden_field_tag "verification[that]", @that %>
+      <p class="loud">Please fill in the company password (yes the ever since one!) to continue.</p>
+      <%= password_field_tag "verification[company_password]", nil, class: "form-control input-lg", placeholder: 'Company-Password ... ie: pinkpony' %>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= link_to admin_root_path, class: "btn btn-default btn-lg btn-splited" do %>
+            <div class="icn"><%= olicon("chevron-left") %></div>
+            <div class="text"><%= t("buttons.back") %></div>
+            <div class="icn"></div>
+          <% end %>
+        </div>
+        <div class="col-xs-6">
+          <button class="btn btn-success btn-lg btn-splited" type="submit" name="commit" data-disable-with="<%= t("messages.saving") %>">
+            <div class="icn"></div>
+            <div class="text"><%= t("buttons.continue") %></div>
+            <div class="icn"><%= olicon("chevron-right") %></div>
+          </button>
+        </div>
+      </div>
+    <% end %>
+    
+  </div>
+</div>

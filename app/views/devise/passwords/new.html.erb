@@ -1,0 +1,31 @@
+<div class="section sctn-xl">
+  <div class="corset tight">
+    
+    <div class="clearfix"></div>
+      <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {class: "form", method: :post}) do |f| %>
+        
+        <%= devise_error_messages! %>
+        
+        <h1 class="inset"><%= t('devise.problems.headline') %></h1>
+        <br/>
+        <h2><%= t('devise.passwords.new.headline') %></h2>
+        <br/>
+        <p><%= t('devise.passwords.new.text_one') %></p>
+        <p><%= t('devise.passwords.new.text_two') %></p>
+        <br/>
+        <div class="corset tight">
+          <%= f.email_field :email, class: "form-control", placeholder: t("helpers.placeholder.your_email"), required: true, autofocus: true %>
+          <%= f.submit t('buttons.send'), class: "btn btn-primary btn-block", data: {disable_with: t("messages.sending")} %>
+          <div class="clearfix"></div>
+        </div>
+        <br/>
+        
+        <%= render "devise/shared/links", current_action: "password" %>
+        
+        
+      <% end %>
+      <div class="clearfix"></div>
+    
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+<% if @feedback.subject == "bug" %>
+Fehler gefunden
+<% elsif @feedback.subject == "feature" %>
+Funktionswunsch
+<% elsif @feedback.subject == "contact" %>
+Kontakt
+<% else %>
+Unknown Request
+<% end %>
+
+
+<%= @feedback.content %>
+
+
+<%= @feedback.user ? @feedback.user.name : @feedback.name %> ∙ <%= @feedback.user ? @feedback.user.email : @feedback.email %>

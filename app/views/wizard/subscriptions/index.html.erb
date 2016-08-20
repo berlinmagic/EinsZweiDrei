@@ -1,0 +1,30 @@
+<div class="section head">
+  <div class="corset">
+    <h1><small>Admin |</small> <%= t("activerecord.attributes.subscription.other") %></h1>
+  </div>
+</div>
+
+<div class="section">
+  <div class="corset">
+    
+    <table class="table table-middled table-left table-striped">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th class="center_text">Newsletter</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @subscriptions.each do |subscription| %>
+          <tr>
+            <td><%= subscription.email %></td>
+            <td class="center_text"><%= raw subscription.newsletter ? icon("checkmark", "success-clr") : icon("close", "danger-clr") %></td>
+            <td><%= l subscription.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+</div>

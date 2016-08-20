@@ -1,0 +1,118 @@
+<div class="section head">
+  <div class="corset">
+    <h1><small>Admin |</small> Users</h1>
+  </div>
+</div>
+
+
+
+
+<div class="section">
+  <div class="corset">
+    
+    <div class="box dark gray-light-bg">
+      <div class="layout-table grid">
+        <div class="cell col-4 middle">
+          <div class="inpt-splited no-press input-sm">
+            <span class="icn" style="font-size:18px"><%= icon("search") %></span>
+            <div class="inpt">
+              <input placeholder="Search" type="text" id="search_wizard_table" class="form-control " />
+            </div>
+          </div>
+        </div>
+        <div class="cell col-4 middle center_text">
+          <div class="btn-group wizard_type_selects" data-select="gender">
+            <div class="btn btn-default btn-sm" data-gender="male">
+              <%= olicon("male")%>
+            </div>
+            <div class="btn btn-default btn-sm" data-gender="female">
+              <%= olicon("female") %>
+            </div>
+            <div class="btn btn-default btn-sm all active" data-gender="all">
+              <%= olicon("sex") %>
+            </div>
+          </div>
+        </div>
+        <div class="cell col-4 middle right_text">
+          <div class="btn-group wizard_type_selects" data-select="type">
+            <div class="btn btn-default btn-sm" data-type="user">User</div>
+            <div class="btn btn-default btn-sm" data-type="admin">Admins</div>
+            <div class="btn btn-default btn-sm all active" data-type="all">All</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <table class="table table-middled table-left table-striped">
+      <thead>
+        <tr>
+          <th class="center_text"><%= icon("image") %></th>
+          <th><%= icon("user") %> <%= t("helpers.label.user.name") %></th>
+          <th  class="center_text"><%= olicon("sex") %></th>
+          <th>
+            <%= icon("envelope") %> <%= t("helpers.label.user.email") %>
+          </th>
+          <th class="center_text">
+            <span title="Number of Logins"><%= olicon("share") %></span>
+          </th>
+          <th><%= olicon("share") %> Last Login</th>
+          <th class="center_text">
+            <span title="Social Accounts"><%= icon("connection") %></span>
+          </th>
+          <th class="center_text">
+            <span title="Signed-up via"><%= icon("enter") %></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="wizard_table_body">
+        <% @users.each do |u| %>
+          <tr class="<%= 'warning' if !u.confirmed_at.present? %>" data-name="<%= u.name %>" data-mail="<%= u.email %>" data-gender="<%= u.gender %>" data-type="<%= u.is_wizard ? "admin" : "user" %>">
+            <td class="center_text">
+              <%= avatar( u, 30 ) %>
+            </td>
+            <td><%= link_to admin_user_path(u) do %>
+              <%= u.name.present? ? u.name : "User #{u.id}" %>
+            <% end %></td>
+            <td class="center_text">
+              <%= u.gender ? olicon("#{u.gender}") : "-" %>
+            </td>
+            <td>
+              <%= u.confirmed_at.present? ? raw("<i class='olicons-ok text-success'></i>") : raw("<i class='olicons-close text-danger'></i>") %> 
+              <%= u.email %>
+            </td>
+            <td class="center_text">
+              <span title="Number of Logins: <%= u.sign_in_count %>"><%= u.sign_in_count %></span>
+            </td>
+            <td><%= l u.last_sign_in_at, format: :compact if u.last_sign_in_at.present? %></td>
+            <td class="center_text">
+              <% if u.authentications.where(provider: "facebook").any? %>
+                <button class="btn btn-facebook btn-xs">
+                  <i class="icomoon-facebook"></i>
+                </button>
+              <% end %>
+              <% if u.authentications.where(provider: "google_oauth2").any? %>
+                <button class="btn btn-google btn-xs">
+                  <i class="icomoon-google"></i>
+                </button>
+              <% end %>
+              <% if u.authentications.empty? %>
+                <span title="No Social Accounts!">- -</span>
+              <% end %>
+            </td>
+            <td class="center_text">
+              <span title="User Signed-up via: <%= u.signup_via || "app" %>">
+                <%= u.signup_via || "app" %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+        
+        
+      </tbody>
+    </table>
+    
+    <% 5.times do %><br/><% end %>
+    
+  </div>
+</div>

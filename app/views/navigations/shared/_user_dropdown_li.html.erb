@@ -1,0 +1,36 @@
+<% if current_user %>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <%= avatar( current_user, 30 ) %>
+      <span><%= current_user.name.blank? ? current_user.email : current_user.name %> <b class="caret"></b></span>
+    </a>
+    <ul class="dropdown-menu pull-right">
+      <% if current_user && current_user.is_wizard? %>
+        <li class="<%= 'current' if params[:controller] =~ /\Awizard\// %>">
+          <%= link_to admin_root_path do %>
+            <%= icon("wand") %> A D M I N
+          <% end %>
+        </li>
+      <% end %>
+      <li><%= link_to app_root_path do %>
+        <i class="icomoon-meter"></i> Überblick
+      <% end %></li>
+      <% if current_user.confirmed? %>
+        <li><%= link_to edit_step_app_user_path(current_user, "profile") do %>
+          <%= icon("pencil") %> Profil bearbeiten
+        <% end %></li>
+      <% else %>
+        <li>
+          <a href="#" tabindex="0" role="button" class="nothing" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="<%= t("devise.shared.messages.account_unconfirmed_help") %>"><em><%= t("devise.shared.messages.account_unconfirmed") %></em></a>
+        </li>
+        <li role="presentation" class="divider"></li>
+      <% end %>
+      <%# <li role="presentation" class="divider"></li> #%>
+      <li><%= link_to destroy_user_session_path, :method => :delete do %>
+        <i class="icomoon-enter"></i> <%= t("devise.shared.links.sign_out") %>
+      <% end %></li>
+    </ul>
+  </div>
+<% else %>
+  <li><%= link_to "login", new_user_session_path, class: "btn btn-primary" %></li>
+<% end %>

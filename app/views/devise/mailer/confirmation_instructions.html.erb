@@ -1,0 +1,26 @@
+<%= content_for :reason do %>
+  <%= t("devise.mailer.confirmation_instructions.reason") %>
+<% end %>
+
+<h1><%= t("devise.mailer.confirmation_instructions.headline") %></h1>
+
+<br/>
+
+<p class="loud"><%= t("devise.mailer.confirmation_instructions.salutation") %></p>
+
+<br/>
+
+<p class="loud"><%= t("devise.mailer.confirmation_instructions.todo") %></p>
+
+<br/>
+
+<%= link_to t("devise.mailer.confirmation_instructions.action"), confirmation_url(@resource, confirmation_token: @token), class: "btn btn-app" %>
+
+<div class="clearfix"></div>
+
+<br/>
+
+<p class="loud"><%= t("devise.mailer.confirmation_instructions.questions", support_mail: mail_to(CONFIG[:mail_support])) %></p>
+
+
+<br/>

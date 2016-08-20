@@ -1,0 +1,12 @@
+<%= block_to_partial "backend/users/profile_view", type: "profile" do %>
+
+  <%= content_for :sub_headline do %>
+    Profile .. subheader!
+  <% end %>
+
+
+  <%= render "backend/users/forms/form" %>
+
+
+
+<% end %>

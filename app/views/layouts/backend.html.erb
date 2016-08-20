@@ -2,19 +2,20 @@
 <html>
 <head>
   <%= render "layouts/head" %>
+  <meta name="current-user-id" content="<%= current_user.id %>" />
 </head>
-<% body_class = ["fixed-nav"] %>
-<% body_class << "with_important_notice" unless Rails.env.production? %>
-<body class="<%= body_class.join(" ") %>">
+<body class="app <%= "with_important_notice" unless Rails.env.production? %>">
+
+<%= render "navigations/app_aside" %>
 
 <%= render "shared/dev_notice" %>
 <%= render "shared/flash_msgs" %>
 
-<%= render "navigations/header" %>
+<div class="main-content">
 
-<%= yield %>
+  <%= yield %>
 
-<%= render "navigations/footer" %>
+</div>
 
 <%= render "shared/debug" %>
 <%= render "shared/modal" %>

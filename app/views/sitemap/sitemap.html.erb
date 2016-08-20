@@ -1,0 +1,22 @@
+<div class="section head">
+  <div class="corset">
+    <h1>Sitemap</h1>
+  </div>
+</div>
+<div class="section">
+  <div class="corset">
+    <ul id="sitemap" class="left_text">
+      <li>
+        <%= link_to CONFIG[:app_name], root_url(locale: nil) %>
+        <%#= link_to t("links.start"), root_url(locale: nil) %>
+      </li>
+      <% FrontendController::PAGEZ.each do |page| %>
+        <li><%= link_to t("links.#{page}"), polymorphic_url( page, locale: nil) %></li>
+      <% end %>
+      
+    </ul>
+    
+      
+    
+  </div>
+</div>

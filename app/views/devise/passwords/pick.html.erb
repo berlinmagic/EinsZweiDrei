@@ -1,0 +1,65 @@
+<div class="section sctn-xl">
+  <div class="corset tight">
+    
+    <div class="clearfix"></div>
+    <%= form_for( @user, :url => user_update_password_path(@user), :html => {class: "centered-form", :method => :post }) do |f| %>
+      
+      <h1 class="inset"><%= t('devise.passwords.pick.headline') %></h1>
+      
+      <br/>
+      <h2><%= t('devise.passwords.pick.subheadline') %></h2>
+      <br/>
+      <p><%= t('devise.passwords.pick.text_one') %></p>
+      <p><%= t('devise.passwords.pick.text_two') %></p>
+      <p><%= t('devise.passwords.pick.text_three') %></p>
+      <br/>
+      
+      <div class="corset tight">
+        <%= f.password_field :password, class: "form-control", placeholder: t("helpers.label.user.new_password"), required: true, autofocus: true %>
+      
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: t("helpers.label.user.new_password_confirmation"), required: true  %>
+      
+        <%= f.submit t('buttons.send'), class: "btn btn-lg btn-primary btn-block", data: {disable_with: t("messages.sending")} %>
+        <div class="clearfix"></div>
+      </div>
+      
+    <% end %>
+    <div class="clearfix"></div>
+    
+  </div>
+</div>
+
+
+
+<div class="fullpage-table accnt-form">
+  <div class="table-row">
+    <div class="banner-box responsive-hero fill" >
+      <div class="clearfix"></div>
+      <%= form_for( @user, :url => user_update_password_path(@user), :html => {class: "centered-form", :method => :post }) do |f| %>
+        
+        
+        <h1 class="inset"><%= t('devise.passwords.pick.headline') %></h1>
+        <br/>
+        <div class="box form-box">
+          <div class="body">
+            <br/>
+            <h2><%= t('devise.passwords.pick.subheadline') %></h2>
+            <br/>
+            <p><%= t('devise.passwords.pick.text_one') %></p>
+            <p><%= t('devise.passwords.pick.text_two') %></p>
+            <p><%= t('devise.passwords.pick.text_three') %></p>
+            <br/>
+            
+            <%= f.password_field :password, class: "form-control", placeholder: t("helpers.label.user.new_password"), required: true, autofocus: true %>
+            
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: t("helpers.label.user.new_password_confirmation"), required: true  %>
+            
+            <%= f.submit t('buttons.send'), class: "btn btn-lg btn-primary btn-block", data: {disable_with: t("messages.sending")} %>
+          </div>
+        </div>
+        
+      <% end %>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
