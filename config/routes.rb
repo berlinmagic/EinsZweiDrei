@@ -1,4 +1,79 @@
 Rails.application.routes.draw do
+  
+  ###
+  ### => Additional Routes injected with APP_Generator
+  ###
+  
+  
+  # => require 'sidekiq/web'
+  
+  resources :feedbacks,     only: :create
+  resources :subscriptions, only: :create
+  
+  
+  
+  ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
+  ## Admin
+  ###### ###### ######
+  scope :admin, module: :wizard, as: :admin do
+    ## sidekiq if needed
+    # => authenticate :user, lambda { |u| u.is_wizard? } do
+    # =>   mount Sidekiq::Web => '/sidekiq'
+    # => end
+    ## resources
+    resources :users do
+      member do
+        get :make_admin
+        get :remove_admin
+      end
+      collection do
+        get "act_as/:uid", action: :act_as, as: :act_as
+      end
+    end
+    resources :feedbacks
+    resources :subscriptions
+    ## additional
+    get   "styles"          => "pages#styles",        as: :styles
+    get   "verify/:that"    => "pages#verify",        as: :verify
+    post  "verify_that"     => "pages#verify_that",   as: :verify_that
+    ## admin-root
+    root "pages#dashboard"
+  end
+  ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
+  
+  
+  ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
+  ## App (logged in)
+  ###### ###### ######
+  scope :app, module: :backend, as: :app do
+    ## users
+    resources :users do
+      member do
+        get :dashboard
+        get "edit/:step", action: :edit_step, as: :edit_step
+        delete :delete_image
+      end
+    end
+    ## app-root
+    root "pages#dashboard"
+  end
+  ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
+  
+  FrontendController::PAGEZ.each do |pg|
+    get "#{pg.dasherize}" => "frontend#show", page: pg, as: pg.to_sym
+  end
+  
+  
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", confirmations: "users/confirmations" }
+  
+  
+  root 'frontend#start'
+  
+  
+  get "/sitemap", constraints: { format: /html|txt/ }, controller: :sitemap, action: :text
+  get "/sitemap", constraints: { format: :xml },       controller: :sitemap, action: :xml
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
