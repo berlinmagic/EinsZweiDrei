@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   
+  
+  scope :mgca, module: :magic_addresses do
+    resources :addresses, only: :index
+    resources :countries, only: :index
+    resources :states, only: :index
+    resources :cities, only: :index
+    resources :districts, only: :index
+    resources :subdistricts, only: :index
+    get "/" => "countries#index"
+  end
+
+
   ###
   ### => Additional Routes injected with APP_Generator
   ###
