@@ -1,0 +1,21 @@
+en:
+  edit_profile:
+    headlines:
+      profile: "Required data"
+      image: "Profile picture"
+      verifications: "Verifications"
+      password: "Change Password"
+      password_reset: "Reset Password"
+      cancel: "Cancel your account"
+    links:
+      profile: "Edit profile"
+      image: "Profile picture"
+      verifications: "Verifications"
+      password: "Change Password"
+      password_reset: "Reset Password"
+      cancel: "Cancel your account"
+    field_helper:
+      image: "Choose a profile picture that shows your face clearly. Photos are often the first step to a trustful cooperation. It is no fun to comunicate with an animal photo or a landscape! Therefore please choose a photo in which your face is clearly visible."
+      change_password: "Here, you can change your password."
+      reset_password: "If you have no password yet, you can set one here. Just enter the email address you registered with below. We send you an email with a brief manual reset to your password."
+      cancel_account: "Here you can delete your account. Please note that all documents and data is permanently lost by deleting the account. Data already carried out orders are backed by us under the legal retention periods and anonymously accordingly after."

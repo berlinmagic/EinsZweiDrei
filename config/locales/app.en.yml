@@ -1,0 +1,146 @@
+en:
+  language: "English"
+
+  links:
+    ## Pages
+    start: "Home"
+    imprint: "Imprint"
+    terms: "TOS"
+    privacy: "Data security"
+    contact: "Contact"
+    ## Links
+    signup_for_free: "Signup for free"
+
+  buttons:
+    back: "Back"
+    save: "Save"
+    send: "Send"
+    delete: "Delete"
+    cancel: "Cancel"
+    close: "Close"
+    continue: "Continue"
+    edit: "Edit"
+    edit_stuff: "Edit %{stuff}"
+    new_stuff: "New %{stuff}"
+    delete_stuff: "Delete %{stuff}"
+    share_on: "Share on %{provider}"
+    more_info: "More information"
+    choose_image: "Choose an image"
+    subscribe: "Subscribe"
+
+  prompts:
+    choose: "Choose"
+
+  forms:
+    headlines:
+      new: "New %{model}"
+      edit: "Edit %{model}"
+
+  titles:
+    start: "Home"
+    imprint: "Imprint"
+    terms: "TOS"
+    privacy: "Data security"
+    contact: "Contact"
+
+  messages:
+    please_select: "Please choose"
+    create_success: "%{model} was created successfully."
+    update_success: "%{model} was updated successfully."
+    delete_success: "%{model} was successfully deleted."
+    create_error: "Couldn`t create %{model}!"
+    update_error: "Couldn`t update %{model}!"
+    delete_error: "Couldn`t delete %{model}!"
+    confirm_deletion: "Are you sure, to delete %{model}?"
+    attention: "Caution!"
+    dev_notice_info: "This site is just a demo."
+    dev_notice_use_domain: "Please visit:&nbsp; %{link}"
+    membership_inactive: "Your account is still not activated!"
+    not_present: "Not present"
+    needs_approval: "Will be checked"
+    accepted: "Accepted"
+    declined: "Declined"
+    sending: "Sending .."
+    saving: "Saving ..."
+    loading: "Loading .."
+    locale_changed: "Language was changed."
+
+  payment_methods:
+    paypal: "Paypal"
+
+  words:
+    gender: "Gender"
+    membership: "Membership"
+    "no": "No"
+    or: "or"
+    security: "Secuity"
+    settings: "Settings"
+    "yes": "Yes"
+    "true": "Yes"
+    "false": "No"
+
+  genders:
+    male: "Male"
+    female: "Female"
+
+  polite_salutation:
+    short:
+      male: "Mr."
+      female: "Mrs."
+    full:
+      male: "Mister"
+      female: "Missis"
+
+  time:
+    formats:
+      compact: '%Y-%m-%d - %I:%M %P'
+      calendar: '%Y-%m-%d - %I:%M %P'
+      date: "%Y-%m-%d"
+      time: "%I:%M %P"
+      fime_full: "%I:%M %P"
+      day: "%A"
+      day_short: "%a"
+      nice_date: "%b-%d %Y"
+      nice_date_full: "%a. %b.%d. %Y"
+
+  time_counter:
+    days:
+      one: "Day"
+      other: "Days"
+    hours:
+      one: "Hour"
+      other: "Hours"
+    minutes:
+      one: "Minute"
+      other: Minutes
+
+  seo:
+    description: "Delicious, healthy food for your office"
+    keywords:
+      - nutritious food
+      - healthy food
+      - happy office
+
+  subscriptions:
+    form:
+      headline: "We work with high pressure, to finish our service"
+      text: "You want to be informed when we are available in your area?"
+      subscribe_now: "Then sign up now."
+    messages:
+      no_mail: "Looks as if you've forgotten to enter your email address."
+      invalid_mail: "Please enter a correct email address."
+      already_in: "Looks like you are allready on the list. We have not forgotten you and will contact you when we start!"
+      created_successfully: "We have your data! We write to you as soon as we start."
+    success:
+      headline: "Thank you for your interest!"
+      text: "We will inform you as soon as it starts."
+
+  newsletters:
+    form:
+      headline: "Never miss any news"
+      intro: "Subscribe to our free newsletter"
+      or_follow: "or follow us"
+      no_spam: "P.S .: Do not worry. We will never send you spam! The newsletter can be canceled at any time of course."
+
+  addresses:
+    no_address_given: "No address given"

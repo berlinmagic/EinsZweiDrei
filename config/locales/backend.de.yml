@@ -1,0 +1,20 @@
+de:
+  edit_profile:
+    headlines:
+      profile: "Erforderliche Daten"
+      image: "Profilbild"
+      verifications: "Verifizierungen"
+      password: "Password ändern"
+      password_reset: "Passwort zurücksetzen"
+      cancel: "Account Löschen"
+    links:
+      profile: "Profil bearbeiten"
+      image: "Profilbild"
+      verifications: "Verifizierungen"
+      password: "Password"
+      cancel: "Account Löschen"
+    field_helper:
+      image: "Wähle am besten ein Profilbild, das Dein Gesicht deutlich zeigt. Fotos sind oft der erste Schritt zu einem vertrauensvollen Miteinander. Es macht nicht besonders viel Spaß, mit einem Tierfoto oder einer Landschaft zu komunizieren! Bitte wähle daher ein Foto, auf dem Dein Gesicht gut zu sehen ist."
+      change_password: "Hier kannst Du Dein Passwort ändern."
+      reset_password: "Solltest Du noch kein Passwort erstellt haben, kannst Du hier ein Passwort festlegen. Gebe dazu die E-Mailadresse an, mit der du Dich registriert hast. Wir senden Dir anschliessend eine E-Mail mit einer kurzen Anleitung um Dein Passwort zurücksetzen."
+      cancel_account: "Hier kannst Du Deinen Account löschen. Bitte beachte, dass durch das Löschen des Accounts sämtliche Dokumente und Daten unwiderruflich verloren gehen. Daten bereits durchgeführter Aufträge werden von uns im Rahmen der gesetzlichen Aufbewahrungsfristen gesichert und nach Ablauf entsprechend anonymisiert."

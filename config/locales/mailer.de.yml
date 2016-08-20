@@ -1,0 +1,32 @@
+de:
+  mailer_layout:
+    greatings: "Mit freundlichen Grüßen,"
+    your_app_team: "Ihr %{app_name} Team"
+    ## additional_words .. leave blank if not needed!
+    additional_words: ""
+    ## company-footer
+    website: "Web"
+    email: "Mail"
+    tax_number: "Steuernummer"
+    register_court: "Registergericht"
+    register_number: "Registernummer"
+  feedback_mailer:
+    thank_you:
+      subject: "Danke für Ihre Meinung"
+      headline:
+        feature: "Funktionswunsch erhalten."
+        bug: "Fehler-Bericht erhalten"
+        contact: "Kontakt-Anfrage erhalten"
+        else: "Danke für Ihr Feedback"
+      text:
+        feature: "Wir werden Ihren Funktionswunsch prüfen und uns anschließend bei Ihnen melden.\nBitte haben Sie verständniss das es teilsweise einige Tage dauern kann, da wir mit hochdruck daran arbeiten die App zu verbessern."
+        bug: "Wir werden versuchen den von Ihnen gemeldeten Fehler schnellstmöglich zu beheben.\nEventuell muss unser Support-Team erneut Kontakt zu Ihnen Aufnehmen um weitere Details zu erfragen."
+        contact: "Danke für Ihre netten Worte, ein Kollege wird umgehend Kontakt zu Ihnen Aufnehmen.\nBitte haben Sie verständniss das es teilsweise einige Tage dauern kann, da wir mit hochdruck daran arbeiten die App zu verbessern."
+        else: "Danke für Ihre netten Worte, ein Kollege wird umgehend Kontakt zu Ihnen Aufnehmen.\nBitte haben Sie verständniss das es teilsweise einige Tage dauern kann, da wir mit hochdruck daran arbeiten die App zu verbessern."
+    feedback_recieved:
+      subject: "Feedback erhalten"
+  subscription_mailer:
+    thank_you:
+      subject: "Danke für Ihr Interesse"
+      headline: "Danke für Ihr Interesse"
+      text: "Wir haben Sie für unseren Newsletter angemeldet und werden Sie über alles Neue auf dem laufenden halten."

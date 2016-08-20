@@ -1,0 +1,151 @@
+de:
+  devise:
+    confirmations:
+      confirmed: "Ihre Konto wurde erfolgreich bestätigt. Sie können Sich nun anmelden."
+      send_instructions: "Sie erhalten in wenigen Minuten eine E-Mail, mit der Sie Ihre Registrierung bestätigen können."
+      send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der die Sie Ihre Registrierung bestätigen können."
+      new:
+        resend_confirmation_instructions: "Anleitung zur Bestätigung noch mal schicken"
+        confirmed: "Ihre Konto wurde erfolgreich bestätigt."
+        send_instructions: "Sie erhalten ein wenigen Minuten eine E-Mail mit Anweisungen, wie Sie Ihr Konto bestätigen."
+        send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, werden Sie in wenigen Minuten eine E-Mail mit Anweisungen erhalten, wie Sie Ihr Konto bestätigen."
+        headline: "Account nochmal bestätigen"
+        text_one: "Sie haben keine Bestätigungs-E-Mail erhalten?"
+        text_two: "Zum Bestätigen geben Sie hier einfach die E-Mailadresse ein, mit der Sie sich registriert haben."
+        text_three: "Wir senden Ihnen eine E-Mail mit den nötigen Informationen um Ihren Account zu bestätigen."
+    failure:
+      already_authenticated: "Sie sind bereits angemeldet."
+      inactive: "Ihr Konto ist noch nicht aktiviert."
+      invalid: "Ungültige Anmeldedaten."
+      last_attempt: "Sie haben noch einen Versuch bis Ihr Account gesperrt wird."
+      locked: "Ihr Account ist gesperrt."
+      not_found_in_database: Ungültige Anmeldedaten.
+      timeout: "Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an."
+      invalid_token: "Ungültiger Authentifikations-Schlüssel."
+      unauthenticated: "Sie müssen sich anmelden oder registrieren, um fortfahren zu können."
+      unconfirmed: "Sie müssen Ihr Konto bestätigen, um fortfahren zu können."
+    mailer:
+      confirmation_instructions:
+        headline: "Willkommen an Board!"
+        salutation: "Hallo schön das Sie sich angemeldet haben. Wir haben Ihnen bereits einen neuen Account erstellt und freuen uns auf die Zusammenarbeit mit Ihnen."
+        todo: "Ihrem Account haben Sie bereits erfolgreich erstellt. Bitte bestätigen Sie hier nur kurz Ihre E-Mailadresse."
+        action: "Mein Konto bestätigen"
+        questions: "Sollten Sie Fragen oder Probleme mit Ihrem Account haben, können Sie uns jederzeit unter %{support_mail} erreichen."
+        outro: "Auf eine erfolgreiche Zusammenarbeit."
+        reason: "Sie erhalten diese E-Mail, da Sie sich über die Plattform %{app_name} registriert haben."
+        subject: "Anleitung zur Bestätigung Ihres Accounts"
+      reset_password_instructions:
+        action: "Passwort erstellen"
+        greeting: "Hallo %{recipient}!"
+        instruction: "Sie haben Ihr Passwort vergessen, oder bisher noch keins erstellt. Dann klicken Sie einfach auf den folgenden Link um ein neues Passwort zu erstellen."
+        instruction_2: "Wenn Sie Ihr Passwort nicht ändern möchten, ignorieren Sie diese E-Mail."
+        instruction_3: "Das Passwort wird nicht geändert bis Sie den obenstehenden Link abrufen, und ein neues Passwort bestimmen."
+        subject: "Anleitung um das Passwort zurückzusetzten"
+      unlock_instructions:
+        action: "Mein Konto entsperren"
+        greeting: "Hallo %{recipient}!"
+        instruction: "Folgen Sie dem untenstehenden Link, um Ihr Konto zu entsperren:"
+        message: "Ihr Konto wurde aufgrund einer großen Anzahl von fehlgeschlagenen Anmeldeversuchen gesperrt."
+        subject: "Anleitung um Ihr Konto zu entsperren"
+    omniauth_callbacks:
+      failure: "Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden, weil '%{reason}'."
+      success: "Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet."
+    passwords:
+      pick:
+        headline: "Herzlich Willkommen bei %{app_name}!"
+        subheadline: "Wählen Sie Ihr Passwort"
+        text_one: "Für Ihren Account ist bisher kein Passwort hiterlegt."
+        text_two: "Bitte Wählen Sie ein sicheres Passwort um Ihre Daten zu schützen."
+        text_three: "Selbstverständlich wird Ihr Passwort mehrfach verschlüsslt, Ihre Daten gehören Ihnen."
+        confirmed_pick_passord_message: "Ihr Account wurde bestätigt, bitte wählen Sie ein Password."
+        allready_set_message: "Sie haben bereits ein Password erstellt!"
+        success_message: "Ihr Passwort wurde erfolgreich gespeichert. (Natürlich verschlüsselt, Ihre Daten gehören nur Ihnen!)"
+      new:
+        forgot_your_password: "Haben Sie Ihr Passwort vergessen?"
+        send_me_reset_password_instructions: "Schicken Sie mir die Anleitung, mein Passwort zurückzusetzen"
+        headline: "Passwort vergessen"
+        text_one: "Keine Sorge, geben Sie einfach die E-Mailadresse ein, mit der Sie sich registriert haben."
+        text_two: "Wir senden Ihnen eine E-Mail mit den nötigen Informationen um Ihr Passwort zurück zu setzen."
+      edit:
+        change_your_password: "Passwort ändern"
+        new_password: "Neues Passwort"
+        confirm_new_password: "Neues Passwort bestätigen"
+        change_my_password: "Ändere mein Passwort"
+        headline: "Neues Passwort erstellen"
+        text_one: "Hier haben Sie die Möglichkeit ein neues Passwort zu erstellen."
+        text_two: "Bitte wählen Sie ein sicheres Passwort, es muss mindestens 8 Zeichen haben und sollte auch Sonderzeichen, Zahlen und Großbuchstaben enthalten."
+        text_three: "Bitte geben Sie Ihr neuses Passwort sicherhalts halber zweimal ein."
+      no_token: "Sie können diese Seite nicht ohne Link zum Zurücksetzen Ihres Passworts aufrufen. Wenn Sie Ihr Passwort zurücksetzen wollen, gehen Sie sicher, dass Sie die vollständige Adresse benutzt haben, die Sie mit der E-Mail erhalten haben."
+      send_instructions: "Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können."
+      send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, werden Sie in wenigen Minuten eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts erhalten."
+      updated:  "Ihr Passwort wurde erfolgreich geändert. Sie sind nun angemeldet."
+      updated_not_active: "Ihr Passwort wurde erfolgreich geändert."
+    problems:
+      headline: "Probleme mit Ihrem Account?"
+    registrations:
+      edit:
+        are_you_sure: "Sind Sie sicher?"
+        cancel_my_account: "Konto löschen"
+        leave_blank_if_you_don_t_want_to_change_it: "freilassen, wenn Sie das nicht ändern wollen"
+        title: "%{resource} bearbeiten"
+        we_need_your_current_password_to_confirm_your_changes: "wir benötigen Ihr aktuelles Passwort, um die Änderung zu bestätigen"
+        update: "Aktualisieren"
+        unhappy: "Unglücklich"
+      new:
+        sign_up: "Registrieren"
+        sign_up_as: "Als %{type} Registrieren"
+      destroyed: "Auf Wiedersehen! Ihr Konto wurde erfolreich gekündigt. Wir hoffen Sie bald wiederzusehen."
+      signed_up: "Willkommen! Sie haben sich erfolgreich registriert."
+      signed_up_but_inactive: "Sie haben sich erfolgreich registriert. Aber wir konnten Sie nicht anmelden, da Ihr Konto noch nicht aktiviert ist."
+      signed_up_but_locked: "Sie haben sich erfolgreich registriert. Aber wir konnten Sie nicht anmelden, da Ihr Konto gesperrt ist."
+      signed_up_but_unconfirmed: "Eine Nachricht mit einem Aktivierungs-Link wurde an Ihre E-Mail-Adresse geschickt. Bitte öffnen Sie diesen Link, um Ihr Konto zu aktivieren."
+      update_needs_confirmation: "Ihr Konto wurde erfolgreich aktualisiert, aber wir müssen Ihre E-Mail-Adresse verifizieren. Bitte überprüfen Sie Ihre E-Mails und klicken auf den Bestätigungs-Link, um Ihre E-Mail-Adresse abschliessend zu bestätigen."
+      updated: "Ihr Konto wurde erfolgreich aktualisiert."
+    sessions:
+      signed_in: "Erfolgreich angemeldet."
+      signed_out: "Erfolgreich abgemeldet."
+      already_signed_out: "Erfolgreich abgemeldet."
+      new:
+        sign_in: "Anmelden"
+        submit: "Anmeldung abschicken"
+    shared:
+      messages:
+        already_have_an_account: "Sie haben bereits ein Konto? Klicken Sie %{link}."
+        already_have_an_account_link: "hier"
+        dont_have_an_account_yet: "Sie haben noch kein Konto? Dann Klicken Sie %{link}."
+        dont_have_an_account_yet_link: "hier"
+        do_you_have_problems: "Haben Sie %{link} beim Anmelden?"
+        do_you_have_problems_link: "Probleme"
+        have_another_problem_headline: "Haben Sie ein anderes Problem?"
+        account_unconfirmed: "Account nicht bestätigt!"
+        account_unconfirmed_help: "Bitte prüfen Sie Ihr Postfach, wir haben Ihne eine Bestätigungs-Mail gesendet, bitte klicken Sie den enthaltenen Link, um Ihren Account zu bestätigen."
+      links:
+        didn_t_receive_confirmation_instructions: "Keine Anleitung zur Bestätigung erhalten?"
+        didn_t_receive_unlock_instructions: "Keine Anleitung zum Entsperren erhalten?"
+        forgot_your_password: "Haben Sie Ihr Passwort vergessen?"
+        sign_in: "Anmelden"
+        sign_in_with_provider: "Mit %{provider} anmelden"
+        sign_up_with_provider: "Mit %{provider} registrieren"
+        connect_with_provider: "Mit %{provider} verbinden"
+        sign_up: "Registrieren"
+        sign_out: "Abmelden"
+    unlocks:
+      new:
+        headline: "Anleitung zum Entsperren noch mal schicken"
+        text_one: "Aus Sicherheitsgründen mussten wir Ihren Account sperren."
+        text_two: "Zum Entsperren geben Sie hier einfach die E-Mailadresse ein, mit der Sie sich registriert haben."
+        text_three: "Wir senden Ihnen eine E-Mail mit den nötigen Informationen um Ihren Account zu entsperren."
+        resend_unlock_instructions: "Anleitung zum Entsperren noch mal schicken"
+      send_instructions: "Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihren Account entsperren können."
+      send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihren Account entsperren können."
+      unlocked: "Ihr Konto wurde erfolreich entsperrt. Sie sind jetzt angemeldet."
+  errors:
+    messages:
+      already_confirmed: "wurde schon bestätigt - bitte versuchen Sie sich anzumelden"
+      confirmation_period_expired: "muss innerhalb %{period} bestätigt werden - bitte fordern Sie den Link erneut an"
+      expired: "ist ausgelaufen - bitte fordern Sie den Link erneut an"
+      not_found: "nicht gefunden"
+      not_locked: "war nicht gesperrt"
+      not_saved:
+        one: 'Konnte %{resource} nicht speichern: ein Fehler.'
+        other: 'Konnte %{resource} nicht speichern: %{count} Fehler.'

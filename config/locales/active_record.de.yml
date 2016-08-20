@@ -1,0 +1,150 @@
+de:
+  enumerize:
+    defaults:
+      gender:
+        male: "Herr"
+        female: "Frau"
+      business_type:
+        self_employed: "Selbständig"
+        small_business: "Kleinunternehmer"
+        professional: "Proffessionelles Unternehmen"
+      deadline_type:
+        asap: "So schnell wie möglich"
+        soon: "Demnächst (eilt nicht)"
+        date: "Spätestens am:"
+      display_unit:
+        mm: "Milimeter"
+        cm: "Zentimeter"
+        m: "Meter"
+      subject:
+        feature: "Funktionswunsch"
+        bug: "Fehler gefunden!"
+        contact: "Kontakt aufnehmen"
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  helpers:
+    label:
+      defaults:
+        name: "Name"
+        email: "E-Mail"
+        description: "Beschreibung"
+        address: "Adresse"
+        fsm_state: "Status"
+        image: "Bild"
+      shared:
+        optional: "(Optional)"
+        required: "*"
+      address:
+        address: "Adresse"
+        street: "Straße"
+        street_number: "Hausnummer"
+        zipcode: "Postleizahl"
+        city: "Stadt"
+        state: "Bundesland"
+        country: "Land"
+        use_location: "Position verwenden"
+        longitude: "Längengrad"
+        latitude: "Breitengrad"
+        street_name: "Straße"
+        city_name: "Stadt"
+        country_name: "Land"
+      feedback:
+        subject: "Betreff"
+        content: "Inhalt"
+        user: "Autor"
+        user_id: "Autor"
+        name: "Name"
+        email: "E-Mail"
+        current_controller: "Controller"
+        current_action: "Action"
+        current_params: "Parameter"
+      subscription:
+        email: "E-Mail"
+        subscription_type: "Typ"
+        subscription_url: "Url"
+        user_ip: "IP-Adresse"
+        newsletter: "Newsletter"
+        dev_news: "Development News"
+        user: "Nutzer"
+      user:
+        email: "E-Mail"
+        password: "Passwort"
+        password_confirmation: "Passwort wiederholen"
+        current_password: "Aktuelles Passwort"
+        new_password: "Neues Passwort"
+        new_password_confirmation: "Neues Passwort wiederholen"
+        invitation_text: "Einladungstext"
+        name: "Name"
+        first_name: "Vorname"
+        last_name: "Nachname"
+        gender: "Anrede"
+        birthday: "Geburtstag"
+        image: "Profilbild"
+        address: "Adresse"
+        confirmation_token: "Bestätigungs-Code"
+        current_sign_in_at: "Angemeldet am"
+        last_sign_in_at: "Zuletzt angemeldet am"
+        phone: "Telefon"
+        taxpayer_identification_number: "Steuer-Identifikationsnummer"
+        vat_number: "Steuernummer"
+        remember_me: "Angemeldet bleiben"
+        current_image: "Aktuelles Profilbild"
+        new_image: "Neues Bild hochladen"
+        age: "Alter"
+        genders:
+          male: "Herr"
+          female: "Frau"
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    placeholder:
+      your_email: "Deine E-Mail-Adresse"
+      your_password: "Dein Password"
+      your_name: "Ihr Name"
+      defaults:
+        name: "Namen eingeben"
+      feedback:
+        content: "Bitte schreiben Sie uns möglichst ausführlich wie wir Ihnen helfen können. Wir werden umgehend reagieren."
+      location_address:
+        street_additional: "Wohnnung, Hinterhof, Gebäude, Etage, usw."
+      spoken_language:
+        choose_language: "Sprache wählen"
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  activemodel:
+    attributes:
+      address:
+        one: "Anschrift"
+        other: "Anschriften"
+      feedback:
+        one: "Feedback"
+        other: "Feedback"
+      subscription:
+        one: "Abonnement"
+        other: "Abonnements"
+      user:
+        one: "Benutzer"
+        other: "Benutzer"
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    errors:
+      messages:
+        email: "ist keine gültige E-Mail-Adresse"
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  activerecord:
+    attributes:
+      address:
+        one: "Anschrift"
+        other: "Anschriften"
+      feedback:
+        one: "Feedback"
+        other: "Feedback"
+      subscription:
+        one: "Abonnement"
+        other: "Abonnements"
+      user:
+        one: "Benutzer"
+        other: "Benutzer"
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    errors:
+      messages:
+        email: "ist keine gültige E-Mail-Adresse"

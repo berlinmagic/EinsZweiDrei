@@ -1,0 +1,134 @@
+en:
+  enumerize:
+    defaults:
+      gender:
+        male: "Male"
+        female: "Female"
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  helpers:
+    label:
+      defaults:
+        name: "Name"
+        email: "Email"
+        description: "Description"
+        address: "Address"
+        fsm_state: "State"
+        image: "Image"
+      shared:
+        optional: "(Optional)"
+        required: "*"
+      address:
+        address: "Address"
+        street: "Street"
+        street_number: "Number"
+        zipcode: "Postalcode"
+        city: "City"
+        state: "State"
+        country: "Country"
+        use_location: "Use Address"
+        longitude: "Longitude"
+        latitude: "Latitude"
+        street_name: "Street"
+        city_name: "City"
+        country_name: "Country"
+      feedback:
+        subject: "Subject"
+        content: "Content"
+        user: "Author"
+        user_id: "Author"
+        name: "Name"
+        email: "Email"
+        current_controller: "Controller"
+        current_action: "Action"
+        current_params: "Parameter"
+      subscription:
+        email: "Email"
+        subscription_type: "Typ"
+        subscription_url: "Url"
+        user_ip: "IP-Address"
+        newsletter: "Newsletter"
+        dev_news: "Development News"
+        user: "User"
+      user:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+        new_password: "New password"
+        new_password_confirmation: "New password confirmation"
+        invitation_text: "Invitation_text"
+        name: "Name"
+        first_name: "Firstname"
+        last_name: "Lastname"
+        gender: "Gender"
+        birthday: "Birthday"
+        image: "Avatar"
+        address: "Address"
+        confirmation_token: "Confirmation token"
+        current_sign_in_at: "Last signin at"
+        last_sign_in_at: "Last signin at"
+        phone: "Phone"
+        taxpayer_identification_number: "Taxpayer identification number"
+        vat_number: "Vat number"
+        remember_me: "Remember me"
+        current_image: "Current avatar"
+        new_image: "Upload a new image"
+        age: "Age"
+        genders:
+          male: "Male"
+          female: "Female"
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    placeholder:
+      your_email: "Your email"
+      your_password: "Your Password"
+      your_name: "Your name"
+      defaults:
+        name: "Enter your name"
+      feedback:
+        content: "Please write us as detailed as possible as we can help you. We will respond promptly."
+      location_address:
+        street_additional: "Flatnumber etc."
+      spoken_language:
+        choose_language: "Choose language"
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  activemodel:
+    attributes:
+      address:
+        one: "Address"
+        other: "Addresses"
+      feedback:
+        one: "Feedback"
+        other: "Feedback"
+      subscription:
+        one: "Subscription"
+        other: "Subscriptions"
+      user:
+        one: "User"
+        other: "Users"
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    errors:
+      messages:
+        email: "is no valid email!"
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  activerecord:
+    attributes:
+      address:
+        one: "Address"
+        other: "Addresses"
+      feedback:
+        one: "Feedback"
+        other: "Feedback"
+      subscription:
+        one: "Subscription"
+        other: "Subscriptions"
+      user:
+        one: "User"
+        other: "Users"
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    errors:
+      messages:
+        email: "is no valid email!"

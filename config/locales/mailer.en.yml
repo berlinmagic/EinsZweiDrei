@@ -1,0 +1,32 @@
+en:
+  mailer_layout:
+    greatings: "Greetings,"
+    your_app_team: "Your %{app_name}-team"
+    ## additional_words .. leave blank if not needed!
+    additional_words: ""
+    ## company-footer
+    website: "Web"
+    email: "Mail"
+    tax_number: "Tax number"
+    register_court: "Register court"
+    register_number: "Register number"
+  feedback_mailer:
+    thank_you:
+      subject: "Thanks for your feedback!"
+      headline:
+        feature: "We got your functional request."
+        bug: "We got your Bug-report"
+        contact: "We got your cantact-data"
+        else: "Thanks for your feedback!"
+      text:
+        feature: "We'll check your feature request.\nPlease notice, it may take several days partly because we work with high pressure to improve the app."
+        bug: "We will try to fix this bug as soon as possible to resolve.\nMaybe our support team gets in touch with you to get further details."
+        contact: "Thank you for your kind words, a team-member will get in contact with you as soon as possible.\nPlease note, it may take several days because we work with high pressure to improve the app."
+        else: "Thank you for your kind words, a team-member will get in contact with you as soon as possible.\nPlease note, it may take several days because we work with high pressure to improve the app."
+    feedback_recieved:
+      subject: "Got your Feedback"
+  subscription_mailer:
+    thank_you:
+      subject: "Thank you for your interest"
+      headline: "Thank you for your interest"
+      text: "We have subscribed you to our newsletter and we will keep you up to date."

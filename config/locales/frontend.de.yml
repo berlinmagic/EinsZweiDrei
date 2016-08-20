@@ -1,0 +1,42 @@
+de:
+  frontend:
+    ### contact ### ### ### ### ### ### ### ### ###
+    contact:
+      headline: "Melde dich bei uns."
+      subheadline: "Unser engagiertes Team hilft dir schnell und unbürokratisch weiter."
+    ### imprint ### ### ### ### ### ### ### ### ###
+    imprint:
+      headline: "Impressum"
+      contact: "Kontakt"
+      executive_director: "Geschäftsführer"
+      register: "Handelsregister"
+      tax_number: "Steuernummer"
+    ### imprint ### ### ### ### ### ### ### ### ###
+    privacy:
+      headline: "Datenschutzerklärung"
+      intro: "Uns, der %{company_name_full}  (nachfolgend „%{app_name}“ und „wir“ genannt), ist der Schutz und die Vertraulichkeit Deiner Daten sehr wichtig. Die Erhebung und Verwendung Deiner personenbezogenen Daten erfolgt ausschließlich im Rahmen der gesetzlichen Bestimmungen des geltenden Datenschutzrechts. Wir möchten Dich mit dieser Datenschutzerklärung darüber informieren, welche personenbezogenen Daten wir erheben und zu welchem Zweck wir die Daten verwenden. Im Folgenden unterrichtet Dich %{company_name_short} über Art, Umfang und Zwecke der Erhebung und Verwendung personenbezogener Daten. Du kannst diese Unterrichtung jederzeit auf unserer Webseite abrufen."
+      responsibility:
+        headline: "Verantwortliche Stelle bzw. Kontakt"
+        intro: "Verantwortliche Stelle im Sinne der Datenschutzgesetze ist die:"
+        outro: "Solltest Du Fragen oder Anregungen zum Datenschutz haben, kannst Du Dich gerne auch per E-Mail unter der Adresse %{support_mail} an uns wenden."
+      newsletter:
+        headline: "Newsletter"
+        intro: "Newsletter erhalten Sie von uns, wenn Sie unser Vertragspartner sind oder sich für eine Zusendung registriert haben. Sie erhalten die Newsletter bis zu einem uns zugegangenen Widerruf, per Email an %{system_mail} oder postalisch an"
+      data_security:
+        headline: "Informationen zur Sicherheit der Daten"
+        text: "Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Wir sichern unsere Applikation (Software) und Webseite durch technische und organisatorische Maßnahmen gegen Verlust, Zerstörung, Zugriff, Veränderung oder Verbreitung Ihrer Daten durch unbefugte Personen ab."
+      google_analytics:
+        headline: "Google Analytics"
+        text: "%{app_name} benutzt Google Analytics, einen Webanalysedienst der Google Inc. („Google“). Google Analytics verwendet sog. „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Im Falle der Aktivierung der IP-Anonymisierung auf dieser Webseite, wird Ihre IP-Adresse von Google jedoch innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringenDie im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: %{google_link}."
+        link: "http://tools.google.com/dlpage/gaoptout?hl=de"
+      facebook:
+        headline: "Facebook-Plugins (Like-Button)"
+        text1: "Auf unseren Seiten sind Plugins des sozialen Netzwerks Facebook, 1601 South California Avenue, Palo Alto, CA 94304, USA integriert. Die Facebook-Plugins erkennen Sie an dem Facebook-Logo oder dem „Like-Button“ („Gefällt mir“) auf unserer Seite. Eine Übersicht über die Facebook-Plugins finden Sie hier: %{fb_link}."
+        text2: "Wenn Sie unsere Seiten besuchen, wird über das Plugin eine direkte Verbindung zwischen Ihrem Browser und dem Facebook-Server hergestellt. Facebook erhält dadurch die Information, dass Sie mit Ihrer IP-Adresse unsere Seite besucht haben. Wenn Sie den Facebook „Like-Button“ anklicken während Sie in Ihrem Facebook-Account eingeloggt sind, können Sie die Inhalte unserer Seiten auf Ihrem Facebook-Profil verlinken. Dadurch kann Facebook den Besuch unserer Seiten Ihrem Benutzerkonto zuordnen. Wir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Facebook erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von facebook unter %{fb_link}."
+        text3: "Wenn Sie nicht wünschen, dass Facebook den Besuch unserer Seiten Ihrem Facebook-Nutzerkonto zuordnen kann, loggen Sie sich bitte aus Ihrem Facebook-Benutzerkonto aus."
+      cookies:
+        headline: "Cookies"
+        text: "Diese Seite verwendet sog. „Cookies“, Textdateien, die auf dem Endgerät des Nutzers gespeichert werden um die Identifizierung des Endgerätes beim wiederholten Zugriff zu ermöglichen. Diese Cookies dienen zum einen der Benutzerfreundlichkeit von Webseiten und damit dem Nutzer (z.B. Speicherung von Logindaten). Zum anderen dienen sie, um die statistische Daten der Webseitennutzung zu erfassen und sie zwecks Verbesserung des Angebotes analysieren zu können. Die Nutzer können auf den Einsatz der Cookies Einfluss nehmen. Die meisten Browser verfügen eine Option mit der das Speichern von Cookies eingeschränkt oder komplett verhindert wird. Allerdings wird darauf hingewiesen, dass die Nutzung und insbesondere der Nutzungskomfort ohne Cookies eingeschränkt werden."
+      security_questions:
+        headline: "Fragen zum Datenschutz"
+        text: "Bei Fragen zum Datenschutz und Nutzungsbedingungen, wenden Sie sich bitte an %{contact_mail} oder an die in unserem %{imprint_link} genannten Stellen."

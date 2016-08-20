@@ -1,0 +1,146 @@
+de:
+  language: "Deutsch"
+
+  links:
+    ## Pages
+    start: "Start"
+    imprint: "Impressum"
+    terms: "AGB"
+    privacy: "Datenschutz"
+    contact: "Kontakt"
+    ## Links
+    signup_for_free: "kostenlos registrieren"
+
+  buttons:
+    back: "Zurück"
+    save: "Speichern"
+    send: "Senden"
+    delete: "Löschen"
+    cancel: "Abbrechen"
+    close: "Schliessen"
+    continue: "Weiter"
+    edit: "Bearbeiten"
+    edit_stuff: "%{stuff} bearbeiten"
+    new_stuff: "%{stuff} anlegen"
+    delete_stuff: "%{stuff} löschen"
+    share_on: "Auf %{provider} teilen"
+    more_info: "mehr Informationen"
+    choose_image: "Bild vom Computer wählen"
+    subscribe: "Anmelden"
+
+  prompts:
+    choose: "Bitte Wählen"
+
+  forms:
+    headlines:
+      new: "%{model} erstellen"
+      edit: "%{model} bearbeiten"
+
+  titles:
+    start: "Start"
+    imprint: "Impressum"
+    terms: "AGB"
+    privacy: "Datenschutz"
+    contact: "Kontakt"
+
+  messages:
+    please_select: "Bitte Wählen"
+    create_success: "%{model} wurde erfolgreich erstellt."
+    update_success: "%{model} wurde erfolgreich aktualisiert."
+    delete_success: "%{model} wurde gelöscht."
+    create_error: "Konnte %{model} nicht erstellen!"
+    update_error: "Konnte %{model} nicht aktualisieren!"
+    delete_error: "Konnte %{model} nicht löschen!"
+    confirm_deletion: "Sind Sie sicher, das Sie %{model} löschen wollen?"
+    attention: "ACHTUNG!"
+    dev_notice_info: "Diese Seite ist nur eine Demo."
+    dev_notice_use_domain: "Bitte nutzen Sie:&nbsp; %{link}"
+    membership_inactive: "Dein Profil wurde noch nicht freigeschaltet!"
+    not_present: "Nicht vorhanden"
+    needs_approval: "Wird geprüft"
+    accepted: "Akzeptiert"
+    declined: "Nicht akzeptable"
+    sending: "Wird gesendet .."
+    saving: "Wird gespeichert ..."
+    loading: "Lade .."
+    locale_changed: "Sprache wurde gewechselt."
+
+  payment_methods:
+    paypal: "Paypal"
+
+  words:
+    gender: "Geschlecht"
+    membership: "Mitgliedschaft"
+    "no": "Nein"
+    or: "oder"
+    security: "Sicherheit"
+    settings: "Einstellungen"
+    "yes": "Ja"
+    "true": "Ja"
+    "false": "Nein"
+
+  genders:
+    male: "Männlich"
+    female: "Weiblich"
+
+  polite_salutation:
+    short:
+      male: "Hr."
+      female: "Fr."
+    full:
+      male: "Herr"
+      female: "Frau"
+
+  time:
+    formats:
+      compact: '%d.%m.%Y - %H:%M'
+      calendar: '%d.%m.%Y - %H:%M'
+      date: "%d.%m.%Y"
+      time: "%H:%M"
+      fime_full: "%H:%M Uhr"
+      day: "%A"
+      day_short: "%a"
+      nice_date: "%d.%b. %Y"
+      nice_date_full: "%a. %d.%b. %Y"
+
+  time_counter:
+    days:
+      one: "Tag"
+      other: "Tage"
+    hours:
+      one: "Stunde"
+      other: "Stunden"
+    minutes:
+      one: "Minute"
+      other: Minuten
+
+  seo:
+    description: "Delicious, healthy food for your office"
+    keywords:
+      - nutritious food
+      - healthy food
+      - happy office
+
+  subscriptions:
+    form:
+      headline: "Wir arbeiten mit hochdruck daran unseren Service fertig zu stellen"
+      text: "Du möchtest informiert werden wann wir in Deiner Stadt verfügbar sind?"
+      subscribe_now: "Dann melde Dich jetzt unverbindlich an."
+    messages:
+      no_mail: "Hmm.. sieht so aus, als hättest Du vergessen, Deine E-Mailadresse einzugeben."
+      invalid_mail: "Bitte gib eine korrekte E-Mailadresse an, damit wir Dich zum Start informieren können."
+      already_in: "Sieht so aus, als hättest Du Dich bereits angemeldet.<br/>Wir haben Dich nicht vergessen und informieren Dich, sobald wir starten!"
+      created_successfully: "Wir haben Deine Daten gespeichert! Wir schreiben Dir, sobald wir starten."
+    success:
+      headline: "Vielen Dank für Dein Interesse!"
+      text: "Wir werden Dich Informieren, sobald es losgeht."
+
+  newsletters:
+    form:
+      headline: "Keine Neuigkeiten mehr verpassen"
+      intro: "Abonniere unseren kostenlosen Newsletter"
+      or_follow: "oder folge uns"
+      no_spam: "P.s.: Keine Angst. Wir werden dir niemals Spam senden! Der Newsletter kann natürlich jederzeit abbestellt werden."
+
+  addresses:
+    no_address_given: "Keine Addresse vorhanden"
