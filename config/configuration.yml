@@ -1,0 +1,153 @@
+# encoding: utf-8
+## App and Company
+app_name:           "DomiDennis"
+domain:             "example.com"
+domain_nice:        "www.example.com"
+phone:              "030 / 000 000 000"
+call_us:            "493000000000"
+mail_support:       "support@example.com"
+mail_admin:         "admin@example.com"
+mail_system:        "hello@example.com"
+mail_enquiries:     "anfragen@example.com"
+###
+company_pass:       "xxx_company_pass"
+monit_username:     "xxx_monit_User"
+monit_password:     "xxx_monit_Pass"
+###
+
+
+## Imprint
+company_name:       "Company UG"
+company_name_full:  "Company UG (haftungsbeschränkt)"
+company_name_short: "Company"
+company_director:   "Max Muster"
+company_mail:       "company@example.com"
+company_street:     "Papierstr."
+company_number:     "13"
+company_zip:        "10245"
+company_city:       "Berlin"
+company_country:    "Deutschland"
+company_ustid:      "XX/XXX/XXXXX"
+company_court:      "AG XXXXX"
+company_hrb:        "HRB XXXXXX"
+
+# Contact
+contact_mail_company: "company@example.com"
+contact_mail_press:   "press@example.com"
+
+## Title
+app_name_in_title: "after"
+title_seperator: "|"
+
+## Translations / I18n
+app_ready_for_translation: false
+
+## Calendar
+calendar_min_time:      "06"
+calendar_max_time:      "22"
+calendar_min_duration:  2
+calendar_max_duration:  8
+lead_time:              24
+
+
+## Provider and Methods
+# in User Modell
+devise_provider: [] # i.e.: [:facebook, :google_oauth2]
+# Account and other Forms
+payment_methods: [] # i.e.: ['paypal']
+sign_up_methods: [] # i.e.: ['facebook', 'google_oauth2']
+sign_in_methods: [] # i.e.: ['facebook', 'google_oauth2']
+
+
+## S.E.O. .. defaults
+meta_keywords:      ""
+meta_description:   ""
+## SiteMap - Defaults - (i.e. FrontEnd)
+sitemap_last_changed: "2016-08-20"
+sitemap_changefreq:   "weekly"
+sitemap_priority:     "0.5"
+
+
+password_min_length:  8
+password_max_length:  65
+
+
+mailer:
+  ## App Mailer
+  server:     'xxx_Mail_server'
+  user_name:  'xxx_Mail_user'
+  password:   'xxx_Mail_password'
+  port:       25
+
+## Social-Links (Company-Links)
+socials:
+  facebook:   "http://facebook.com/xxx_PATH"
+  google:     "https://plus.google.com/xxx_PATH"
+  twitter:    "https://twitter.com/xxx_PATH"
+
+
+###
+### External Services
+###
+inform_slack:           false
+slack_token:            "xxx_slack_token"
+slack_channel:          "#xxx_slack_channel"
+###
+rollbar_server_token:   "xxx_rollbar_server_token"
+rollbar_client_token:   "xxx_rollbar_client_token"
+###
+google_analytics_key:   'xxx_google_analytics_key'
+google_webmaster_key:   'xxx_google_webmaster_key'
+###
+facebook_id:            'xxx_Facebook_ID'
+facebook_secret:        'xxx_Facebook_SECRET'
+# # #
+google_id:              'xxx_Google_ID'
+google_secret:          'xxx_Google_SECRET'
+
+
+##################################################################################################################
+##################################################################################################################
+## E N V I R O N M E N T - K E Y S
+##################################################################################################################
+development:
+  host:     "localhost"
+  port:     "3000"
+  protocol: "http"
+##################################################################################################################
+test:
+  host:     "lvh.me"
+  port:     "3009"
+  protocol: "http"
+##################################################################################################################
+staging:
+  host:     "staging.example.com"
+  protocol: "http"
+  ###
+  # inform_slack: true
+  ###
+  google_analytics_key:   'xxx_google_analytics_key'
+  google_webmaster_key:   'xxx_google_webmaster_key'
+  ###
+  facebook_id:            'xxx_Facebook_ID'
+  facebook_secret:        'xxx_Facebook_SECRET'
+  # # #
+  google_id:              'xxx_Google_ID'
+  google_secret:          'xxx_Google_SECRET'
+##################################################################################################################
+production:
+  host:     "live.example.com"
+  protocol: "http"
+  ###
+  # inform_slack: true
+  ###
+  google_analytics_key:   'xxx_google_analytics_key'
+  google_webmaster_key:   'xxx_google_webmaster_key'
+  ###
+  facebook_id:            'xxx_Facebook_ID'
+  facebook_secret:        'xxx_Facebook_SECRET'
+  # # #
+  google_id:              'xxx_Google_ID'
+  google_secret:          'xxx_Google_SECRET'
+##################################################################################################################
+##################################################################################################################

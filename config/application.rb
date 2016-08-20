@@ -6,6 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# load app configuration
+app_yaml_data = YAML.load(File.read(File.expand_path('../configuration.yml', __FILE__)))
+CONFIG = HashWithIndifferentAccess.new(app_yaml_data)
+CONFIG.merge! CONFIG.fetch(Rails.env, {})
+
+
 module DomiDennis
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -22,5 +28,27 @@ module DomiDennis
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    ## additional Assets
+    config.assets.precompile += %w( plugins/highcharts_custom.js )
+    config.assets.precompile += %w( email.css )
+
+    ## TimeZone
+    config.time_zone = 'Berlin'
+
+    ## default locale
+    config.i18n.default_locale = :de
+
+    ## rewrite gem layout and helper
+    config.to_prepare do
+      Devise::Mailer.helper "application"
+      Devise::Mailer.layout "mailer"
+      ## change layout in all controller:
+      # DeviseController.layout proc { |controller| controller.request.xhr? ? 'xhr' : "application" }
+      ## change layout in single controllers:
+      # Devise::SessionsController.layout proc { |controller| controller.request.xhr? ? 'xhr' : "application" }
+      # Devise::RegistrationsController.layout proc { |controller| controller.request.xhr? ? 'xhr' : "application" }
+    end
+
   end
 end

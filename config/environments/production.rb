@@ -76,4 +76,22 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Devise and Mailing in general
+  config.action_mailer.default_url_options = { host: CONFIG[:host] }
+  
+  # Mailer-Method
+  config.action_mailer.delivery_method = :smtp
+  
+  # APP-Mailer
+  config.action_mailer.smtp_settings = {
+    user_name:            CONFIG[:mailer][:user_name],
+    password:             CONFIG[:mailer][:password],
+    address:              CONFIG[:mailer][:server],
+    port:                 CONFIG[:mailer][:port],
+    domain:               CONFIG[:host],
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
+  
 end
