@@ -15,3 +15,28 @@
 /log/*
 !/log/.keep
 /tmp
+
+##
+##  Additional stuff, added by App_Generator:
+##  Uncommit whats needed for you:
+##
+
+# Ignore database yaml file (for security reasons)
+# /config/database.yml
+
+# Ignore Redis Dumb
+dump.rdb
+
+# Ignore compiled assets
+/public/assets
+
+# ignore dragonfly dev images
+/public/system/dragonfly
+
+# Ignore app npm modules
+# /node_modules
+
+# Ignore OSX-Stuff
+.DS_Store
+*.DS_Store
+**/.DS_Store
