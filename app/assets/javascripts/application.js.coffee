@@ -1,7 +1,7 @@
 #= require jquery
 ## require jquery_ujs
 #= require magic/ext/rails-ujs
-## require jquery-ui
+#= require jquery-ui
 
 ## require i18n
 ## require i18n/translations
@@ -38,6 +38,22 @@ if typeof String::trim == 'undefined'
 
 
 $ ->
+
+  $( "#sortable" ).sortable
+    items: "> .sortable_row"
+    placeholder: "ui-state-highlight"
+    update: ( event, ui ) ->
+      console.log $('#sortable').sortable( "serialize", { key: "sort" } )
+      console.log $('#sortable').sortable( "toArray" )
+      $.ajax
+        method: "POST"
+        url: "/admin/questions/sort.js"
+        data: {sort: JSON.stringify( $('#sortable').sortable( "toArray" ) )}
+        error: ( jqXHR, textStatus, errorThrown ) ->
+          console.log "Error sorting list !"
+        success: ( data, textStatus, jqXHR ) ->
+          console.log "Success sorting list !"
+  $( "#sortable" ).disableSelection()
 
   $("body").on "click", "#rightAside .close", (e) ->
     e.preventDefault()

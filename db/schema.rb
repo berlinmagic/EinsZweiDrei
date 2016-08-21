@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820150623) do
+ActiveRecord::Schema.define(version: 20160821093841) do
 
   create_table "authentications", force: :cascade do |t|
     t.string   "email"
@@ -236,6 +236,17 @@ ActiveRecord::Schema.define(version: 20160820150623) do
   end
 
   add_index "mgclang_locales", ["iso_code"], name: "index_mgclang_locales_on_iso_code", unique: true
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "position"
+    t.text     "text"
+    t.string   "answer1"
+    t.string   "answer2"
+    t.string   "answer3"
+    t.integer  "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "email"

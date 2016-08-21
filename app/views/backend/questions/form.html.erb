@@ -1,0 +1,91 @@
+<div class="section head blank">
+  <div class="corset full">
+    
+    <h1><small>Admin |</small> <%= t("forms.headlines.#{params[:action]}", model: t("activerecord.attributes.question.one")) %></h1>
+    
+  </div>
+</div>
+
+<div class="section">
+  <div class="corset left_text">
+    
+    <%= form_for([:admin, @question], html: {class: "#{ request.xhr? ? 'form modal-form' : 'form box'}", autocomplete: :off}) do |f| %>
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :text %>
+        </div>
+        <div class="line-field">
+          <%= f.text_area :text, class: "form-control", placeholder: "Frage eingeben .." %>
+        </div>
+      </div>
+      
+      <br/>
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :answer1 %>
+        </div>
+        <div class="line-field">
+          <%= f.text_field :answer1, class: "form-control", placeholder: "Antwort eingeben ..." %>
+        </div>
+      </div>
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :answer2 %>
+        </div>
+        <div class="line-field">
+          <%= f.text_field :answer2, class: "form-control", placeholder: "Antwort eingeben ..." %>
+        </div>
+      </div>
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :answer3 %>
+        </div>
+        <div class="line-field">
+          <%= f.text_field :answer3, class: "form-control", placeholder: "Antwort eingeben ..." %>
+        </div>
+      </div>
+      
+      <br/>
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :result %>
+        </div>
+        <div class="line-field">
+          <div class="row">
+            <% [1,2,3].each do |cnt| %>
+              <div class="col-sm-4">
+                <div class="input-group labeled">
+                  <div class="input-group-addon">
+                    <%= f.radio_button :result, cnt, id: "result_radio_#{cnt}" %>
+                  </div>
+                  <label for="result_radio_<%= cnt %>" class="form-control">
+                    Antwort <%= cnt %>
+                  </label>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <hr/>
+
+      
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.submit t("buttons.save"), data: {disable_with: t("messages.saving")}, class: "btn btn-brand btn-block" %>
+        </div>
+        <div class="col-xs-6">
+          <%= link_to t("buttons.back"), admin_questions_path, class: "btn btn-default btn-block" %>
+        </div>
+      </div>
+      
+    <% end %>
+    
+  </div>
+</div>

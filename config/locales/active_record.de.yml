@@ -57,6 +57,12 @@ de:
         current_controller: "Controller"
         current_action: "Action"
         current_params: "Parameter"
+      question:
+        text: "Frage"
+        answer1: "Antwort 1"
+        answer2: "Antwort 2"
+        answer3: "Antwort 3"
+        result: "Lösung"
       subscription:
         email: "E-Mail"
         subscription_type: "Typ"
@@ -117,6 +123,9 @@ de:
       feedback:
         one: "Feedback"
         other: "Feedback"
+      question:
+        one: "Frage"
+        other: "Fragen"
       subscription:
         one: "Abonnement"
         other: "Abonnements"
@@ -137,6 +146,9 @@ de:
       feedback:
         one: "Feedback"
         other: "Feedback"
+      question:
+        one: "Frage"
+        other: "Fragen"
       subscription:
         one: "Abonnement"
         other: "Abonnements"

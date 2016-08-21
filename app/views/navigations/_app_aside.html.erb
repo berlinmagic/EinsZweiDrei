@@ -16,6 +16,12 @@
       <div class="icn"><%= icon("meter") %></div>
       <div class="labl">Überblick</div>
     <% end %>
+    
+    
+    <%= link_to app_questions_path, class: "aside_lnk #{'current' if current_page?(app_root_path)}" do  %>
+      <div class="icn"><%= btricn("cap-academic") %></div>
+      <div class="labl">Fragen</div>
+    <% end %>
 
 
   </div>

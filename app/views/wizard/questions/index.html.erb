@@ -1,0 +1,141 @@
+<div class="section head blank">
+  <div class="corset full">
+    
+    <div class="row">
+      <div class="col-xs-7 col-md-3 col-lg-3">
+        <h1><small>Admin |</small> <%= t("activerecord.attributes.question.other") %></h1>
+      </div>
+      <div class="col-xs-5 col-md-3 col-lg-3 col-md-offset-6">
+        <div class="inpt-splited no-press input-sm">
+          <span class="icn"><%= icon("search") %></span>
+          <div class="inpt">
+            <input placeholder="Search" type="text" id="search_wizard_table" class="form-control no-press" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+<% if 3 == 4 %>
+<div class="section">
+  <div class="corset">
+    
+    <table class="table table-middled table-left table-lined">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t("helpers.label.question.text") %></th>
+          <th class="right_text">
+            <%= link_to new_admin_question_path, class: "btn btn-success btn-blank btn-sm" do %>
+              <%= icon("plus") %> New
+            <% end %>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="wizard_table_body" id="sortable">
+        <% @questions.each do |question| %>
+          <tr data-name="<%= question.text %>" data-answer1="<%= question.answer1 %>" data-answer2="<%= question.answer2 %>" data-answer3="<%= question.answer3 %>" class="sortable_row" id="<%= question.id %>">
+            <td><%= olicon("sort") %></td>
+            <td>
+              <%= question.text %>
+            </td>
+            <td class="right_text">
+              <%= link_to icon("pencil"), edit_admin_question_path(question), class: "btn btn-default btn-sm", title: t("buttons.edit") %>
+              |
+              <%= link_to icon("close"), admin_question_path(question), class: "btn btn-danger btn-blank btn-sm", method: :delete, data: { confirm: t("messages.confirm_deletion", model: "#{t("activerecord.attributes.question.one")} '#{question.text}'") }, title: t("buttons.delete") %>
+            </td>
+          </tr>
+        <% end %>
+        <% if @questions.empty? %>
+          <tr>
+            <th class="center_text" colspan="3">
+              <br/>
+              <p class="loud"><%= t("messages.empty_collection", model: t("activerecord.attributes.question.other")) %></p>
+              <hr class="half" />
+              <%= link_to new_admin_question_path, class: "btn btn-brand btn-width" do %>
+                <%= t("buttons.new_stuff", stuff: t("activerecord.attributes.question.one")) %>
+              <% end %>
+              <div class="clearfix"></div>
+              <br/>
+            </th>
+          </tr>
+        <% end %>
+        
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+<% end %>
+
+<% sortCol    = "col-xs-1" %>
+<% textCol    = "col-xs-8" %>
+<% actionCol  = "col-xs-3 right_text" %>
+
+
+<div class="section flat dark">
+  <div class="corset full">
+    <div class="box table-header-box padded">
+      <div class="row form no-press">
+        <div class="<%= sortCol %>">
+          <%= olicon("sort") %>
+        </div>
+        <div class="<%= textCol %>">
+          <%= btricon("cap-academic") %> Frage
+        </div>
+        <div class="<%= actionCol %>">
+          <%= link_to new_admin_question_path, class: "btn btn-success btn-blank btn-sm" do %>
+              <%= icon("plus") %> New
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section sctn-xs">
+  <div class="corset full left_text wizard_table_body" id="sortable">
+    
+    
+    <% @questions.each do |question| %>
+      
+      
+      <div class="box task-box padded sortable_row" data-name="<%= question.text %>" data-answer1="<%= question.answer1 %>" data-answer2="<%= question.answer2 %>" data-answer3="<%= question.answer3 %>" class="sortable_row" id="<%= question.id %>">
+        
+        <div class="row form no-press">
+          
+          <div class="<%= sortCol %>">
+            <%= olicon("sort") %>
+          </div>
+          <div class="<%= textCol %>">
+            <strong><%= question.text %></strong>
+          </div>
+          
+          <div class="<%= actionCol %>">
+            <%= link_to icon("pencil"), edit_admin_question_path(question), class: "btn btn-default btn-sm", title: t("buttons.edit") %>
+            |
+            <%= link_to icon("close"), admin_question_path(question), class: "btn btn-danger btn-blank btn-sm", method: :delete, data: { confirm: t("messages.confirm_deletion", model: "#{t("activerecord.attributes.question.one")} '#{question.text}'") }, title: t("buttons.delete") %>
+          </div>
+          
+        </div>
+      </div>
+      
+    <% end %>
+    
+    
+    
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="corset">
+    
+    <% 5.times do %><br/><% end %>
+    
+  </div>
+</div>

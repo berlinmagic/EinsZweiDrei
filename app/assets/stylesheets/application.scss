@@ -4,6 +4,7 @@
 @import "magic/icons/icomoon";
 // @import "magic/icons/magicons";
 @import "magic/icons/orderlifticons";
+@import "magic/icons/bettericons";
 
 // load elements
 // @import "magic/elements/circle_diagram";
@@ -66,6 +67,15 @@ table.fullpage {
     tr:first-child { height: 100%; }
 }
 
+.seventy { width: 70%; margin-left: auto; margin-right: auto; }
+
+.ui-state-highlight, .ui-state-highlight > * {
+    display: block; position: relative;
+    background: transparentize( $brand-color, .75);
+    height: 50px;
+    border: dashed 1px #c00;
+    margin: 0 0 10px;
+}
 
 
 .section.cutted { overflow: hidden; }

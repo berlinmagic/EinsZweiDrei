@@ -1,9 +1,15 @@
 <div class="banner-box responsive-hero banner-page">
   
   <div class="banner-content">
-    <div class="corset">
-      <h1 class="loud">Ihre neue Seite</h1>
-      <p class="loud no-press"><%= CONFIG[:app_name] %> Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+    <div class="corset center_text">
+      <h1 class="loud">Eins, Zwei oder Drei</h1>
+      <p class="loud no-press">.. letzte Chance vorbei!</p>
+      <% if current_user %>
+        <br/>
+        <hr class="seventy"/>
+        <br/>
+        <%= link_to "Jetzt Spielen", game_path, class: "btn btn-primary btn- btn-width btn-lg" %>
+      <% end %>
     </div>
   </div>
   

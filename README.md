@@ -37,6 +37,16 @@ All Rights belongs to [berlinmagic](https://github.com/berlinmagic) or their act
 
 ´´´ruby
 
-rails g model question position:integer text answer1 answer2 answer3 result:integer
+rails g model question position:integer text:text answer1 answer2 answer3 result:integer user:references
+
+rails g model setting blink_time:decimal stop_time:decimal interval_time:integer speed_step:integer step_time:integer step_type user:references
+
+
+# selectTime        = 1000 * 12
+# intervalTime      = 120
+# intervalStep      = 20
+# intervalStepEvery = 1000
+# currentTime       = 0
+# showTime          = 1000 * 3
 
 ´´´

@@ -25,7 +25,7 @@ SEED_USERS = [
     :sex         => "male",
     :pic         => "austin",
     :email       => "admin@berlinmagic.com",
-    :password    => "5!ievHsGThA67th"
+    :password    => "sX8Pk2FUvMT8qeS"
   },
   { # 2
     :last_name   => "Wetzel",
@@ -44,26 +44,12 @@ SEED_USERS = [
     :password    => "TqvYwCcCmtkKSaG"
   },
   { # 4
-    :last_name   => "Schindler",
-    :first_name  => "Volker",
+    :last_name   => "Kahler",
+    :first_name  => "Dennis",
     :sex         => "male",
-    :pic         => "polka",
-    :email       => "real.polka@googlemail.com",
-    :password    => "4zUaGWxdsaE!o!T"
-  },
-  { # 5
-    :last_name   => "Melzer",
-    :first_name  => "Kristin",
-    :sex         => "female",
-    :email       => "kristin@berlinmagic.com",
-    :password    => "s!8Pk2FUvMT8qeS"
-  },
-  { # 6
-    :last_name   => "Piccinini",
-    :first_name  => "Anna Maria",
-    :sex         => "female",
-    :email       => "anna@berlinmagic.com",
-    :password    => "WXe?kfW78k4qD!i"
+    # :pic         => "polka",
+    :email       => "kahler.dennis@googlmail.com",
+    :password    => "hochzeit2"
   }
 ]
 

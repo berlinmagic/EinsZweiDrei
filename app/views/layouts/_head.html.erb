@@ -23,7 +23,7 @@
 <% end %>
 
 <%# ===   App-View   === #%>
-<% if 3 == 4 %><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><% end %>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <% if 3 == 4 %>
 <%# ===   iOS-App-View   === #%>
@@ -61,11 +61,13 @@
 <meta name="msapplication-TileImage" content="<%= ico_path("ms-icon-144x144") %>">
 <meta name="theme-color" content="#ffffff">
 
-
-<%# ===   Google - Maps   === #%>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&language=<%= I18n.locale %>"></script>
+<% if 3 == 4 %>
+  <%# ===   Google - Maps   === #%>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&language=<%= I18n.locale %>"></script>
+<% end %>
 
 <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300,100' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
 
 <% if app_styles == "yeah" %>
   <% if turbo_links == "yeah" %>

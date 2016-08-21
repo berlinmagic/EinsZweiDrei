@@ -43,6 +43,11 @@ Rails.application.routes.draw do
     # =>   mount Sidekiq::Web => '/sidekiq'
     # => end
     ## resources
+    
+    resources :questions do
+      post :sort, on: :collection
+    end
+    
     resources :users do
       member do
         get :make_admin
@@ -68,6 +73,11 @@ Rails.application.routes.draw do
   ## App (logged in)
   ###### ###### ######
   scope :app, module: :backend, as: :app do
+    
+    resources :questions do
+      post :sort, on: :collection
+    end
+    
     ## users
     resources :users do
       member do

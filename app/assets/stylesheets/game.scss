@@ -1,0 +1,132 @@
+@import "bourbon";
+
+html, body {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    position: relative;
+    font-family: 'Concert One', cursive;
+}
+
+
+// $gelb: #ffff00;
+// $blau: #4282d3;
+// $lila: #b40094;
+// $rot:  #f80012;
+
+
+$gelb:          #ffdd00;
+$blau:          #0d56a6;
+$rot:           #ff1300;
+
+$gelb-light:    #ffe540;
+$blau-light:    #4168d3;
+$rot-light:     #ff4e40;
+
+$gelb-dark:     #bfac30;
+$blau-dark:     #274f7d;
+$rot-dark:      #bf3a30;
+
+
+
+$nmbrClr: rgba(255,255,255,.75);
+
+span {
+    display: inline-block; position: relative;
+    $size: 180px;
+    width: $size; height: $size;
+    line-height: $size - 10;
+    border-radius: 500px;
+    
+    // font-weight: normal;
+    // font-family: sans-serif;
+    //font-family: 'Concert One', cursive;
+    
+    font-size: 150px;
+    color: $nmbrClr;
+    border: solid 15px $nmbrClr;
+    margin: auto auto;
+    
+    $darkFaktor: .42;
+    
+    @include radial-gradient( rgba(255,255,255, .11), rgba(0,0,0, $darkFaktor) );
+    // @include radial-gradient( rgba(0,0,0, .01), rgba(0,0,0, .35) );
+    
+    box-shadow: 0 0 5px 5px rgba(0,0,0, $darkFaktor);
+    text-shadow: 0 0 5px rgba(0,0,0, $darkFaktor);
+    
+    // &.gelb { background: $gelb; }
+    // &.blau { background: $blau; }
+    // &.lila { background: $rot; }
+}
+
+
+table.fullpage {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    td {
+        height: 100%;
+        width: 33.3%;
+        padding: 10px;
+        background: #313186;
+        background: #3f2d84;
+        
+        &#field-1 { background: $rot; }
+        &#field-2 { background: $gelb; }
+        &#field-3 { background: $blau; }
+        
+        &#field-1, &#field-2, &#field-3 { 
+            &.gelb { background: $gelb; }
+            &.blau { background: $blau; }
+            &.lila { background: $rot; }
+            
+            // standard
+            &.gs { background: $gelb       ;}
+            &.bs { background: $blau       ;}
+            &.rs { background: $rot        ;}
+            // light
+            &.gl { background: $gelb-light ;}
+            &.bl { background: $blau-light ;}
+            &.rl { background: $rot-light  ;}
+            // dark
+            &.gd { background: $gelb-dark  ;}
+            &.bd { background: $blau-dark  ;}
+            &.rd { background: $rot-dark   ;}
+            
+            
+            
+            
+            
+            
+            &.stoped { background: #313186; }
+            &.stoped { 
+                background: #777;
+                span {
+                    color: rgba(255,255,255,.42);
+                    border-color: rgba(255,255,255,.23);
+                    // background: rgba(255,255,255,.13);
+                }
+            }
+        }
+        
+        // &.stoped {
+        //     background: #313186;
+        //     span {
+        //         color: rgba(255,255,255,.23);
+        //         border-color: rgba(255,255,255,.23);
+        //         background: rgba(255,255,255,.13);
+        //     }
+        // }
+    }
+    th { height: 50px; font-size: 18px; }
+    tr:first-child { height: 100%; }
+    border-spacing: 3px;
+    border-collapse: separate;
+    // border-collapse: collapse;
+}
+
+
+
+
+
+

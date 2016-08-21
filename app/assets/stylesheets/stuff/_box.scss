@@ -132,23 +132,21 @@
             padding: 0 20px 20px;
         }
         
-        &.padded {
-            padding: 5px; line-height: $line-height-computed * 2; color: #999;
-            
-            &.active {
-                box-shadow: 0 1px 1px transparentize($brand-color, .58);
-                font-weight: bold;
-            }
-        }
-        
-        
-        
         
         &.in, &.on {
             & > .header {
                 // border-bottom: solid 1px $main-border-color;
                 font-weight: 600;
             }
+        }
+    }
+    
+    &.padded {
+        padding: 5px; line-height: $line-height-computed * 2; color: #999;
+        
+        &.active {
+            box-shadow: 0 1px 1px transparentize($brand-color, .58);
+            font-weight: bold;
         }
     }
     

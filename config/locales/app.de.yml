@@ -64,6 +64,7 @@ de:
     saving: "Wird gespeichert ..."
     loading: "Lade .."
     locale_changed: "Sprache wurde gewechselt."
+    empty_collection: "Bisher sind keine %{model} vorhanden, erstelle die jetzt erste!"
 
   payment_methods:
     paypal: "Paypal"
@@ -117,9 +118,9 @@ de:
   seo:
     description: "Delicious, healthy food for your office"
     keywords:
-      - nutritious food
-      - healthy food
-      - happy office
+      - Eins
+      - Zwei
+      - Drei
 
   subscriptions:
     form:
