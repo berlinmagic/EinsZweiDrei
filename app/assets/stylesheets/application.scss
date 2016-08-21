@@ -36,11 +36,15 @@
 
 
 html, body {
-    width: 100%; height: 100%;
     margin: 0; padding: 0;
     font-family: $sansFontFamily;
 }
 
+
+body {
+    width: 100%; height: 100%;
+    position: relative;
+}
 
 @import "stuff/aside";
 @import "stuff/banner";
@@ -48,6 +52,19 @@ html, body {
 @import "stuff/buttons";
 @import "stuff/pix";
 
+
+
+table.fullpage {
+    height: 100%;
+    width: 100%;
+    td {
+        height: 100%;
+        width: 33.3%;
+        background: #ccc;
+    }
+    th { height: 40px; }
+    tr:first-child { height: 100%; }
+}
 
 
 

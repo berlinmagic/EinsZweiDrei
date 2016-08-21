@@ -20,6 +20,10 @@ class FrontendController < ApplicationController
       redirect_to root_path, alert: "Page not found!"
     end
   end
+  
+  def game
+    render "frontend/game", layout: "game"
+  end
 
   private
 

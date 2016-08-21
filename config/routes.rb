@@ -91,6 +91,8 @@ Rails.application.routes.draw do
   
   root 'frontend#start'
   
+  get "/game" => "frontend#game", as: :game
+  
   
   get "/sitemap", constraints: { format: /html|txt/ }, controller: :sitemap, action: :text
   get "/sitemap", constraints: { format: :xml },       controller: :sitemap, action: :xml

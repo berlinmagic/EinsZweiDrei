@@ -32,6 +32,8 @@ module DomiDennis
     ## additional Assets
     config.assets.precompile += %w( plugins/highcharts_custom.js )
     config.assets.precompile += %w( email.css )
+    config.assets.precompile += %w( game.css )
+    config.assets.precompile += %w( game.js )
 
     ## TimeZone
     config.time_zone = 'Berlin'
