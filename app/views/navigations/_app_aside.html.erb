@@ -13,12 +13,12 @@
     <%= render "navigations/shared/user_aside_lnk" %>
     
     
-    <% if 3 == 4 %>
+    <%# if 3 == 4 %>
       <%= link_to app_root_path, class: "aside_lnk #{'current' if current_page?(app_root_path)}" do  %>
         <div class="icn"><%= icon("meter") %></div>
         <div class="labl">Überblick</div>
       <% end %>
-    <% end %>
+    <%# end %>
     
     
     <%= link_to app_questions_path, class: "aside_lnk #{'current' if params[:controller] == "backend/questions"}" do  %>

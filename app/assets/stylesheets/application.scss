@@ -144,6 +144,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { margin-top: 0; }
 h1, h2, h3, h4, h5, h6 { font-weight: 300; color: #222; }
 
 
+table.table {
+    span.loud { display: inline-block; }
+}
+
 .layout-table.lined {
     .cell {
         border-right: solid 1px $main-border-color;

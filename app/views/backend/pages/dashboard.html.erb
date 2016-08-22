@@ -4,7 +4,48 @@
   </div>
 </div>
 
-<div class="section">
+<div class="section sctn-sm">
+  <div class="corset">
+    
+    <h3>Benutzung:</h3>
+    <p>Das Spiel wird über Tastatur gesteuert. Um im Spiel loszulegen 'weiter' drücken.</p>
+    
+    <table class="table table-no-head table-left table-striped table-middled">
+      <thead>
+        <tr>
+          <th>Aktion</th>
+          <th>Mögliche Tasten</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>weiter</td>
+          <td>
+            <div class="clearfix"></div>
+            <%= raw %w(space enter pfeil-rechts pfeil-unten num-2 num-6).map{|key| raw("<span class='label label-default label-blank loud'>#{key}</span>") }.join(" | ") %>
+            <div class="clearfix"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>zurück</td>
+          <td>
+            <%= raw %w(backspace left up page-up num-4 num-8).map{|key| raw("<span class='label label-default label-blank loud'>#{key}</span>") }.join(" | ") %>
+          </td>
+        </tr>
+        <tr>
+          <td>Abbrechen</td>
+          <td>
+            <%= raw %w(escape).map{|key| raw("<span class='label label-default label-blank loud'>#{key}</span>") }.join(" | ") %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+  </div>
+</div>
+
+<div class="section sctn-sm">
   <div class="corset full">
     <div class="layout-table grid half-press">
       <div class="cell col-6">
@@ -57,3 +98,10 @@
 </div>
 
 
+<div class="section">
+  <div class="corset full">
+    
+    <br/>
+    
+  </div>
+</div>
