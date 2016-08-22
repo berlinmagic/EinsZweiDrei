@@ -74,3 +74,15 @@ $file_input_size: 120px;
 		height: 1px;
 	}
 }
+
+
+#settings_form {
+    .form-line {
+        margin: 0 0 30px;
+        .line-hint {
+            padding: 0 10px;
+            font-weight: 300;
+            color: #888;
+        }
+    }
+}

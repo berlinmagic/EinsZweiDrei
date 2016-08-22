@@ -4,7 +4,8 @@ class Backend::QuestionsController < Backend::BaseController
   before_action :fetch_resource, only: [ :show, :edit, :update, :destroy ]
   
   def index
-    @questions = Question.all
+    # @questions = Question.all
+    @questions = current_user.questions.all
   end
   
   def show
@@ -16,7 +17,7 @@ class Backend::QuestionsController < Backend::BaseController
   end
   
   def create
-    @question = ::Question.new( resource_params )
+    @question = ::Question.new( resource_params.merge( user: current_user) )
     if @question.save
       redirect_to resource_domain, notice: I18n.t("messages.create_success", model: one_name)
     else
@@ -59,11 +60,44 @@ class Backend::QuestionsController < Backend::BaseController
     render nothing: true
   end
   
+  def build_samples
+    current_user.questions.create!(
+      text:     "Wofür steht Mexico?",
+      answer1:  "Maultaschen",
+      answer2:  "Mangos",
+      answer3:  "Mayas",
+      result:   3
+    )
+    current_user.questions.create!(
+      text:     "Wie viele Tage hat ein Jahr?",
+      answer1:  "365",
+      answer2:  "366",
+      answer3:  "356",
+      result:   1
+    )
+    current_user.questions.create!(
+      text:     "Mit welcher Einheit wird elektrische Spannung gemessen?",
+      answer1:  "Watt",
+      answer2:  "Ampere",
+      answer3:  "Volt",
+      result:   3
+    )
+    current_user.questions.create!(
+      text:     "Wie viele Nullen hat eine Billiarde?",
+      answer1:  "12",
+      answer2:  "15",
+      answer3:  "18",
+      result:   2
+    )
+    redirect_to resource_domain, notice: "Beispiel Fragen wurden erstellt!"
+  end
+  
   
 private
   
     def fetch_resource
-      @question = ::Question.find( params[:id] )
+      # @question = ::Question.find( params[:id] )
+      @question = current_user.questions.find( params[:id] )
     end
     
     def resource_params

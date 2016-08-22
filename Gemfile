@@ -43,6 +43,11 @@ group :development do
 end
 
 
+
+gem 'active_model_serializers', "0.9.5"
+
+
+
 # enumerized string fields
 gem 'enumerize'
 

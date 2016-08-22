@@ -1,13 +1,55 @@
-<table class="fullpage">
+<% question = @questions.first %>
+
+<%= content_tag :div, "", id: "settings", data: { 
+                                                        selectTime: (@setting.blink_time * 1000).to_i, 
+                                                        showTime: (@setting.stop_time * 1000).to_i, 
+                                                        intervalTime: @setting.interval_time, 
+                                                        intervalStep: @setting.speed_step, 
+                                                        intervalStepEvery: @setting.step_time, 
+                                                        stepType: @setting.step_type, 
+                                                        blinkType: @setting.blink_type, 
+                                                        questions: @questions_json 
+                                                  } %>
+
+<table class="fullpage question hidden" id="question_table">
+  <tr class="fill">
+    <th colspan="3" id="q_question"></th>
+  </tr>
+  <tr>
+    <% 3.times do |x| %>
+      <% i = x + 1 %>
+      <td class="<%= i %>" id="q_answer<%= i %>"></td>
+    <% end %>
+  </tr>
+</table>
+
+<table class="fullpage blink <%= @setting.blink_type %> hidden" id="blink_table">
+  <tr>
+    <th colspan="3" id="b_question"></th>
+  </tr>
   <tr class="fill">
     <% 3.times do |x| %>
       <% i = x + 1 %>
       <td class="<%= i %>" id="field-<%= i %>">
+        <span class="answer"></span>
         <span class="number"><%= i %></span>
       </td>
     <% end %>
   </tr>
+</table>
+
+<table class="fullpage answer hidden" id="over_table">
   <tr>
-    <th colspan="3">Hoch interessante Frage ...</th>
+    <th colspan="3">
+      <% if @questions.any? %>
+        <h1>Game over!</h1>
+      <% else %>
+        <h1>Kein Fragen vorhanden!</h1>
+        <hr class="seventy" />
+        <%= link_to app_questions_path, class: "btn" do %>
+          Fragen anlegen
+        <% end %>
+      <% end %>
+    </th>
   </tr>
 </table>

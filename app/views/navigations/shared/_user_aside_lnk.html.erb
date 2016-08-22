@@ -9,6 +9,23 @@
     </div>
   </a>
   <ul class="aside_nav">
+    <% if current_user.is_wizard? && !params[:controller].match(/^backend\/.*/) %>
+      <li>
+        <%= link_to game_path do %>
+          <div class="icn"><%= btricn("figure-run-right") %></div>
+          <div class="labl">Spielen</div>
+        <% end %>
+      </li>
+      <li><%= link_to app_questions_path do %>
+        <div class="icn"><%= btricn("cap-academic") %></div>
+        <div class="labl">Fragen</div>
+      <% end %></li>
+      <li><%= link_to app_settings_path do %>
+        <div class="icn"><%= btricn("settings") %></div>
+        <div class="labl">Einstellungen</div>
+      <% end %></li>
+      <li class="divide">&nbsp;</li>
+    <% end %>
     <% if current_user.is_wizard? && !params[:controller].match(/^wizard\/.*/) %>
       <li>
         <%= link_to admin_root_path do %>
@@ -19,15 +36,12 @@
       <li class="divide">&nbsp;</li>
     <% end %>
     
-    <% Backend::UsersController::FORM_STEPS.each do |that| %>
-      <li>
-        <%= link_to edit_step_app_user_path(current_user, that), class: "#{'current' if current_page?(edit_step_app_user_path(current_user, that))}" do %>
-          <div class="icn"><%= icon("pencil") %></div>
-          <div class="labl"><%= t("edit_profile.links.#{that}") %></div>
-        <% end %>
-      </li>
-    <% end %>
-    <li class="divide">&nbsp;</li>
+    <li>
+      <%= link_to edit_step_app_user_path(current_user, "profile"), class: "#{'current' if current_page?(edit_step_app_user_path(current_user, "profile"))}" do %>
+        <div class="icn"><%= icon("pencil") %></div>
+        <div class="labl"><%= t("edit_profile.links.profile") %></div>
+      <% end %>
+    </li>
     <li>
       <%= link_to edit_step_app_user_path(current_user, "password"), class: "#{'current' if current_page?(edit_step_app_user_path(current_user, "password"))}" do %>
         <div class="icn"><%= icon("lock") %></div>

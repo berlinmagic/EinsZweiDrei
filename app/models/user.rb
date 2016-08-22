@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
   has_many  :feedbacks,       class_name: "Feedback",       foreign_key: :user_id
   has_one   :subscription,    class_name: "Subscription",   foreign_key: :user_id
   
+  has_many  :questions,       class_name: "Question",       foreign_key: :user_id
+  
+  has_one   :setting,         class_name: "Setting",        foreign_key: :user_id
+  
+  
   # has_one_address
   
   
@@ -34,8 +39,9 @@ class User < ActiveRecord::Base
   # =====> V A L I D A T I O N <============================================================= #
   
   # =====> C A L L B A C K S <=============================================================== #
-  before_save :ensure_authentication_token
+  before_save       :ensure_authentication_token
   before_validation :check_for_changes
+  before_create     :build_user_settings
   
   # =====> S C O P E S <===================================================================== #
   
@@ -76,6 +82,10 @@ class User < ActiveRecord::Base
 
   # =====>  P  R  I  V  A  T  E  !  <======================================================== # # # # # # # #
   private
+    
+    def build_user_settings
+      self.build_setting unless self.setting
+    end
     
     def check_for_changes
       self.first_name = self.first_name.to_s.strip.capitalize if self.first_name_changed?

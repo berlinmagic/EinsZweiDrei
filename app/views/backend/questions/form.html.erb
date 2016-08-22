@@ -1,7 +1,7 @@
 <div class="section head blank">
   <div class="corset full">
     
-    <h1><small>Admin |</small> <%= t("forms.headlines.#{params[:action]}", model: t("activerecord.attributes.question.one")) %></h1>
+    <h1><%= t("forms.headlines.#{params[:action]}", model: t("activerecord.attributes.question.one")) %></h1>
     
   </div>
 </div>
@@ -9,7 +9,7 @@
 <div class="section">
   <div class="corset left_text">
     
-    <%= form_for([:admin, @question], html: {class: "#{ request.xhr? ? 'form modal-form' : 'form box'}", autocomplete: :off}) do |f| %>
+    <%= form_for([:app, @question], html: {class: "#{ request.xhr? ? 'form modal-form' : 'form box'}", autocomplete: :off}) do |f| %>
       
       <div class="form-line">
         <div class="line-label">

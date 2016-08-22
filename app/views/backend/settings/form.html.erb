@@ -1,0 +1,137 @@
+<div class="section head blank">
+  <div class="corset full">
+    
+    <h1>Einstellungen bearbeiten</h1>
+    
+  </div>
+</div>
+
+<div class="section sctn-sm">
+  <div class="corset left_text">
+    
+    <%= form_for([:app, @setting], html: {class: "#{ request.xhr? ? 'form modal-form' : 'form box'}", id: "settings_form", autocomplete: :off}) do |f| %>
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :blink_time %>
+        </div>
+        <div class="line-field">
+          <%= f.text_field :blink_time, class: "form-control" %>
+        </div>
+        <div class="line-hint">
+          Zeit in der die Felder blinken (Sekunden)
+        </div>
+      </div>
+      
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :stop_time %>
+        </div>
+        <div class="line-field">
+          <%= f.text_field :stop_time, class: "form-control number_field" %>
+        </div>
+        <div class="line-hint">
+          Zeit in der die Felder still stehen (Sekunden)
+        </div>
+      </div>
+      
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :blink_type %>
+        </div>
+        <div class="line-field">
+          <%= f.select :blink_type, options_for_select(Setting::BLINK_TYPES.map{|st| [t("helpers.label.setting.blink_types.#{st}", default: st.titleize),st]}, f.object.blink_type), {prompt: t("messages.please_select")}, {class: "form-control"} %>
+        </div>
+        <div class="line-hint">
+          Geschwindigkeit änderung, wenn gewünscht
+        </div>
+      </div>
+      
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :interval_time %>
+        </div>
+        <div class="line-field">
+          <%= f.text_field :interval_time, class: "form-control" %>
+        </div>
+        <div class="line-hint">
+          Anfangs Blinkgeschwindigkeit (Millisekunden)
+        </div>
+      </div>
+      
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :step_type %>
+        </div>
+        <div class="line-field">
+          <% if 3 == 4 %>
+            <div class="row">
+              <% Setting::STEP_TYPES.each do |cnt| %>
+                <div class="col-sm-4">
+                  <div class="input-group labeled">
+                    <div class="input-group-addon">
+                      <%= f.radio_button :step_type, cnt, id: "result_radio_#{cnt}" %>
+                    </div>
+                    <label for="result_radio_<%= cnt %>" class="form-control">
+                      <%= t("helpers.label.setting.types.#{cnt}", default: cnt.titleize) %>
+                    </label>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <%= f.select :step_type, options_for_select(Setting::STEP_TYPES.map{|st| [t("helpers.label.setting.types.#{st}", default: st.titleize),st]}, f.object.step_type), {prompt: t("messages.please_select")}, {class: "form-control"} %>
+        </div>
+        <div class="line-hint">
+          Geschwindigkeit änderung, wenn gewünscht
+        </div>
+      </div>
+      
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :speed_step %>
+        </div>
+        <div class="line-field">
+          <%= f.text_field :speed_step, class: "form-control" %>
+        </div>
+        <div class="line-hint">
+          Geschwindigkeit ändern um X (Millisekunden)
+        </div>
+      </div>
+      
+      
+      <div class="form-line">
+        <div class="line-label">
+          <%= f.label :step_time %>
+        </div>
+        <div class="line-field">
+          <%= f.text_field :step_time, class: "form-control" %>
+        </div>
+        <div class="line-hint">
+          Geschwindigkeit ändern alle X (Millisekunden)
+        </div>
+      </div>
+      
+      
+
+      <hr/>
+
+      
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.submit t("buttons.save"), data: {disable_with: t("messages.saving")}, class: "btn btn-brand btn-block" %>
+        </div>
+        <div class="col-xs-6">
+          <%= link_to t("buttons.back"), app_settings_path, class: "btn btn-default btn-block" %>
+        </div>
+      </div>
+      
+    <% end %>
+    
+  </div>
+</div>

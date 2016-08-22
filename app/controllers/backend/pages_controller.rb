@@ -2,7 +2,7 @@
 class Backend::PagesController < Backend::BaseController
   
   def dashboard
-    
+    @questions = current_user.questions
   end
   
   def calendar

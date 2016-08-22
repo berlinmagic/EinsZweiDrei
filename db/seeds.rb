@@ -92,3 +92,48 @@ puts "INFO: finished USERS: #{ User.all.count }"
 puts "..."
 puts ".."
 puts "."
+
+
+
+# => puts ".."
+# => puts "..."
+# => puts "Build Questions"
+# => puts "..."
+# => 
+# => 
+# => 
+# => User.all.each do |usr|
+# =>   
+# =>   usr.questions.create!(
+# =>     text:     "Wofür steht Mexico?",
+# =>     answer1:  "Maultaschen",
+# =>     answer2:  "Mangos",
+# =>     answer3:  "Mayas",
+# =>     result:   3
+# =>   )
+# =>   usr.questions.create!(
+# =>     text:     "Wie viele Tage hat ein Jahr?",
+# =>     answer1:  "365",
+# =>     answer2:  "366",
+# =>     answer3:  "356",
+# =>     result:   1
+# =>   )
+# =>   usr.questions.create!(
+# =>     text:     "Mit welcher Einheit wird elektrische Spannung gemessen?",
+# =>     answer1:  "Watt",
+# =>     answer2:  "Ampere",
+# =>     answer3:  "Volt",
+# =>     result:   3
+# =>   )
+# =>   usr.questions.create!(
+# =>     text:     "Wie viele Nullen hat eine Billiarde?",
+# =>     answer1:  "12",
+# =>     answer2:  "15",
+# =>     answer3:  "18",
+# =>     result:   2
+# =>   )
+# =>   
+# => end
+# => 
+# => puts "..."
+# => puts "INFO: finished Questions: #{ Question.all.count }"

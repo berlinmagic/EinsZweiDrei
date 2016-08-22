@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821093841) do
+ActiveRecord::Schema.define(version: 20160821113539) do
 
   create_table "authentications", force: :cascade do |t|
     t.string   "email"
@@ -244,9 +244,27 @@ ActiveRecord::Schema.define(version: 20160821093841) do
     t.string   "answer2"
     t.string   "answer3"
     t.integer  "result"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id"
+
+  create_table "settings", force: :cascade do |t|
+    t.decimal  "blink_time",    default: 10.0
+    t.decimal  "stop_time",     default: 3.0
+    t.integer  "interval_time", default: 120
+    t.integer  "speed_step",    default: 20
+    t.integer  "step_time",     default: 1000
+    t.string   "step_type",     default: "none"
+    t.string   "blink_type",    default: "highlight"
+    t.integer  "user_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "settings", ["user_id"], name: "index_settings_on_user_id"
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "email"

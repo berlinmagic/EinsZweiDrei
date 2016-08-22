@@ -6,6 +6,10 @@ html, body {
     position: relative;
     font-family: 'Concert One', cursive;
 }
+body {
+    background: #fff image-url("123background.jpg") center center no-repeat;
+    background-size: cover;
+}
 
 
 // $gelb: #ffff00;
@@ -13,50 +17,32 @@ html, body {
 // $lila: #b40094;
 // $rot:  #f80012;
 
-
+// Standard
 $gelb:          #ffdd00;
 $blau:          #0d56a6;
 $rot:           #ff1300;
-
+// Light
 $gelb-light:    #ffe540;
 $blau-light:    #4168d3;
 $rot-light:     #ff4e40;
-
+// Dark
 $gelb-dark:     #bfac30;
 $blau-dark:     #274f7d;
 $rot-dark:      #bf3a30;
 
-
-
+// Nummer
 $nmbrClr: rgba(255,255,255,.75);
 
-span {
-    display: inline-block; position: relative;
-    $size: 180px;
-    width: $size; height: $size;
-    line-height: $size - 10;
-    border-radius: 500px;
-    
-    // font-weight: normal;
-    // font-family: sans-serif;
-    //font-family: 'Concert One', cursive;
-    
-    font-size: 150px;
-    color: $nmbrClr;
-    border: solid 15px $nmbrClr;
-    margin: auto auto;
-    
-    $darkFaktor: .42;
-    
-    @include radial-gradient( rgba(255,255,255, .11), rgba(0,0,0, $darkFaktor) );
-    // @include radial-gradient( rgba(0,0,0, .01), rgba(0,0,0, .35) );
-    
-    box-shadow: 0 0 5px 5px rgba(0,0,0, $darkFaktor);
-    text-shadow: 0 0 5px rgba(0,0,0, $darkFaktor);
-    
-    // &.gelb { background: $gelb; }
-    // &.blau { background: $blau; }
-    // &.lila { background: $rot; }
+h1, h3 {
+    margin: 0 0 20px;
+}
+h1 {
+    font-size: 60px;
+    text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 7px #fff;
+}
+h3 {
+    color: #888;
+    font-size: 34px;
 }
 
 
@@ -64,21 +50,27 @@ table.fullpage {
     height: 100%;
     width: 100%;
     text-align: center;
-    td {
+    background: rgba(255,255,255,.75);
+    tr.fill {
         height: 100%;
+        th, td { height: 100%; }
+    }
+    td, th { font-size: 34px; padding: 20px 10px; }
+    td {
         width: 33.3%;
         padding: 10px;
-        background: #313186;
-        background: #3f2d84;
+        position: relative;
+        // background: #313186;
+        // background: #3f2d84;
         
         &#field-1 { background: $rot; }
         &#field-2 { background: $gelb; }
         &#field-3 { background: $blau; }
         
         &#field-1, &#field-2, &#field-3 { 
-            &.gelb { background: $gelb; }
-            &.blau { background: $blau; }
-            &.lila { background: $rot; }
+            // &.gelb { background: $gelb; }
+            // &.blau { background: $blau; }
+            // &.lila { background: $rot; }
             
             // standard
             &.gs { background: $gelb       ;}
@@ -93,40 +85,118 @@ table.fullpage {
             &.bd { background: $blau-dark  ;}
             &.rd { background: $rot-dark   ;}
             
-            
-            
-            
-            
-            
-            &.stoped { background: #313186; }
+            // &.stoped { background: #313186; }
             &.stoped { 
                 background: #777;
                 span {
                     color: rgba(255,255,255,.42);
                     border-color: rgba(255,255,255,.23);
-                    // background: rgba(255,255,255,.13);
                 }
             }
+            
+            $darkFaktor: .42;
+            span.answer {
+                $space: 15px;
+                display: block; position: absolute;
+                top: $space; left: $space; right: $space;
+                color: $nmbrClr;
+                text-shadow: 0 0 5px rgba(0,0,0, $darkFaktor), 0 0 3px rgba(0,0,0, $darkFaktor);
+                background: rgba(0,0,0,.0);
+                padding: 5px 10px 10px;
+                border-radius: 20px;
+            }
+            span.number {
+                $size: 180px;
+                display: inline-block; position: relative;
+                width: $size; height: $size;
+                line-height: $size - 10;
+                border-radius: 500px;
+                // font-weight: normal;
+                // font-family: sans-serif;
+                //font-family: 'Concert One', cursive;
+                font-size: 150px;
+                color: $nmbrClr;
+                border: solid 15px $nmbrClr;
+                margin: auto auto;
+                
+                @include radial-gradient( rgba(255,255,255, .11), rgba(0,0,0, $darkFaktor) );
+                // @include radial-gradient( rgba(0,0,0, .01), rgba(0,0,0, .35) );
+                box-shadow: 0 0 5px 5px rgba(0,0,0, $darkFaktor);
+                text-shadow: 0 0 5px rgba(0,0,0, $darkFaktor);
+            }
+            
         }
         
-        // &.stoped {
-        //     background: #313186;
-        //     span {
-        //         color: rgba(255,255,255,.23);
-        //         border-color: rgba(255,255,255,.23);
-        //         background: rgba(255,255,255,.13);
-        //     }
-        // }
+        strong {
+            font-size: 200%;
+            small { color: green; }
+        }
+        
     }
-    th { height: 50px; font-size: 18px; }
-    tr:first-child { height: 100%; }
     border-spacing: 3px;
     border-collapse: separate;
     // border-collapse: collapse;
 }
 
 
+table.highlight {
+    td {
+        &#field-1 {
+            background: $rot-dark;
+            &.active, &.right { background: $rot; }
+            &.highlight  { background: $rot-light; }
+        }
+        &#field-2 {
+            background: $gelb-dark;
+            &.active, &.right { background: $gelb; }
+            &.highlight  { background: $gelb-light; }
+        }
+        &#field-3 {
+            background: $blau-dark;
+            &.active, &.right { background: $blau; }
+            &.highlight  { background: $blau-light; }
+        }
+        &#field-1, &#field-2, &#field-3 {
+            &.right {
+                span { color: #fff; }
+                span.answer {
+                    // @include transition(all 1s ease);
+                    background: rgba(0,0,0,.42);
+                }
+            }
+        }
+        
+    }
+}
 
+hr { margin-top: 20px; margin-bottom: 20px; }
+.seventy { width: 70%; margin-left: auto; margin-right: auto; }
+
+
+a.btn {
+    display: inline-block; position: relative;
+    text-decoration: none;
+    color: #069;
+    border: solid 1px #069;
+    padding: 10px 20px 12px;
+    border-radius: 5px;
+    &:hover, &:active, &:focus {
+        color: #fff;
+        background: #069;
+    }
+}
+
+
+
+
+#question_table {
+    td {
+        padding: 10px 10px 30px;
+    }
+}
+
+
+.hidden { display: none; }
 
 
 

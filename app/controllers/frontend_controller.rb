@@ -22,7 +22,15 @@ class FrontendController < ApplicationController
   end
   
   def game
-    render "frontend/game", layout: "game"
+    if current_user
+      @questions      = current_user ? current_user.questions : []
+      @questions_json = ActiveModel::ArraySerializer.new(@questions, each_serializer: QuestionSerializer).to_json
+      # @questions_json = ActiveModel::CollectionSerializer.new(@questions, each_serializer: QuestionSerializer).to_json
+      @setting        = current_user.setting
+      render "frontend/game", layout: "game"
+    else
+      redirect_to new_user_session_path, alert: "Bitte zuerst anmelden."
+    end
   end
 
   private

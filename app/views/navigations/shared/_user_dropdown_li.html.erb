@@ -11,13 +11,23 @@
             <%= icon("wand") %> A D M I N
           <% end %>
         </li>
+        <li role="presentation" class="divider"></li>
       <% end %>
-      <li><%= link_to app_root_path do %>
-        <i class="icomoon-meter"></i> Überblick
+      <% if 3 == 4 %>
+        <li><%= link_to app_root_path do %>
+          <i class="icomoon-meter"></i> Überblick
+        <% end %></li>
+      <% end %>
+      <li><%= link_to app_questions_path do %>
+        <%= btricn("cap-academic") %> Fragen
       <% end %></li>
+      <li><%= link_to app_settings_path do %>
+        <%= btricn("settings") %> Einstellungen
+      <% end %></li>
+      <li role="presentation" class="divider"></li>
       <% if current_user.confirmed? %>
         <li><%= link_to edit_step_app_user_path(current_user, "profile") do %>
-          <%= icon("pencil") %> Profil bearbeiten
+          <%= btricn("pencil") %> Profil bearbeiten
         <% end %></li>
       <% else %>
         <li>
@@ -27,7 +37,7 @@
       <% end %>
       <%# <li role="presentation" class="divider"></li> #%>
       <li><%= link_to destroy_user_session_path, :method => :delete do %>
-        <i class="icomoon-enter"></i> <%= t("devise.shared.links.sign_out") %>
+        <%= btricn("exit-in") %> <%= t("devise.shared.links.sign_out") %>
       <% end %></li>
     </ul>
   </div>

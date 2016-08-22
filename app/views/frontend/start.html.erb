@@ -4,11 +4,14 @@
     <div class="corset center_text">
       <h1 class="loud">Eins, Zwei oder Drei</h1>
       <p class="loud no-press">.. letzte Chance vorbei!</p>
+      
+      <br/>
+      <hr class="seventy"/>
+      <br/>
       <% if current_user %>
-        <br/>
-        <hr class="seventy"/>
-        <br/>
-        <%= link_to "Jetzt Spielen", game_path, class: "btn btn-primary btn- btn-width btn-lg" %>
+        <%= link_to "Jetzt Spielen", game_path, class: "btn btn-primary btn-width btn-lg" %>
+      <% else %>
+        <%= link_to "Zum Spielen anmelden", new_user_session_path, class: "btn btn-primary btn-blank btn-width btn-lg" %>
       <% end %>
     </div>
   </div>

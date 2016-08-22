@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     ## resources
     
     resources :questions do
-      post :sort, on: :collection
+      post  :sort,          on: :collection
     end
     
     resources :users do
@@ -75,8 +75,11 @@ Rails.application.routes.draw do
   scope :app, module: :backend, as: :app do
     
     resources :questions do
-      post :sort, on: :collection
+      post  :sort,          on: :collection
+      get   :build_samples, on: :collection
     end
+    
+    resources :settings
     
     ## users
     resources :users do

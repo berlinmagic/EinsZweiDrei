@@ -8,21 +8,48 @@
   <div class="corset full">
     <div class="layout-table grid half-press">
       <div class="cell col-6">
-        <h4 class="left_text">0 ausstehende Aufträge</h4>
+        <h4 class="left_text">Du hast <%= @questions.count %> Fragen</h4>
       </div>
       <div class="cell col-6">
-        <h4 class="left_text">0 Benachrichtigungen</h4>
+        <h4 class="left_text">Einstellungen</h4>
       </div>
     </div>
     <div class="layout-table grid lined">
       <div class="cell col-6">
-        <div class="box">
-          Bisher nix vorhanden ...
-        </div>
+        <% @questions.each do |question| %>
+          <div class="box">
+            <%= question.text %>
+          </div>
+        <% end %>
+        <% if @questions.empty? %>
+          <div class="box">
+            Bisher keine vorhanden ...
+            <br/><br/>
+            <%= link_to new_app_question_path, class: "btn btn-success btn-blank btn-sm" do %>
+              <%= icon("plus") %> Frage erstellen
+            <% end %>
+            
+            <%= link_to build_samples_app_questions_path, class: "btn btn-warning btn-blank btn-sm" do %>
+              Beispiel Fragen erstellen
+            <% end %>
+            
+          </div>
+        <% end %>
       </div>
       <div class="cell col-6">
         <div class="box">
-          Bisher nix vorhanden ...
+          <% if current_user.setting %>
+            <table class="table table-no-head">
+              <% %w(blink_time stop_time interval_time step_type speed_step step_time).each do |that| %>
+              <tr>
+                <th><%= t("helpers.label.setting.#{that}")%></th>
+                <td><%= current_user.setting[that] %></td>
+              </tr>
+              <% end %>
+            </table>
+          <% else %>
+            Bisher keine vorhanden ...
+          <% end %>
         </div>
       </div>
     </div>

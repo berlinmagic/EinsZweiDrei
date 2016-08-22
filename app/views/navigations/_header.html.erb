@@ -15,9 +15,11 @@
       <div class="collapse navbar-collapse" id="front-main-nav-colapse">
         <ul class="nav navbar-nav navbar-left">
           
+          <% if current_user%>
           <li>
             <%= link_to "Spielen", game_path %>
           </li>
+          <% end %>
           
         </ul>
         <ul class="nav navbar-nav navbar-right">

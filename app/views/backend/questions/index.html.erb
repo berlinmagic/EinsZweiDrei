@@ -3,7 +3,7 @@
     
     <div class="row">
       <div class="col-xs-7 col-md-3 col-lg-3">
-        <h1><small>Admin |</small> <%= t("activerecord.attributes.question.other") %></h1>
+        <h1><%= t("activerecord.attributes.question.other") %></h1>
       </div>
       <div class="col-xs-5 col-md-3 col-lg-3 col-md-offset-6">
         <div class="inpt-splited no-press input-sm">
@@ -30,7 +30,7 @@
           <th>#</th>
           <th><%= t("helpers.label.question.text") %></th>
           <th class="right_text">
-            <%= link_to new_admin_question_path, class: "btn btn-success btn-blank btn-sm" do %>
+            <%= link_to new_app_question_path, class: "btn btn-success btn-blank btn-sm" do %>
               <%= icon("plus") %> New
             <% end %>
           </th>
@@ -44,9 +44,9 @@
               <%= question.text %>
             </td>
             <td class="right_text">
-              <%= link_to icon("pencil"), edit_admin_question_path(question), class: "btn btn-default btn-sm", title: t("buttons.edit") %>
+              <%= link_to icon("pencil"), edit_app_question_path(question), class: "btn btn-default btn-sm", title: t("buttons.edit") %>
               |
-              <%= link_to icon("close"), admin_question_path(question), class: "btn btn-danger btn-blank btn-sm", method: :delete, data: { confirm: t("messages.confirm_deletion", model: "#{t("activerecord.attributes.question.one")} '#{question.text}'") }, title: t("buttons.delete") %>
+              <%= link_to icon("close"), app_question_path(question), class: "btn btn-danger btn-blank btn-sm", method: :delete, data: { confirm: t("messages.confirm_deletion", model: "#{t("activerecord.attributes.question.one")} '#{question.text}'") }, title: t("buttons.delete") %>
             </td>
           </tr>
         <% end %>
@@ -56,7 +56,7 @@
               <br/>
               <p class="loud"><%= t("messages.empty_collection", model: t("activerecord.attributes.question.other")) %></p>
               <hr class="half" />
-              <%= link_to new_admin_question_path, class: "btn btn-brand btn-width" do %>
+              <%= link_to new_app_question_path, class: "btn btn-brand btn-width" do %>
                 <%= t("buttons.new_stuff", stuff: t("activerecord.attributes.question.one")) %>
               <% end %>
               <div class="clearfix"></div>
@@ -88,8 +88,8 @@
           <%= btricon("cap-academic") %> Frage
         </div>
         <div class="<%= actionCol %>">
-          <%= link_to new_admin_question_path, class: "btn btn-success btn-blank btn-sm" do %>
-              <%= icon("plus") %> New
+          <%= link_to new_app_question_path, class: "btn btn-success btn-blank btn-sm" do %>
+              <%= icon("plus") %> Anlegen
             <% end %>
         </div>
       </div>
@@ -116,14 +116,30 @@
           </div>
           
           <div class="<%= actionCol %>">
-            <%= link_to icon("pencil"), edit_admin_question_path(question), class: "btn btn-default btn-sm", title: t("buttons.edit") %>
+            <%= link_to icon("pencil"), edit_app_question_path(question), class: "btn btn-default btn-sm", title: t("buttons.edit") %>
             |
-            <%= link_to icon("close"), admin_question_path(question), class: "btn btn-danger btn-blank btn-sm", method: :delete, data: { confirm: t("messages.confirm_deletion", model: "#{t("activerecord.attributes.question.one")} '#{question.text}'") }, title: t("buttons.delete") %>
+            <%= link_to icon("close"), app_question_path(question), class: "btn btn-danger btn-blank btn-sm", method: :delete, data: { confirm: t("messages.confirm_deletion", model: "#{t("activerecord.attributes.question.one")} '#{question.text}'") }, title: t("buttons.delete") %>
           </div>
           
         </div>
       </div>
       
+    <% end %>
+    
+    <% if @questions.empty? %>
+      <div class="box task-box">
+        <div class="body center_text">
+          <h3>Bisher keine Fragen vorhanden.</h3>
+          <hr class="seventy" />
+          <%= link_to new_app_question_path, class: "btn btn-success btn-blank btn-sm" do %>
+            <%= icon("plus") %> Frage erstellen
+          <% end %>
+          
+          <%= link_to build_samples_app_questions_path, class: "btn btn-warning btn-blank btn-sm" do %>
+            Beispiel Fragen erstellen
+          <% end %>
+        </div>
+      </div>
     <% end %>
     
     

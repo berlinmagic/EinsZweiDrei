@@ -63,6 +63,21 @@ de:
         answer2: "Antwort 2"
         answer3: "Antwort 3"
         result: "Lösung"
+      setting:
+        blink_time: "Blink-Zeit"
+        stop_time: "Stop-Zeit"
+        interval_time: "Blink-Geschwindigkeit"
+        speed_step: "Geschwindigkeits-Änderung"
+        step_time: "Änderungs-Interval"
+        step_type: "Änderungs-Typ"
+        types:
+          none: "Keine Änderung"
+          slower: "Langsamer werden"
+          faster: "Schneller werden"
+        blink_type: "Blink-Art"
+        blink_types:
+          highlight: "Farben Hervorhaben"
+          change: "Farben Wechsel"
       subscription:
         email: "E-Mail"
         subscription_type: "Typ"
@@ -116,7 +131,7 @@ de:
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   activemodel:
-    attributes:
+    attributes: &model_attributes
       address:
         one: "Anschrift"
         other: "Anschriften"
@@ -126,6 +141,9 @@ de:
       question:
         one: "Frage"
         other: "Fragen"
+      setting:
+        one: "Einstellung"
+        other: "Einstellungen"
       subscription:
         one: "Abonnement"
         other: "Abonnements"
@@ -135,28 +153,11 @@ de:
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     errors:
-      messages:
+      messages: &model_errors
         email: "ist keine gültige E-Mail-Adresse"
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   activerecord:
     attributes:
-      address:
-        one: "Anschrift"
-        other: "Anschriften"
-      feedback:
-        one: "Feedback"
-        other: "Feedback"
-      question:
-        one: "Frage"
-        other: "Fragen"
-      subscription:
-        one: "Abonnement"
-        other: "Abonnements"
-      user:
-        one: "Benutzer"
-        other: "Benutzer"
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+      <<: *model_attributes
     errors:
-      messages:
-        email: "ist keine gültige E-Mail-Adresse"
+      <<: *model_errors
