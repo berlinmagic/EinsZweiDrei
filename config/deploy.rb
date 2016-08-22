@@ -2,7 +2,7 @@
 lock '3.6.0'
 
 set :application, 'EinsZweiDrei'
-set :repo_url,    'git@example.com:berlinmagic/EinsZweiDrei.git'
+set :repo_url,    'git@github.com:berlinmagic/EinsZweiDrei.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
