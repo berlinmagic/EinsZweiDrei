@@ -7,10 +7,10 @@ Dragonfly.logger = Rails.logger
 # Variables
 if Rails.env.production?
   drgnfly_convert    = "/usr/bin/convert"
-  drgnfly_datastore  = '/home/berlinmagic/servicehub-production/shared/dragonfly'
+  drgnfly_datastore  = '/home/azureuser/EinsZweiDrei-production/shared/dragonfly'
 elsif Rails.env.staging?
   drgnfly_convert    = "/usr/bin/convert"
-  drgnfly_datastore  = '/home/berlinmagic/servicehub-staging/shared/dragonfly'
+  drgnfly_datastore  = '/home/azureuser/EinsZweiDrei-staging/shared/dragonfly'
 else
   drgnfly_convert    = "/usr/local/bin/convert"
   drgnfly_datastore  = Rails.root.join('public/system/dragonfly', Rails.env)
