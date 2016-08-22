@@ -1,5 +1,6 @@
 # config valid only for current version of Capistrano
-lock '3.6.0'
+# lock '3.6.0'
+lock '3.4.0'
 
 set :application, 'EinsZweiDrei'
 set :repo_url,    'git@github.com:berlinmagic/EinsZweiDrei.git'

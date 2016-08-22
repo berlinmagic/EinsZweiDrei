@@ -109,8 +109,8 @@ group :development do
   gem 'quiet_assets'                        # => shortened log from asset-pipeline
   gem 'guard-livereload', require: false
   ## deployment
-  gem 'capistrano'
-  gem 'magic_recipes_two', '>= 0.0.40'
+  gem 'capistrano',         '3.4.0'
+  gem 'magic_recipes_two',  '>= 0.0.40'
 end
 
 group :test do
