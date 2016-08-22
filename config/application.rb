@@ -12,7 +12,7 @@ CONFIG = HashWithIndifferentAccess.new(app_yaml_data)
 CONFIG.merge! CONFIG.fetch(Rails.env, {})
 
 
-module DomiDennis
+module EinsZweiDrei
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
