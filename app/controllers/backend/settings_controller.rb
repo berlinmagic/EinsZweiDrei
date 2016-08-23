@@ -27,9 +27,10 @@ class Backend::SettingsController < Backend::BaseController
     end
   end
   
-  def destroy
-    @setting.destroy
-    redirect_to :back, notice: I18n.t("messages.delete_success", model: one_name)
+  def defaults
+    @setting = current_user.setting || ::Setting.new( )
+    @setting.update( blink_time: 10.0, stop_time: 3.0, interval_time: 150, speed_step: 20, step_time: 1000, step_type: "none", blink_type: "highlight" )
+    redirect_to resource_domain, notice: "Einstellungen wurden auf Standard zurück gestzt."
   end
   
   

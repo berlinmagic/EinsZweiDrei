@@ -11,6 +11,8 @@
       <br/>
       <% if current_user %>
         <%= link_to "Jetzt Spielen", game_path, class: "btn btn-primary btn-width btn-lg" %>
+        <div class="clearfix"></div>
+        <%= link_to "Fragen erstellen", app_questions_path, class: "btn btn-default btn-width btn-lg" if current_user.questions.empty? %>
       <% else %>
         <%= link_to "Zum Spielen anmelden", new_user_session_path, class: "btn btn-primary btn-blank btn-width btn-lg" %>
       <% end %>

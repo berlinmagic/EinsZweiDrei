@@ -79,7 +79,9 @@ Rails.application.routes.draw do
       get   :build_samples, on: :collection
     end
     
-    resources :settings
+    resources :settings, only: [:index, :create, :update] do
+      get :defaults, on: :collection
+    end
     
     ## users
     resources :users do
