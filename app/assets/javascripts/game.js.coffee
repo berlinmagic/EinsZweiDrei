@@ -110,9 +110,9 @@ doBlink = ( upstep = 0 ) ->
     timeout = setTimeout ->
       currentTime = currentTime + intervalStepEvery
       if stepType == "faster"
-        doBlink(intervalStep)
-      else if stepType == "slower"
         doBlink(intervalStep * -1)
+      else if stepType == "slower"
+        doBlink(intervalStep)
       else
         doBlink()
     , intervalStepEvery

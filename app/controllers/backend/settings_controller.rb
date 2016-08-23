@@ -40,7 +40,7 @@ private
     end
     
     def resource_params
-      params.require( :setting ).permit( :blink_time, :stop_time, :interval_time, :speed_step, :step_time, :step_type )
+      params.require( :setting ).permit( :blink_time, :stop_time, :interval_time, :speed_step, :step_time, :step_type, :blink_type )
     end
     
     def resource_domain

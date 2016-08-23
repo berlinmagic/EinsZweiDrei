@@ -4,7 +4,8 @@ class Wizard::QuestionsController < Wizard::BaseController
   before_action :fetch_resource, only: [ :show, :edit, :update, :destroy ]
   
   def index
-    @questions = Question.all
+    # @questions = Question.all
+    @questions = current_user.questions
   end
   
   def show
@@ -17,6 +18,7 @@ class Wizard::QuestionsController < Wizard::BaseController
   
   def create
     @question = ::Question.new( resource_params )
+    @question.user = current_user
     if @question.save
       redirect_to resource_domain, notice: I18n.t("messages.create_success", model: one_name)
     else
