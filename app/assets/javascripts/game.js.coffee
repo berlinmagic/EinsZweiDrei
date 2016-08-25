@@ -235,7 +235,7 @@ $ ->
     false
   
   # catch mobile action
-  $(document).on 'touchstart, click', (e) ->
+  $("body").on 'touchstart, click', (e) ->
     console?.log? "mobile forward"
     if gameOn
       stepFor()
