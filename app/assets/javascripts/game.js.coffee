@@ -153,14 +153,10 @@ showTable = (table) ->
 
 startGame = ->
   gameOn = true
-  # qTable = $("#question_table")
-  # bTable = $("#blink_table")
-  # aTable = $("#answer_table")
   if gameQuestions.length > 0 && gameQuestions[currentIndex]
     currentQuestion = gameQuestions[currentIndex]
     rightAnswer     = currentQuestion.result
     fillQuestion( currentQuestion )
-    # qTable.removeClass("hidden")
     showTable("question")
   else
     gameOn        = false
@@ -238,6 +234,13 @@ $ ->
       stepBack()
     false
   
+  # catch mobile action
+  $(document).on 'touchstart', (e) ->
+    console?.log? "mobile forward", key
+    if gameOn
+      stepFor()
+    else
+      startGame()
   
   
   
