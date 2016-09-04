@@ -36,10 +36,10 @@ set :linked_dirs,   fetch(:linked_dirs,  []).push('log', 'tmp/cache', 'public/sy
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-set :default_env, {
-  "SECRET_KEY_BASE" => "#{fetch(:secrets_key_base)}",
-  "#{fetch(:secrets_key_name)}" => "#{fetch(:secrets_key_base)}"
-}
+# set :default_env, {
+#   "SECRET_KEY_BASE" => "#{fetch(:secrets_key_base)}",
+#   "#{fetch(:secrets_key_name)}" => "#{fetch(:secrets_key_base)}"
+# }
 
 
 # Default value for keep_releases is 5
