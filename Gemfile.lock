@@ -177,7 +177,7 @@ GEM
       micromachine (>= 1.1)
       rails (>= 4.0)
       railties (>= 4.0)
-    magic_recipes_two (0.0.40)
+    magic_recipes_two (0.0.41)
       capistrano (>= 3.2)
       capistrano-bundler (>= 1.1)
       capistrano-postgresql (>= 4.2)
@@ -383,7 +383,7 @@ DEPENDENCIES
   letter_opener
   magic_addresses (>= 0.0.40)
   magic_locales (>= 0.0.20)
-  magic_recipes_two (>= 0.0.40)
+  magic_recipes_two (>= 0.0.41)
   magic_stylez (>= 0.0.0.98)
   non-stupid-digest-assets
   oj

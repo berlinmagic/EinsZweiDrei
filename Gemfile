@@ -110,7 +110,7 @@ group :development do
   gem 'guard-livereload', require: false
   ## deployment
   gem 'capistrano',         '3.4.0'
-  gem 'magic_recipes_two',  '>= 0.0.40'
+  gem 'magic_recipes_two',  '>= 0.0.41'
 end
 
 group :test do
